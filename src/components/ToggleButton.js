@@ -7,25 +7,40 @@ class ToggleButton extends Component {
   }
 
   onPress = () => {
-    const {toggled} = this.state;
-    this.setState({
-      toggled: !toggled
-    });
+    const { onPressOverride, disabled } = this.props;
+    if(!disabled){
+      if(onPressOverride) return onPressOverride();
+
+      const {toggled} = this.state;
+      this.setState({
+        toggled: !toggled
+      });
+    }
+  }
+
+  componentWillReceiveProps(nextprops){
+    const { active, disabled } = nextprops;
+    if(!disabled && typeof active !== "undefined"){
+      this.setState({
+        toggled: active
+      });
+    }
   }
 
   render() {
-    const {style} = this.props;
+    const {style, active} = this.props;
     const {toggled} = this.state;
+
     return (
       <TouchableWithoutFeedback
         onPressIn={this.onPress}
       >
         <View style={{
-          borderRadius: 60,
+          borderRadius: 50,
           borderWidth: 3,
           borderColor: '#fff',
-          height: 60,
-          width: 60,
+          height: 50,
+          width: 50,
           backgroundColor: toggled ? "#fff" : "transparent",
           alignItems: "center",
           justifyContent: "center",

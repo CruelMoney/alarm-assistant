@@ -1,38 +1,34 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Link from '../../components/text/Link';
+import NavigationService from '../../services/NavigationService';
 
 const styles = StyleSheet.create({
   button:{
     flex:1,
     marginLeft: 5,
     marginRight: 5,
-    justifyContent: "center",
+    height: 70,
+    justifyContent: 'center',
     alignItems: 'center',
   }
 });
 
 class Footer extends Component {
-  state={
-    activeStep: 1
+  
+  next = () => {
+    const {activeStep} = this.props;
+    NavigationService.navigate(String(activeStep+1));
   }
 
-  next = () => {
-    const {activeStep} = this.state;
-    this.setState({
-      activeStep: activeStep+1
-    });
-  }
   back = () => {
-    const {activeStep} = this.state;
-    this.setState({
-      activeStep: activeStep-1
-    });
+    const {activeStep} = this.props;
+    NavigationService.navigate(String(activeStep-1));
   }
 
   render() {
-    const {activeStep} = this.state;
-    console.log(activeStep)
+    const {activeStep} = this.props;
+
     return (
       <View style={{
         alignSelf: "stretch", 

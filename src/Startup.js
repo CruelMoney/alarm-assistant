@@ -12,7 +12,7 @@ class Startup extends Component {
 
   async componentDidMount() {     
     await Promise.all([
-      delay(200), // show splash in minimum 500ms
+      delay(2000), // show splash in minimum 500ms
       Font.loadAsync({
       'avenir-next-bold': require('./assets/fonts/AvenirNext-Bold-01.ttf'),
       'avenir-next-demi': require('./assets/fonts/AvenirNext-DemiBold-03.ttf'),

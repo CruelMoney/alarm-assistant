@@ -6,6 +6,7 @@ class Body extends Component {
     return (
         <Text style={{
           fontSize: 14,
+          color: "#fff",
           textAlign: "center",
           fontFamily: 'avenir-next-medium',
           ...this.props.style

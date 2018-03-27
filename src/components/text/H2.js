@@ -10,6 +10,7 @@ export default class H2 extends Component {
           marginBottom: 5,
           fontFamily: "avenir-next-demi",
           textAlign: "center",
+          color: "#fff",
           ...this.props.style
         }}
         > {this.props.children} </Text>

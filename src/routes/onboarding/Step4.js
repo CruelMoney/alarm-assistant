@@ -4,7 +4,10 @@ import DaysSelector from '../../components/DaysSelector';
 import H2 from '../../components/text/H2';
 import Body from '../../components/text/Body';
 import Span from '../../components/text/Span';
+import Link from '../../components/text/Link';
+
 import TimePicker from '../../components/TimePicker';
+import YesNo from '../../components/YesNo';
 
 class Index extends Component {
   render() {
@@ -12,54 +15,47 @@ class Index extends Component {
       <View style={{flex:1, justifyContent: "center"}}>
         <View style={styles.section}>
         <H2>
-          Days of the week
+          Wake up sound
         </H2>
-        <DaysSelector/>
+        <Body style={{marginBottom: 10}}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Body>
+        <View style={{flexDirection: "column", alignSelf:"stretch",justifyContent:"space-around"}}>
+          <View style={{flexDirection: "row", alignSelf:"stretch",justifyContent:"space-around"}}>
+            <Link>Sound</Link>
+            <Link>Radio</Link>
+            <Link>Playlist</Link>
+          </View>
+          <Body style={{fontSize: 20, marginTop: 10}}>
+              "Morning playlist"
+          </Body>
+        </View>
         </View>
         <View style={styles.section}>
         <H2>
-          Latest time to wake up
+          Fade in
         </H2>
         <Body style={{marginBottom: 10}}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Body>
           <View style={styles.timepickers}>
             <View>
-              <TimePicker initHours={10} initMinutes={0} />
+              <TimePicker initHours={0} initMinutes={15} />
               <Span>
-                Weekdays
-              </Span>
-            </View>
-            <View>
-              <TimePicker initHours={12} initMinutes={0} />
-              <Span>
-                Weekends
+                Hours
               </Span>
             </View>
           </View>
         </View>
-        <View style={styles.section}>
-        <H2>
-          Ideal sleep length
-        </H2>
-        <Body style={{marginBottom: 10,}}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Body>
-          <View style={styles.timepickers}>
-            <View>
-              <TimePicker initHours={7} initMinutes={30} suffix={"hours"} duration />
-              <Span>
-                Weekdays
-              </Span>
-            </View>
-            <View>
-              <TimePicker initHours={9} initMinutes={0}  suffix={"hours"} duration />
-              <Span>
-                Weekends
-              </Span>
-            </View>
-          </View>
-        </View>      
+        <View>
+          <H2>
+          Speech
+          </H2>
+          <Body style={{marginBottom: 0}}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Body>
+          <YesNo />
+        </View>       
       </View>
     );
   }
