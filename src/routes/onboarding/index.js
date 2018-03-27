@@ -20,7 +20,7 @@ const Steps = TabNavigator({
   "4": { screen: Step4 }
 },
 {
-  initialRouteName: '4',
+  initialRouteName: '1',
   animationEnabled: true,
   swipeEnabled: true,
   lazy: false,

@@ -9,6 +9,7 @@ import bicycle from '../assets/images/Bicycle.png';
 const styles = {
   button:{
     margin: 15,
+    marginTop: 5,
     justifyContent: "center",
     alignItems: 'center',
     flexDirection: 'row',

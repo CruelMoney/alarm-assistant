@@ -9,7 +9,14 @@ import TimePicker from '../../components/TimePicker';
 class Index extends Component {
   render() {
     return (
-      <View style={{flex:1, justifyContent: "center"}}>
+      <View style={{
+        flex:1, 
+        margin: 30,
+        marginTop: 40,
+        marginBottom: 20,
+        flexDirection: "column", 
+        justifyContent: "space-between", 
+        alignItems:"center"}}>
         <View style={styles.section}>
         <H2>
           Days of the week
@@ -68,7 +75,6 @@ class Index extends Component {
 
 const styles = StyleSheet.create({
   section:{
-    margin: 20,
     justifyContent: "center",
     alignItems: 'center',
   },
