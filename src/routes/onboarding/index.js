@@ -25,9 +25,7 @@ const Steps = TabNavigator({
   swipeEnabled: true,
   lazy: false,
   navigationOptions:{
-    tabBarVisible: false,
-    onNavigatorEvent: console.log
-
+    tabBarVisible: false
   },
 
 });

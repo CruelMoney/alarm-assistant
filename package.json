@@ -22,6 +22,11 @@
     "expo": "^25.0.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
+    "react-native-bottom-drawer": "^1.0.2",
+    "react-native-drawer": "^2.5.0",
+    "react-native-interactable": "^0.1.10",
+    "react-native-modal": "^5.4.0",
+    "react-native-modalbox": "^1.4.2",
     "react-native-simple-time-picker": "^0.2.0",
     "react-navigation": "^1.5.8",
     "rn-sliding-up-panel": "^1.1.10"

@@ -21,6 +21,11 @@ class Footer extends Component {
     NavigationService.navigateOnboard(String(activeStep+1));
   }
 
+  finish = () => {
+    console.log("finish")
+    NavigationService.navigate('Home');
+  }
+
   back = () => {
     const {activeStep} = this.props;
     NavigationService.navigateOnboard(String(activeStep-1));
@@ -53,7 +58,7 @@ class Footer extends Component {
            onPress={this.next}>
               <Link>NEXT</Link>
             </TouchableOpacity> 
-           : <TouchableOpacity  style={styles.button}>
+           : <TouchableOpacity onPress={this.finish} style={styles.button}>
              <Link>FINISH</Link>
              </TouchableOpacity>
           }

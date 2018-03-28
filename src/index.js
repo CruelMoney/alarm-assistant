@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, } from 'react-native';
-import Onboarding from './routes/onboarding';
 import Startup  from "./Startup";
+import Navigator from './Navigator';
 
 class Index extends Component {
   render() {
     return (
       <Startup>
-        <Onboarding />
+        <Navigator />
       </Startup>
     );
   }
