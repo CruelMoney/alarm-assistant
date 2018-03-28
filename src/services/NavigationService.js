@@ -1,13 +1,17 @@
 import { NavigationActions } from 'react-navigation';
 
 let _navigator;
+let _onboardNavigator;
 
 function setTopLevelNavigator(navigatorRef) {
   _navigator = navigatorRef;
 }
+function setOnboardNavigator(navigatorRef) {
+  _onboardNavigator = navigatorRef;
+}
 
-function navigate(routeName, params) {
-  _navigator.dispatch(
+function navigateGeneric(routeName, params, navigator) {
+  navigator.dispatch(
     NavigationActions.navigate({
       type: NavigationActions.NAVIGATE,
       routeName,
@@ -16,9 +20,21 @@ function navigate(routeName, params) {
   );
 }
 
+function navigate(routeName, params){
+  navigateGeneric(routeName, params, _navigator);
+}
+
+function navigateOnboard(routeName, params){
+  navigateGeneric(routeName, params, _onboardNavigator);
+}
+
+
+
 // add other navigation functions that you need and export them
 
 export default {
   navigate,
+  navigateOnboard,
   setTopLevelNavigator,
+  setOnboardNavigator
 };

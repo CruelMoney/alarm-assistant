@@ -6,7 +6,7 @@ export default class GradientBG extends Component {
   render() {
     return (
       <LinearGradient
-      colors={['#FFBE57', '#FF8040']}
+      colors={['#FF9966', '#FF9966']}
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
        <StatusBar
           barStyle="light-content"

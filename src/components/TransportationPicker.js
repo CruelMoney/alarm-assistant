@@ -31,8 +31,8 @@ export default class componentName extends Component {
   }
 
   render() {
-    const {disabled} = this.props;
-    const {activeIdx} = this.state;
+    const { disabled } = this.props;
+    const { activeIdx } = this.state;
 
     return (
       <View style={{

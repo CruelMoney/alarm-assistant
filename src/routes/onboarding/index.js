@@ -47,7 +47,7 @@ class Index extends Component {
             <Steps 
             onNavigationStateChange={(_,currentState) => {this.setState({activeStep: currentState.index+1})}}
             ref={navigatorRef => {
-              NavigationService.setTopLevelNavigator(navigatorRef);
+              NavigationService.setOnboardNavigator(navigatorRef);
             }}
             />
           </View>

@@ -18,12 +18,12 @@ class Footer extends Component {
   
   next = () => {
     const {activeStep} = this.props;
-    NavigationService.navigate(String(activeStep+1));
+    NavigationService.navigateOnboard(String(activeStep+1));
   }
 
   back = () => {
     const {activeStep} = this.props;
-    NavigationService.navigate(String(activeStep-1));
+    NavigationService.navigateOnboard(String(activeStep-1));
   }
 
   render() {
