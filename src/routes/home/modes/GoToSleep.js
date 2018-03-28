@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {  View, Text, StyleSheet, Button, Dimensions, Platform } from 'react-native';
-import Interactable from 'react-native-interactable';
 
 
 
@@ -32,7 +31,7 @@ export default class Index extends Component {
         </Text>
         <Button onPress={this.openDrawer} title={"show modal"} />
         <View style={styles.panelContainer}>
-          <Interactable.View
+          {/* <Interactable.View
             verticalOnly={true}
             snapPoints={[{y: 0, tension: 0, damping: 1}, {y: -Screen.height + 80}]}
             gravityPoints={[{y: 0, strength: 220, falloff: Screen.height*8, damping: 0.7, influenceArea: {top: (-Screen.height + 80) * 0.5}}]}
@@ -47,7 +46,7 @@ export default class Index extends Component {
 
               </View>
             </View>
-          </Interactable.View>
+          </Interactable.View> */}
         </View>
       </View>
     );
