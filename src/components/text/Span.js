@@ -7,7 +7,7 @@ class Span extends Component {
         <Text style={{
           fontSize: 12,
           textAlign: "center",
-          //fontFamily: 'avenir-next-medium',
+          fontFamily: 'AvenirNext-Medium',
           color: "#fff",
           ...this.props.style
         }}>

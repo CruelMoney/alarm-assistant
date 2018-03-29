@@ -5,7 +5,7 @@ import GoToSleep from './modes/GoToSleep';
 export default class componentName extends Component {
   render() {
     return (
-      <View style={{flex:1}}>
+      <View style={{flex:1, marginBottom: 98}}>
        <StatusBar
           barStyle="light-content"
         />

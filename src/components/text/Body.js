@@ -8,7 +8,7 @@ class Body extends Component {
           fontSize: 14,
           color: "#fff",
           textAlign: "center",
-         // fontFamily: 'avenir-next-medium',
+          fontFamily: 'AvenirNext-Medium',
           ...this.props.style
         }}>
           {this.props.children}

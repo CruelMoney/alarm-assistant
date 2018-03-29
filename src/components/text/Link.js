@@ -7,7 +7,7 @@ class Link extends Component {
         <Text style={{
           fontSize: 16,
           textAlign: "center",
-          //fontFamily: 'avenir-next-demi',
+          fontFamily: 'AvenirNext-DemiBold',
           color: "#fff",
           ...this.props.style
         }}>

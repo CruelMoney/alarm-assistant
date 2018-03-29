@@ -39,9 +39,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSAppTransportSecurity</key>
-	<!--See http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/ -->
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
@@ -52,5 +51,32 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AvenirNext-Bold-01.ttf</string>
+		<string>AvenirNext-Bold.ttf</string>
+		<string>AvenirNext-BoldItalic-02.ttf</string>
+		<string>AvenirNext-BoldItalic.ttf</string>
+		<string>AvenirNext-DemiBold-03.ttf</string>
+		<string>AvenirNext-DemiBold.ttf</string>
+		<string>AvenirNext-DemiBoldItalic-04.ttf</string>
+		<string>AvenirNext-DemiBoldItalic.ttf</string>
+		<string>AvenirNext-Heavy-09.ttf</string>
+		<string>AvenirNext-Heavy.ttf</string>
+		<string>AvenirNext-HeavyItalic-10.ttf</string>
+		<string>AvenirNext-HeavyItalic.ttf</string>
+		<string>AvenirNext-Italic-05.ttf</string>
+		<string>AvenirNext-Italic.ttf</string>
+		<string>AvenirNext-Medium-06.ttf</string>
+		<string>AvenirNext-Medium.ttf</string>
+		<string>AvenirNext-MediumItalic-07.ttf</string>
+		<string>AvenirNext-MediumItalic.ttf</string>
+		<string>AvenirNext-Regular-08.ttf</string>
+		<string>AvenirNext-Regular.ttf</string>
+		<string>AvenirNext-UltraLight-11.ttf</string>
+		<string>AvenirNext-UltraLight.ttf</string>
+		<string>AvenirNext-UltraLightItalic-12.ttf</string>
+		<string>AvenirNext-UltraLightItalic.ttf</string>
+	</array>
 </dict>
 </plist>
