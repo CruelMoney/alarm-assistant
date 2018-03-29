@@ -40,6 +40,7 @@ class Menu extends Component {
       <View style={styles.panelContainer}>
       <Interactable.View
         {...this.props}
+        animatedNativeDriver={true}
         verticalOnly={true}
         snapPoints={[{y: Screen.height-315, tension: 400, damping: 0.7}, {y: Screen.height-115}]}
         initialPosition={{y: Screen.height-115}}
