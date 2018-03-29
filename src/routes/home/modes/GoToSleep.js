@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {  View, Text, StyleSheet, Button, Dimensions, Platform } from 'react-native';
-import Interactable from 'react-native-interactable';
+import {  View, Text, StyleSheet, Dimensions, Animated } from 'react-native';
 import MyButton from '../Button';
-
+import Menu from '../Menu';
 
 const Screen = {
   width: Dimensions.get('window').width,
@@ -15,35 +14,45 @@ export default class Index extends Component {
     this.state = {
       isOpen: false
     };
+
+    this._deltaY = new Animated.Value(Screen.height-115);
+
   }
 
-
-  openDrawer = () => {
-    console.log("opening")
-    this._drawer.open()
-  };
-
-
   render() {
+    const { navigate } = this.props.navigation;
+    const textOpacity = this._deltaY.interpolate({
+      inputRange: [Screen.height-315, Screen.height-115],
+      outputRange: [0.33, 1]
+    });
+
     return (
       <View style={styles.containerColor} >
-        <Text style={styles.text}>
+      <Animated.Text 
+      style={
+        StyleSheet.flatten([
+          styles.text,{
+          opacity: textOpacity
+        }])}>
           Go to sleep now to get a full <Text style={styles.highlight}>7.5</Text> hours of sleep. Your first event is scheduled at <Text style={styles.highlight}>10:00</Text> tomorrow,  and I will wake you up at <Text style={styles.highlight}>8:00</Text>, with “Morning playlist”.
-        </Text>
-        <View style={styles.panelContainer}>
-          <Interactable.View
-            verticalOnly={true}
-            snapPoints={[{y: Screen.height-315, tension: 400, damping: 0.7}, {y: Screen.height-115}]}
-            initialPosition={{y: Screen.height-115}}
-            boundaries={{top: Screen.height-315, bottom: Screen.height-115, haptics: true, bounce: 0.5}}>
-            <View style={styles.panel}>
-              <View style={styles.panelHandle} />
-              <MyButton label={"SLEEP"} style={{backgroundColor: '#F29160'}} />
-              <MyButton label={"NAP"} style={{backgroundColor: '#A782D4'}} />
-              <MyButton label={"SETTINGS"} style={{backgroundColor: '#8EC5F2'}} />
-            </View>
-          </Interactable.View>
-        </View>
+      </Animated.Text>
+       
+        <Menu
+          animatedValueY={this._deltaY}
+          animatedNativeDriver={true}
+        >
+          <MyButton 
+          label={"SLEEP"} 
+          style={{backgroundColor: '#F29160'}} />
+          <MyButton 
+          onPress={() => navigate('Nap')}
+          label={"NAP"} 
+          style={{backgroundColor: '#A782D4'}} />
+          <MyButton 
+          onPress={() => navigate('Settings')}
+          label={"SETTINGS"} 
+          style={{backgroundColor: '#8EC5F2'}} />
+        </Menu>
       </View>
     );
   }
@@ -73,25 +82,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#efefef',
-  },
-  panelContainer: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0
-  },
-  panel: {
-    height: 325,
-    flexDirection: 'column',
-    alignItems: "center"
-  },
-  panelHandle: {
-    width: 70,
-    height: 6,
-    marginBottom: 10,
-    borderRadius: 4,
-    backgroundColor: '#ffffff80'
   }
  
 });

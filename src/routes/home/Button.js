@@ -10,7 +10,9 @@ const styles = StyleSheet.create({
   },
   text:{
     fontSize: 34,
-    color: "#fff"
+    color: "#fff",
+    letterSpacing: 1.8,
+    fontFamily: 'AvenirNext-DemiBold'
   }
 }) 
 class Button extends Component {

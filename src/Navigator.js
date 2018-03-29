@@ -13,7 +13,7 @@ const Navigator = StackNavigator({
   "Home": { screen: Home }
 },
 {
-  initialRouteName: 'Onboarding',
+  initialRouteName: 'Home',
   headerMode: 'none',
   navigationOptions: {
     headerVisible: false,
