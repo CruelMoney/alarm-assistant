@@ -29,8 +29,10 @@ function navigateOnboard(routeName, params){
 }
 
 
-function goBack(){
-  _navigator.dispatch(
+function goBack(navigator){
+  navigator = navigator || _navigator
+
+  navigator.dispatch(
     NavigationActions.back({
       type: NavigationActions.BACK
     })
