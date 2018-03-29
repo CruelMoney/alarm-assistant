@@ -8,7 +8,7 @@ export default class H2 extends Component {
         style={{
           fontSize: 18,
           marginBottom: 5,
-          fontFamily: "avenir-next-demi",
+          //fontFamily: "avenir-next-demi",
           textAlign: "center",
           color: "#fff",
           ...this.props.style

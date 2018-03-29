@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   text:{
     textAlign: "left",
-    fontFamily: 'avenir-next-heavy',
+    //fontFamily: 'avenir-next-heavy',
     fontSize: 34,
     color: '#fff',
     lineHeight: 44

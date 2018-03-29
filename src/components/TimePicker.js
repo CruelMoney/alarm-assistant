@@ -100,11 +100,11 @@ const styles = StyleSheet.create({
   timeText:{
     color: "#fff",
     fontSize: 26,
-    fontFamily: 'avenir-next-medium',
+    //fontFamily: 'avenir-next-medium',
   },
   suffix:{
     color: "#fff",
     fontSize: 16,
-    fontFamily: 'avenir-next-medium',
+    //fontFamily: 'avenir-next-medium',
   }
 });
