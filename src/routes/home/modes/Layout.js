@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {  View, Text, StyleSheet, Dimensions, Animated } from 'react-native';
 import Menu from '../Menu';
+import MyButton from '../Button';
+import NavigationService from '../../../services/NavigationService';
 
 const Screen = {
   width: Dimensions.get('window').width,
@@ -41,6 +43,10 @@ export default class Index extends Component {
           animatedValueY={this._deltaY}
         >
           {this.props.menu}
+          <MyButton 
+              onPress={() => NavigationService.navigate('Settings')}
+              label={"SETTINGS"} 
+              style={{backgroundColor: '#8EC5F2'}} />
         </Menu>
       </View>
     );

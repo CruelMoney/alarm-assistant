@@ -29,6 +29,15 @@ function navigateOnboard(routeName, params){
 }
 
 
+function goBack(){
+  _navigator.dispatch(
+    NavigationActions.back({
+      type: NavigationActions.BACK
+    })
+  );
+}
+
+
 
 // add other navigation functions that you need and export them
 
@@ -36,5 +45,6 @@ export default {
   navigate,
   navigateOnboard,
   setTopLevelNavigator,
-  setOnboardNavigator
+  setOnboardNavigator,
+  goBack
 };

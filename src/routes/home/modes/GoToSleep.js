@@ -21,10 +21,6 @@ export default class Index extends Component {
               onPress={() => navigate('Nap')}
               label={"NAP"} 
               style={{backgroundColor: '#A782D4'}} />
-              <MyButton 
-              onPress={() => navigate('Settings')}
-              label={"SETTINGS"} 
-              style={{backgroundColor: '#8EC5F2'}} />
           </View>
         }
       >

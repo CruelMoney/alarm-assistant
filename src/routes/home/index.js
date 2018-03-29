@@ -5,7 +5,6 @@ import Sleeping from './modes/Sleeping';
 import Nap from './modes/Nap';
 import WakeUp from './modes/WakeUp';
 import { StackNavigator } from 'react-navigation';
-import NavigationService from '../../services/NavigationService';
 
 
 const Navigator = StackNavigator({
@@ -19,6 +18,7 @@ const Navigator = StackNavigator({
   headerMode: 'none',
   navigationOptions: {
     headerVisible: false,
+    gesturesEnabled: false
   }
 });
 

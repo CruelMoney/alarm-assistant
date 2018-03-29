@@ -9,6 +9,7 @@ class Link extends Component {
           textAlign: "center",
           fontFamily: 'AvenirNext-DemiBold',
           color: "#fff",
+          letterSpacing: 1.5,
           ...this.props.style
         }}>
           {this.props.children}

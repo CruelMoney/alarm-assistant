@@ -22,10 +22,7 @@ export default class Index extends Component {
              onPress={() => navigate('GoToSleep')}
               label={"SLEEP"} 
               style={{backgroundColor: '#F29160'}} />
-              <MyButton 
-              onPress={() => navigate('Settings')}
-              label={"SETTINGS"} 
-              style={{backgroundColor: '#8EC5F2'}} />
+            
           </View>
         }
       >
