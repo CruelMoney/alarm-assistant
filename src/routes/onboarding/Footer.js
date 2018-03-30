@@ -5,12 +5,11 @@ import NavigationService from '../../services/NavigationService';
 
 const styles = StyleSheet.create({
   button:{
-    flex:1,
-    marginLeft: 5,
-    marginRight: 5,
+    flex:2,
+    marginLeft: 10,
+    marginRight: 10,
     height: 70,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
@@ -22,7 +21,6 @@ class Footer extends Component {
   }
 
   finish = () => {
-    console.log("finish")
     NavigationService.navigate('Home');
   }
 
@@ -43,7 +41,10 @@ class Footer extends Component {
         height: 70, 
         backgroundColor: "rgba(0,0,0,0.05)"}}>
         {activeStep !== 1 ? 
-        <TouchableOpacity onPress={this.back} style={styles.button}>
+        <TouchableOpacity 
+        onPress={this.back} 
+        style={StyleSheet.flatten([styles.button, {alignItems: 'flex-start'}])}
+        >
           <Link>BACK</Link>
         </TouchableOpacity> 
         : <View style={styles.button}/> }
@@ -54,11 +55,13 @@ class Footer extends Component {
          {
            activeStep !== 4 
            ? <TouchableOpacity 
-           style={styles.button}
+           style={StyleSheet.flatten([styles.button, {alignItems: 'flex-end'}])}
            onPress={this.next}>
               <Link>NEXT</Link>
             </TouchableOpacity> 
-           : <TouchableOpacity onPress={this.finish} style={styles.button}>
+           : <TouchableOpacity onPress={this.finish}
+           style={StyleSheet.flatten([styles.button, {alignItems: 'flex-end'}])}
+           >
              <Link>FINISH</Link>
              </TouchableOpacity>
           }

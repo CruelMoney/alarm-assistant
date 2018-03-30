@@ -4,6 +4,54 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AvenirNext-Bold.ttf</key>
+		<data>
+		hn9KBrw5WXRA/dAQtVXnfWqQh8k=
+		</data>
+		<key>AvenirNext-BoldItalic.ttf</key>
+		<data>
+		yMC7yQJp29pxy0jFLN335MUUD+U=
+		</data>
+		<key>AvenirNext-DemiBold.ttf</key>
+		<data>
+		L70GWofqj/Jf+24MXEaKD2ZKHgg=
+		</data>
+		<key>AvenirNext-DemiBoldItalic.ttf</key>
+		<data>
+		dX876Cvo87G3Qnv+PdKsi6Gomss=
+		</data>
+		<key>AvenirNext-Heavy.ttf</key>
+		<data>
+		VERu1HXta9yZRp2uQH1v88luKAA=
+		</data>
+		<key>AvenirNext-HeavyItalic.ttf</key>
+		<data>
+		2oGtvF1ZdsQB6XaCpg0CfDCDLqA=
+		</data>
+		<key>AvenirNext-Italic.ttf</key>
+		<data>
+		lWUJI3aZM5Nbi1XRc5UGPlVXEjE=
+		</data>
+		<key>AvenirNext-Medium.ttf</key>
+		<data>
+		N5FzlJA8lri/3kT9heRoCfr/5wQ=
+		</data>
+		<key>AvenirNext-MediumItalic.ttf</key>
+		<data>
+		K9UDYDTxLerln26vtOpc9oV1rMU=
+		</data>
+		<key>AvenirNext-Regular.ttf</key>
+		<data>
+		UuygFl8k/WPz8RNBBj+y4n+pOkI=
+		</data>
+		<key>AvenirNext-UltraLight.ttf</key>
+		<data>
+		+Yq93hScZLL0qN8TBgoIa7v7vVk=
+		</data>
+		<key>AvenirNext-UltraLightItalic.ttf</key>
+		<data>
+		qov6uSi3mozSCPe+6EP7puiu8ew=
+		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
 		bgzTOLaVB03xg6WCppwMuQjXKTM=
@@ -51,7 +99,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		3ZwoVsuu09Yd1bn6+7Sg4jlgNfo=
+		Uv7z1zp9bNDupyBWj2hL/xq7hKo=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -63,7 +111,7 @@
 		</data>
 		<key>PlugIns/sunriseTests.xctest.dSYM/Contents/Resources/DWARF/sunriseTests</key>
 		<data>
-		+toIssQ6J4/0nFNhPmPuD32s3J4=
+		QJiGVEC890iJ+F1F8YV0gL6zA14=
 		</data>
 		<key>PlugIns/sunriseTests.xctest/Info.plist</key>
 		<data>
@@ -75,11 +123,143 @@
 		</data>
 		<key>PlugIns/sunriseTests.xctest/sunriseTests</key>
 		<data>
-		pE6rCpzB20gyac7Vo/4im8o6XKE=
+		+u2FNvYawAByuPOPn3603kH5hD4=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AvenirNext-Bold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hn9KBrw5WXRA/dAQtVXnfWqQh8k=
+			</data>
+			<key>hash2</key>
+			<data>
+			VHht8sA4rHLN/36gapeN64PIDqRwoOpvsnHUhoAb53M=
+			</data>
+		</dict>
+		<key>AvenirNext-BoldItalic.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yMC7yQJp29pxy0jFLN335MUUD+U=
+			</data>
+			<key>hash2</key>
+			<data>
+			CywqxXfzX6jRYaXuDT7YWNJF7uOgaYymLMJcCmIOj6A=
+			</data>
+		</dict>
+		<key>AvenirNext-DemiBold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			L70GWofqj/Jf+24MXEaKD2ZKHgg=
+			</data>
+			<key>hash2</key>
+			<data>
+			TFRllzYww95LHmhFxKe9bIKo09ygAX7WkZvznzduzts=
+			</data>
+		</dict>
+		<key>AvenirNext-DemiBoldItalic.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dX876Cvo87G3Qnv+PdKsi6Gomss=
+			</data>
+			<key>hash2</key>
+			<data>
+			L8O89M2Dkvuq8wlHtELC3YexWE+iwEFV5dMUno7nuEQ=
+			</data>
+		</dict>
+		<key>AvenirNext-Heavy.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VERu1HXta9yZRp2uQH1v88luKAA=
+			</data>
+			<key>hash2</key>
+			<data>
+			foja/zhwL/GReSGmDE2jPwWtQi3Kh98RFDEY3NydyHE=
+			</data>
+		</dict>
+		<key>AvenirNext-HeavyItalic.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2oGtvF1ZdsQB6XaCpg0CfDCDLqA=
+			</data>
+			<key>hash2</key>
+			<data>
+			MiQOlKOPwZAtoeVTdnEkQUfUDVPecstYyomWchjp+98=
+			</data>
+		</dict>
+		<key>AvenirNext-Italic.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lWUJI3aZM5Nbi1XRc5UGPlVXEjE=
+			</data>
+			<key>hash2</key>
+			<data>
+			LGIVxBvC914pTuCbK9RZGC7gVM/OUGGdKjz3m9jCVcg=
+			</data>
+		</dict>
+		<key>AvenirNext-Medium.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			N5FzlJA8lri/3kT9heRoCfr/5wQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			Q/A6aHnGV7HCM2YwfFAaDfExmpc4OUrRC+FB77KV8vw=
+			</data>
+		</dict>
+		<key>AvenirNext-MediumItalic.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			K9UDYDTxLerln26vtOpc9oV1rMU=
+			</data>
+			<key>hash2</key>
+			<data>
+			dYQqii0Fx932G36OSfZtQ+l0rFaV9reE15hVcjX9WcY=
+			</data>
+		</dict>
+		<key>AvenirNext-Regular.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UuygFl8k/WPz8RNBBj+y4n+pOkI=
+			</data>
+			<key>hash2</key>
+			<data>
+			Xz7tjokZl1KWKSJ9R5sbnYOuLhu6q79Jn80i5LMDEmw=
+			</data>
+		</dict>
+		<key>AvenirNext-UltraLight.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+Yq93hScZLL0qN8TBgoIa7v7vVk=
+			</data>
+			<key>hash2</key>
+			<data>
+			go4WAtwOnypVCKpRDuwACcX8TGJzEJekzwuShtpdgJU=
+			</data>
+		</dict>
+		<key>AvenirNext-UltraLightItalic.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qov6uSi3mozSCPe+6EP7puiu8ew=
+			</data>
+			<key>hash2</key>
+			<data>
+			gW4XElLrSlqEbB6l1Da5CIGkZn5Jw3k5dJj++1NjyOg=
+			</data>
+		</dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
@@ -207,11 +387,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+toIssQ6J4/0nFNhPmPuD32s3J4=
+			QJiGVEC890iJ+F1F8YV0gL6zA14=
 			</data>
 			<key>hash2</key>
 			<data>
-			oMH9RhLoxjhPZRo1nELOhEvXQ9QC8+DNEeFfEvEGYhQ=
+			Uz9/VpsZxMn4hCgKytt/K9fZ/r6vDYhcW7+9hOYbkmI=
 			</data>
 		</dict>
 		<key>PlugIns/sunriseTests.xctest/Info.plist</key>
@@ -240,11 +420,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pE6rCpzB20gyac7Vo/4im8o6XKE=
+			+u2FNvYawAByuPOPn3603kH5hD4=
 			</data>
 			<key>hash2</key>
 			<data>
-			MM8kV4XHgQ8J4qZ2WSqNKj5uo6OHO/+hG+frJgsB8sE=
+			jxc5KlgIwjGYrJoxV+pzWRQBETlvD15t/EJJdK2XFKg=
 			</data>
 		</dict>
 	</dict>

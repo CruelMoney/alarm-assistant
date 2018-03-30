@@ -7,7 +7,7 @@ class ToggleButton extends Component {
   }
 
   onPress = () => {
-    const { onPressOverride, disabled } = this.props;
+    const { onPressOverride, onChange, disabled } = this.props;
     if(!disabled){
       if(onPressOverride) return onPressOverride();
 
@@ -15,6 +15,8 @@ class ToggleButton extends Component {
       this.setState({
         toggled: !toggled
       });
+
+      !!onChange && onChange(!toggled);
     }
   }
 

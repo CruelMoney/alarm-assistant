@@ -21,9 +21,9 @@ export default class componentName extends Component {
     activeIdx: false
   }
 
-  onPress = (idx) => {
+  onPress = (idx, val) => {
     const {onChange} = this.props;
-    !!onChange && onChange(idx);
+    !!onChange && onChange(val);
     
     this.setState({
       activeIdx: idx
@@ -43,7 +43,7 @@ export default class componentName extends Component {
        <ToggleButton 
         disabled={disabled}
        active={activeIdx === 0}
-       onPressOverride={()=>this.onPress(0)}
+       onPressOverride={()=>this.onPress(0, 'car')}
        style={styles.button} 
        >
         <Image 
@@ -53,7 +53,7 @@ export default class componentName extends Component {
         <ToggleButton 
          disabled={disabled}
        active={activeIdx === 1}
-       onPressOverride={()=>this.onPress(1)}
+       onPressOverride={()=>this.onPress(1, 'walking')}
        style={styles.button} 
        >
         <Image 
@@ -63,7 +63,7 @@ export default class componentName extends Component {
         <ToggleButton 
          disabled={disabled}
        active={activeIdx === 2}
-       onPressOverride={()=>this.onPress(2)}
+       onPressOverride={()=>this.onPress(2, 'bicycle')}
        style={styles.button} 
        >
         <Image 
@@ -72,9 +72,9 @@ export default class componentName extends Component {
         </ ToggleButton>
         <ToggleButton 
          disabled={disabled}
-       active={activeIdx === 3}
-       onPressOverride={()=>this.onPress(3)}
-       style={styles.button} 
+        active={activeIdx === 3}
+        onPressOverride={()=>this.onPress(3, 'public')}
+        style={styles.button} 
        >
         <Image 
         style={{width: 22, height:26, tintColor: activeIdx === 3 ? "#FFC371" : "#fff"}}

@@ -5,9 +5,13 @@ import H2 from '../../components/text/H2';
 import Body from '../../components/text/Body';
 import Span from '../../components/text/Span';
 import TimePicker from '../../components/TimePicker';
+import connectSettings from "../../containers/settings";
 
 class Index extends Component {
   render() {
+    const { changeSetting } = this.props;
+
+
     return (
       <View style={{
         flex:1, 
@@ -21,7 +25,9 @@ class Index extends Component {
         <H2>
           Days of the week
         </H2>
-        <DaysSelector/>
+        <DaysSelector
+          onChange={(val) => changeSetting('latest', val)}
+        />
         </View>
         <View style={styles.section}>
         <H2>
@@ -32,13 +38,19 @@ class Index extends Component {
         </Body>
           <View style={styles.timepickers}>
             <View>
-              <TimePicker initHours={10} initMinutes={0} />
+              <TimePicker 
+              onChange={(h, m) => changeSetting('latestWeekdays', {h: h, m: m})}
+              initHours={10} 
+              initMinutes={0} 
+              />
               <Span>
                 Weekdays
               </Span>
             </View>
             <View>
-              <TimePicker initHours={12} initMinutes={0} />
+              <TimePicker 
+               onChange={(h, m) => changeSetting('latestWeekends', {h: h, m: m})}
+              initHours={12} initMinutes={0} />
               <Span>
                 Weekends
               </Span>
@@ -53,14 +65,18 @@ class Index extends Component {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Body>
           <View style={styles.timepickers}>
-            <View>
-              <TimePicker initHours={7} initMinutes={30} suffix={"hours"} duration />
+            <View> 
+              <TimePicker 
+              onChange={(h, m) => changeSetting('sleepLengthWeekdays', (h*60+m))}
+              initHours={7} initMinutes={30} suffix={"hours"} duration />
               <Span>
                 Weekdays
               </Span>
             </View>
             <View>
-              <TimePicker initHours={9} initMinutes={0}  suffix={"hours"} duration />
+              <TimePicker 
+              onChange={(h, m) => changeSetting('sleepLengthWeekends', (h*60+m))}
+              initHours={9} initMinutes={0}  suffix={"hours"} duration />
               <Span>
                 Weekends
               </Span>
@@ -85,4 +101,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Index;
+export default connectSettings(Index);

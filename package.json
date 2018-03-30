@@ -9,9 +9,9 @@
   },
   "rnpm": {
     "assets": [
-    "./src/assets/fonts/"
-      ]
-    },
+      "./src/assets/fonts/"
+    ]
+  },
   "scripts": {
     "start": "react-native start",
     "android": "react-native run-android",
@@ -27,10 +27,14 @@
     "react-native-bottom-drawer": "^1.0.2",
     "react-native-drawer": "^2.5.0",
     "react-native-interactable": "^0.1.10",
+    "react-native-itunes": "^0.5.0",
     "react-native-modal": "^5.4.0",
     "react-native-modalbox": "^1.4.2",
     "react-native-simple-time-picker": "^0.2.0",
     "react-navigation": "^1.5.8",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
     "rn-sliding-up-panel": "^1.1.10"
   }
 }

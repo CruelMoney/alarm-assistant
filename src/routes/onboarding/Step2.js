@@ -5,6 +5,7 @@ import H2 from '../../components/text/H2';
 import Body from '../../components/text/Body';
 import YesNo from '../../components/YesNo';
 import TransportationPicker from '../../components/TransportationPicker';
+import connectSettings from "../../containers/settings";
 
 class Index extends Component {
   state={
@@ -12,7 +13,9 @@ class Index extends Component {
     useTransitTime: false
   }
 
+  
   render() {
+    const { changeSetting } = this.props;
     const {useCalendar, useTransitTime} = this.state;
 
     return (
@@ -30,8 +33,11 @@ class Index extends Component {
           <Body style={{color:"#fff", marginBottom: 0}}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Body>
-          <YesNo 
-          onChange={(val) => this.setState({useCalendar: val})}/>
+          <YesNo
+          onChange={(val) => {
+            changeSetting('calendar', val)
+            this.setState({useCalendar: val})
+            }}/>
         </View>
         <View style={{opacity: useCalendar ? 1 : 0.5}}>
           <H2 style={{color:"#fff"}}>
@@ -42,7 +48,10 @@ class Index extends Component {
           </Body>
           <YesNo 
           disabled={!useCalendar}
-          onChange={(val) => this.setState({useTransitTime: val})}/>
+          onChange={(val) => {
+            changeSetting('transit', val)
+            this.setState({useTransitTime: val});
+            }}/>
         </View>
         <View style={{opacity: (useTransitTime && useCalendar) ? 1 : 0.5}}>
           <H2 style={{color:"#fff"}}>
@@ -50,6 +59,9 @@ class Index extends Component {
           </H2>
           <TransportationPicker
           disabled={!useTransitTime || !useCalendar}
+          onChange={val=>{
+            changeSetting('transportationMethod', val)
+          }}
           />
         </View> 
       </View>
@@ -65,4 +77,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Index;
+export default connectSettings(Index);

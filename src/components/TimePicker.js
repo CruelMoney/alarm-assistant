@@ -23,7 +23,9 @@ export default class TimePicker extends Component {
   }
 
   setDate = (newDate)  => {
-    this.setState({chosenDate: newDate})
+    const { onChange } = this.props;
+    this.setState({chosenDate: newDate});
+    !!onChange && onChange(newDate.getHours(), newDate.getMinutes())
   } 
 
   showModal = () => {

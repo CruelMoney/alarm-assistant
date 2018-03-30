@@ -5,12 +5,14 @@ import H2 from '../../components/text/H2';
 import Body from '../../components/text/Body';
 import Span from '../../components/text/Span';
 import Link from '../../components/text/Link';
-
+import connectSettings from "../../containers/settings";
 import TimePicker from '../../components/TimePicker';
 import YesNo from '../../components/YesNo';
 
 class Index extends Component {
   render() {
+    let { changeSetting, reports } = this.props;
+
     return (
       <View style={{flex:1, 
         margin: 30,
@@ -29,7 +31,6 @@ class Index extends Component {
         <View style={{flexDirection: "column", alignSelf:"stretch",justifyContent:"space-around"}}>
           <View style={{flexDirection: "row", alignSelf:"stretch",justifyContent:"space-around"}}>
             <Link>Sound</Link>
-            <Link>Radio</Link>
             <Link>Playlist</Link>
           </View>
           <Body style={{fontSize: 20, marginTop: 10}}>
@@ -46,10 +47,12 @@ class Index extends Component {
         </Body>
           <View style={styles.timepickers}>
             <View>
-              <TimePicker initHours={0} initMinutes={15} />
-              <Span>
-                Hours
-              </Span>
+              <TimePicker 
+              onChange={(h,m)=>{
+                changeSetting('fadeIn', (h*60+m))
+              }}
+              suffix={"hours"}
+              initHours={0} initMinutes={15} />
             </View>
           </View>
         </View>
@@ -60,7 +63,10 @@ class Index extends Component {
           <Body style={{marginBottom: 0}}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Body>
-          <YesNo />
+          <YesNo
+           onChange={(val)=>{
+            changeSetting('speech', val)
+          }} />
         </View>       
       </View>
     );
@@ -80,4 +86,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Index;
+export default connectSettings(Index);
