@@ -7,15 +7,15 @@ import NavigationService from './services/NavigationService';
 import Home from './routes/home';
 import Settings from './routes/settings';
 import Onboarding from './routes/onboarding';
+import connectSettings from './containers/settings';
 
-
-const Navigator = StackNavigator({
+const getNavigator = (initRoute) => StackNavigator({
   "Onboarding": { screen: Onboarding },
-  "Home": { screen: Home },
+  "Home": { screen: Home, navigationOptions: {gesturesEnabled:false} },
   "Settings": { screen: Settings }
 },
 {
-  initialRouteName: 'Onboarding',
+  initialRouteName: initRoute,
   headerMode: 'none',
   navigationOptions: {
     headerVisible: false,
@@ -23,17 +23,31 @@ const Navigator = StackNavigator({
   }
 });
 
+const OnBoardNavigator = getNavigator("Onboarding");
+const HomeNavigator = getNavigator("Home");
 
 class Index extends Component {
   render() {
-    return (
-    <Navigator 
-      ref={navigatorRef => {
-        NavigationService.setTopLevelNavigator(navigatorRef);
-      }}
-    />
-    );
+    const { onboarded } = this.props;
+
+    if(onboarded){
+      return (
+        <HomeNavigator 
+          ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator(navigatorRef);
+          }}
+        />
+      );
+    }else{
+      return (
+        <OnBoardNavigator 
+          ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator(navigatorRef);
+          }}
+        />
+      );
+    }
   }
 }
 
-export default Index;
+export default connectSettings(Index);
