@@ -8,8 +8,13 @@ import Link from '../../components/text/Link';
 import connectSettings from "../../containers/settings";
 import TimePicker from '../../components/TimePicker';
 import YesNo from '../../components/YesNo';
+import SoundPicker from '../../components/SoundPicker';
 
 class Index extends Component {
+  componentDidMount(){
+     
+  }
+
   render() {
     let { changeSetting, reports } = this.props;
 
@@ -28,15 +33,12 @@ class Index extends Component {
         <Body style={{marginBottom: 10}}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Body>
-        <View style={{flexDirection: "column", alignSelf:"stretch",justifyContent:"space-around"}}>
-          <View style={{flexDirection: "row", alignSelf:"stretch",justifyContent:"space-around"}}>
-            <Link>Sound</Link>
-            <Link>Playlist</Link>
-          </View>
-          <Body style={{fontSize: 20, marginTop: 10}}>
-              "Morning playlist"
-          </Body>
-        </View>
+        <SoundPicker
+        onChange={(type, val)=>{
+          changeSetting('soundType', type);
+          changeSetting('soundFile', val)
+        }}
+        />
         </View>
         <View style={styles.section}>
         <H2>
