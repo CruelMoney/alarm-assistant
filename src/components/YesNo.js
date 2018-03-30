@@ -23,8 +23,9 @@ export default class componentName extends Component {
   }
 
   render() {
-    const {disabled} = this.props;
-    const {yes} = this.state;
+    const {disabled, controlled, value} = this.props;
+    let {yes} = this.state;
+    yes = !!controlled ? value : yes;
 
     return (
       <View style={{

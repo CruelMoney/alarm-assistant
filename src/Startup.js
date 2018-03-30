@@ -4,6 +4,16 @@ import Splash from './routes/splash';
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore, compose } from 'redux'
 import reducer from './reducers'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web and AsyncStorage for react-native
+import { PersistGate } from 'redux-persist/integration/react'
+
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, reducer);
 
 const middlewares = [];
 
@@ -12,8 +22,10 @@ if (process.env.NODE_ENV === `development`) {
   middlewares.push(logger);
 }
 
-const store = compose(applyMiddleware(...middlewares))(createStore)(reducer);
+const store = compose(applyMiddleware(...middlewares))(createStore)(persistedReducer);
+const persistor = persistStore(store)
 
+// Helper function for delaying splash
 let delay = (time) => new Promise(resolve => setTimeout(() => resolve(), time));
 
 class Startup extends Component {
@@ -35,7 +47,9 @@ class Startup extends Component {
     return (
      loaded ? 
       <Provider store={store}>
-        {this.props.children}
+        <PersistGate loading={<Splash/>} persistor={persistor}>
+          {this.props.children}
+        </PersistGate >
       </Provider>
       : 
       <Splash/>

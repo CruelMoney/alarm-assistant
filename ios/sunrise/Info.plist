@@ -26,6 +26,10 @@
 	<true/>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>$(PRODUCT_NAME) wants access to your Music library</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>$(PRODUCT_NAME) wants access to your calendar</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -40,8 +44,6 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>

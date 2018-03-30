@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Link from '../../components/text/Link';
 import NavigationService from '../../services/NavigationService';
+import connectSettings from '../../containers/settings';
 
 const styles = StyleSheet.create({
   button:{
@@ -20,7 +21,9 @@ class Footer extends Component {
     NavigationService.navigateOnboard(String(activeStep+1));
   }
 
-  finish = () => {
+  finish = () => {  
+    const { changeSetting } = this.props;
+    changeSetting('onboarded', true);
     NavigationService.navigate('Home');
   }
 
@@ -70,7 +73,7 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+export default connectSettings(Footer);
 
 
 class ProgressStatus extends Component {
