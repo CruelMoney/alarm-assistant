@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  View, Text, StyleSheet } from 'react-native';
+import {  View, Text, StyleSheet, Animated } from 'react-native';
 import Layout from './Layout';
 import MyButton from '../Button';
 
@@ -15,7 +15,6 @@ export default class Index extends Component {
         menu={
           <View style={{width:'100%'}}>
            <MyButton 
-             
               label={"NAP"} 
               style={{backgroundColor: '#A782D4'}} />
             <MyButton 
