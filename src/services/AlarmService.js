@@ -13,7 +13,7 @@ const calculateNextAlarmTime = ({
   latestWakeupH,
   latestWakeupM
 }, now) => {
-  // approach calcualte all possible alarms and take the first one
+  // approach calculate all possible alarms and use the earliest 
   now = !!now ? now : moment();
   const alarm = !!alarmTime ? moment(alarmTime) : false;
   const minimum = moment(now).add(minSleepMinutes, 'minute');
@@ -26,6 +26,14 @@ const calculateNextAlarmTime = ({
 }
 
 
+const setAlarm = (at, alarmAction) => {
+  const timeout = at.diff(moment(), 'milliseconds');
+  if(timeout < 0 ) throw Error("Can't set alarm in present");
+  return setTimeout(alarmAction, timeout);
+}
+
+
 export {
-  calculateNextAlarmTime
+  calculateNextAlarmTime,
+  setAlarm
 }

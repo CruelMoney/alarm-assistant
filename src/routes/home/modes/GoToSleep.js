@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {  View, Text, StyleSheet } from 'react-native';
 import Layout from './Layout';
 import MyButton from '../Button';
+import * as SoundService from '../../../services/SoundService';
 
 export default class Index extends Component {
   
@@ -15,6 +16,10 @@ export default class Index extends Component {
         menu={
           <View style={{width:'100%'}}>
             <MyButton 
+              onPress={()=>SoundService.playSound({
+                file:'bird_chirps.mp3',
+                fadetime: 600000
+              })}
               label={"SLEEP"} 
               style={{backgroundColor: '#F29160'}} />
               <MyButton 

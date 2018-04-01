@@ -67,3 +67,17 @@ test('Alarm use alarmTime', () => {
   expect(res.minute()).toBe(0);
 });
 
+test('Alarm before now error', () => {
+  const at = moment().subtract(1, 'day');
+  const alarmAction = () => console.log("ALARM");
+  expect(() => {
+    const res = _as.setAlarm(at, alarmAction);
+  }).toThrowError("Can't set alarm in present");
+
+});
+
+test('Alarm does not throw', () => {
+  const at = moment().add(1, 'day');
+  const alarmAction = () => console.log("ALARM");
+  expect(_as.setAlarm(at, alarmAction)).toBeDefined();
+});

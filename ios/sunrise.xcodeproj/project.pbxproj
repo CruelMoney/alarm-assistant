@@ -43,7 +43,9 @@
 		660D49761D054C5D9B0028D0 /* AvenirNext-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B962268CA1934EA3AD23842B /* AvenirNext-UltraLight.ttf */; };
 		79121A2E2ADA463CBA1F56A2 /* AvenirNext-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0670C5D742649EDA8D48F81 /* AvenirNext-Medium.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		8470225C4703414B802A902B /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CA13C1AC8841D6B6924B44 /* libRNSound.a */; };
 		89EAFBE502514743B1EF1BAE /* AvenirNext-DemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BB1441CF19F4666922200B2 /* AvenirNext-DemiBoldItalic.ttf */; };
+		9D033BF0207104E2007AED0C /* bird_chirps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D033BC5207104E2007AED0C /* bird_chirps.mp3 */; };
 		9DC050EC206E926500E3938C /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC050EB206E926500E3938C /* EventKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		BB9401C4C52544DD98D11031 /* libInteractable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9C812DFD814C2CAE85F1EC /* libInteractable.a */; };
@@ -337,6 +339,13 @@
 			remoteGlobalIDString = FFEC319C1C46B4EB0080A80E;
 			remoteInfo = RNiTunes;
 		};
+		9DA45A4C2070FDDE00E4EF59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8DC05B8411F436CA216CF7E /* RNSound.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
+			remoteInfo = RNSound;
+		};
 		9DC050E9206E922800E3938C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E8C9FD229693482BA91EE5BB /* RNCalendarEvents.xcodeproj */;
@@ -394,13 +403,16 @@
 		7BA8909628C74841A48EE5AD /* AvenirNext-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-BoldItalic.ttf"; path = "../src/assets/fonts/AvenirNext-BoldItalic.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		900B22F34D1A4DB2AB162376 /* AvenirNext-UltraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-UltraLightItalic.ttf"; path = "../src/assets/fonts/AvenirNext-UltraLightItalic.ttf"; sourceTree = "<group>"; };
+		9D033BC5207104E2007AED0C /* bird_chirps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bird_chirps.mp3; path = ../src/assets/sounds/bird_chirps.mp3; sourceTree = "<group>"; };
 		9DC050EB206E926500E3938C /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		A4D9CD720B9347FB918784F4 /* AvenirNext-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-Bold.ttf"; path = "../src/assets/fonts/AvenirNext-Bold.ttf"; sourceTree = "<group>"; };
 		AA6C9230D9E14A478831206A /* AvenirNext-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-MediumItalic.ttf"; path = "../src/assets/fonts/AvenirNext-MediumItalic.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AFA83E08A2454937A73F5902 /* AvenirNext-HeavyItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-HeavyItalic.ttf"; path = "../src/assets/fonts/AvenirNext-HeavyItalic.ttf"; sourceTree = "<group>"; };
 		B0670C5D742649EDA8D48F81 /* AvenirNext-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-Medium.ttf"; path = "../src/assets/fonts/AvenirNext-Medium.ttf"; sourceTree = "<group>"; };
+		B8CA13C1AC8841D6B6924B44 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
 		B8CFA6E1FF1846F2B048673B /* RNiTunes.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNiTunes.xcodeproj; path = "../node_modules/react-native-itunes/RNiTunes.xcodeproj"; sourceTree = "<group>"; };
+		B8DC05B8411F436CA216CF7E /* RNSound.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		B962268CA1934EA3AD23842B /* AvenirNext-UltraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-UltraLight.ttf"; path = "../src/assets/fonts/AvenirNext-UltraLight.ttf"; sourceTree = "<group>"; };
 		CEEE0889956D4862AE799EF0 /* AvenirNext-Heavy.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-Heavy.ttf"; path = "../src/assets/fonts/AvenirNext-Heavy.ttf"; sourceTree = "<group>"; };
 		E18475B1AD414E8EAB56EE2B /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
@@ -441,6 +453,7 @@
 				F9E348058186419DBD5491E5 /* libRNiTunes.a in Frameworks */,
 				D77E8DBE0AC246F89D5B2030 /* libRNCalendarEvents.a in Frameworks */,
 				C5D8FCAA62774133AB7EF78F /* libReactNativePermissions.a in Frameworks */,
+				8470225C4703414B802A902B /* libRNSound.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +663,7 @@
 				B8CFA6E1FF1846F2B048673B /* RNiTunes.xcodeproj */,
 				E8C9FD229693482BA91EE5BB /* RNCalendarEvents.xcodeproj */,
 				FC1296916EA14462AC071D86 /* ReactNativePermissions.xcodeproj */,
+				B8DC05B8411F436CA216CF7E /* RNSound.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -666,6 +680,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				9D033BC5207104E2007AED0C /* bird_chirps.mp3 */,
 				13B07FAE1A68108700A75B9A /* sunrise */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* sunriseTests */,
@@ -697,6 +712,7 @@
 				010C941202954524A10A0E0C /* libRNiTunes.a */,
 				ECA631C116794C128D3D409A /* libRNCalendarEvents.a */,
 				E18475B1AD414E8EAB56EE2B /* libReactNativePermissions.a */,
+				B8CA13C1AC8841D6B6924B44 /* libRNSound.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -713,6 +729,14 @@
 			isa = PBXGroup;
 			children = (
 				9D98BCD7206E88F000DBD178 /* libRNiTunes.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DA45A492070FDDE00E4EF59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DA45A4D2070FDDE00E4EF59 /* libRNSound.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -920,6 +944,10 @@
 				{
 					ProductGroup = 9D98BCD3206E88F000DBD178 /* Products */;
 					ProjectRef = B8CFA6E1FF1846F2B048673B /* RNiTunes.xcodeproj */;
+				},
+				{
+					ProductGroup = 9DA45A492070FDDE00E4EF59 /* Products */;
+					ProjectRef = B8DC05B8411F436CA216CF7E /* RNSound.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1199,6 +1227,13 @@
 			remoteRef = 9D98BCD6206E88F000DBD178 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		9DA45A4D2070FDDE00E4EF59 /* libRNSound.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSound.a;
+			remoteRef = 9DA45A4C2070FDDE00E4EF59 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9DC050EA206E922800E3938C /* libRNCalendarEvents.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1240,6 +1275,7 @@
 				520BD8C033FD4403AABDB52F /* AvenirNext-BoldItalic.ttf in Resources */,
 				1059DE89DF8B41FF89139123 /* AvenirNext-DemiBold.ttf in Resources */,
 				89EAFBE502514743B1EF1BAE /* AvenirNext-DemiBoldItalic.ttf in Resources */,
+				9D033BF0207104E2007AED0C /* bird_chirps.mp3 in Resources */,
 				CC89819E3265439F84FB65A5 /* AvenirNext-Heavy.ttf in Resources */,
 				59706CADDDF64295B24A83D4 /* AvenirNext-HeavyItalic.ttf in Resources */,
 				4516E345160D416ABFEBA96A /* AvenirNext-Italic.ttf in Resources */,
@@ -1377,12 +1413,14 @@
 					"$(SRCROOT)/../node_modules/react-native-itunes/RNiTunes",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 				);
 				INFOPLIST_FILE = sunriseTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1409,12 +1447,14 @@
 					"$(SRCROOT)/../node_modules/react-native-itunes/RNiTunes",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 				);
 				INFOPLIST_FILE = sunriseTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1442,6 +1482,7 @@
 					"$(SRCROOT)/../node_modules/react-native-itunes/RNiTunes",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 				);
 				INFOPLIST_FILE = sunrise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1467,6 +1508,7 @@
 					"$(SRCROOT)/../node_modules/react-native-itunes/RNiTunes",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 				);
 				INFOPLIST_FILE = sunrise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1498,11 +1540,13 @@
 					"$(SRCROOT)/../node_modules/react-native-itunes/RNiTunes",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 				);
 				INFOPLIST_FILE = "sunrise-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1538,11 +1582,13 @@
 					"$(SRCROOT)/../node_modules/react-native-itunes/RNiTunes",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 				);
 				INFOPLIST_FILE = "sunrise-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1579,6 +1625,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.sunrise-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1603,6 +1650,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

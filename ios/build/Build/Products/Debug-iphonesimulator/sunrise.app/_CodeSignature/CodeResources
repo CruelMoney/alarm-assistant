@@ -99,7 +99,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		DxJvnHchVDqQIht3IyPctxw54Cc=
+		frE+k3Ki3KXfPF1EYlOS87/PQXU=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -123,7 +123,11 @@
 		</data>
 		<key>PlugIns/sunriseTests.xctest/sunriseTests</key>
 		<data>
-		XSTEXDBe9BYHUflP1WxCw37o65I=
+		y09RpKNezfBOC3zwG7lxsR0iRSM=
+		</data>
+		<key>bird_chirps.mp3</key>
+		<data>
+		J2h2LLh2a2qD5STIxMAYcxh7WHI=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -420,11 +424,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XSTEXDBe9BYHUflP1WxCw37o65I=
+			y09RpKNezfBOC3zwG7lxsR0iRSM=
 			</data>
 			<key>hash2</key>
 			<data>
-			IW/1EfRKk8b+zjKKaudkMO0BD/HE2n44RbzE6MunfQk=
+			WLKIvhgbtFG0q1wCSIvy7WRmf/SjvQusCcv+lRjrhok=
+			</data>
+		</dict>
+		<key>bird_chirps.mp3</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			J2h2LLh2a2qD5STIxMAYcxh7WHI=
+			</data>
+			<key>hash2</key>
+			<data>
+			28MD4eSYejWMeM72NcDMuP3h5E0qGKnE94NTydLk3X0=
 			</data>
 		</dict>
 	</dict>
