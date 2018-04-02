@@ -8,141 +8,44 @@ import TransportationPicker from '../../components/TransportationPicker';
 import connectSettings from "../../containers/settings";
 import RNCalendarEvents from 'react-native-calendar-events';
 import Permissions from 'react-native-permissions'
-
+import { askCalendarPermission } from '../../services/CalendarService';
+import { askLocationPermission } from '../../services/TransitService';
 
 class Index extends Component {
   constructor(props){
     super(props);
     this.state={
       useCalendar: undefined,
-      useTransitTime: undefined,
-      calendarPermissionState: 'undetermined',
-      locationPermissionState: 'undetermined',
-      appState: AppState.currentState
+      useTransit: undefined,
     }
-    this.updatePermissions();
   }
 
-  updatePermissions = () => {
-    Permissions.checkMultiple(['event', 'location'])
-    .then(response=>{
-      this.setState({
-        calendarPermissionState: response.event,
-        locationPermissionState: response.location,
-      });
-    });
-  }
-
-  componentDidMount() {
-    AppState.addEventListener('change', this._handleAppStateChange);
-  }
-
-  componentWillUnmount() {
-    AppState.removeEventListener('change', this._handleAppStateChange);
-  }
-
-  _handleAppStateChange = (nextAppState) => {
-    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
-      // App has come to the foreground,
-      // update permissions as user might went to settings and changed them
-      this.updatePermissions();
-    }
-    this.setState({appState: nextAppState});
-  }
-
-  _alertForPermission = ({title, desc, state, cb, cbDeny}) => {
-    Alert.alert(
-      title,
-      desc,
-      [
-        {
-          text: 'No',
-          onPress: cbDeny,
-          style: 'cancel',
-        },
-        state == 'undetermined'
-          ? { text: 'OK', onPress: cb }
-          : { text: 'Open Settings', onPress: Permissions.openSettings },
-      ],
-    )
-  }
 
   useCalendar = async (val) => {
-    const { calendarPermissionState } = this.state;
     const { changeSetting } = this.props;
-
-    if(val && calendarPermissionState !== 'authorized'){
-      this._alertForPermission({
-        title: 'Can I access your calendar?',
-        desc:  'I need access to create alarms automatically',
-        state: calendarPermissionState,
-        cb: async () => {
-          const status = await Permissions.request('event');
-          if(status === 'authorized'){
-            changeSetting('calendar', val);
-            this.setState({
-              useCalendar: val,
-              calendarPermissionState: status
-            });
-            RNCalendarEvents.findCalendars().then(console.log)
-          }else{
-            this.setState({
-              useCalendar: false,
-              calendarPermissionState: status
-            });
-            return alert('Could not activate calendar');
-          }
-        },
-        cbDeny: () => this.setState({
-          useCalendar: false
-        })
-      });
-    }else{
-      changeSetting('calendar', val);
-      this.setState({useCalendar: val});
+    let granted = val;
+    if(val){
+      granted = await askCalendarPermission();
     }
+    changeSetting('calendar', granted);
+    this.setState({useCalendar: granted});
   }
 
   useTransit = async (val) => {
-    const { locationPermissionState } = this.state;
     const { changeSetting } = this.props;
-
-    if(val && locationPermissionState !== 'authorized'){
-      this._alertForPermission({
-        title: 'Can I access your location?',
-        desc:  'I need you location to calculate the transit time',
-        state: locationPermissionState,
-        cb: async () => {
-          const status = await Permissions.request('location');
-          if(status === 'authorized'){
-            changeSetting('transit', val)
-            this.setState({
-              useTransitTime: val, 
-              locationPermissionState: status
-            });
-            navigator.geolocation.getCurrentPosition(console.log);
-          }else{
-            this.setState({
-              useTransitTime: false, 
-              locationPermissionState: status
-            });
-            return alert('Could not activate transit');
-          }
-        },
-        cbDeny: () => this.setState({
-          useTransitTime: false
-        })
-      });
-    }else{
-      changeSetting('transit', val)
-      this.setState({useTransitTime: val});
-    }   
+    let granted = val;
+    console.log(granted)
+    if(val){
+      granted = await askLocationPermission();
+    }
+    changeSetting('transit', granted);
+    this.setState({useTransit: granted});
   }
   
   
   render() {
     const { changeSetting } = this.props;
-    const {useCalendar, useTransitTime} = this.state;
+    const {useCalendar, useTransit} = this.state;
 
     return (
       <View style={{flex:1,
@@ -174,15 +77,15 @@ class Index extends Component {
           <YesNo 
           disabled={!useCalendar}
           controlled={true}
-          value={useTransitTime}
+          value={useTransit}
           onChange={this.useTransit}/>
         </View>
-        <View style={{opacity: (useTransitTime && useCalendar) ? 1 : 0.5}}>
+        <View style={{opacity: (useTransit && useCalendar) ? 1 : 0.5}}>
           <H2 style={{color:"#fff"}}>
             Transportation method
           </H2>
           <TransportationPicker
-          disabled={!useTransitTime || !useCalendar}
+          disabled={!useTransit || !useCalendar}
           onChange={val=>{
             changeSetting('transportationMethod', val)
           }}

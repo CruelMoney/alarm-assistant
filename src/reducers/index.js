@@ -11,6 +11,7 @@ const initialState = {
     calendar: true,
     transit: true,
     transportationMethod: 'car',
+    calendars: [],
     reports:[
       'calendar',
       'news',
