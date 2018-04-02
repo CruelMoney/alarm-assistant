@@ -3,13 +3,15 @@ import {  View, Text, StyleSheet, Dimensions, Animated } from 'react-native';
 import Menu from '../Menu';
 import MyButton from '../Button';
 import NavigationService from '../../../services/NavigationService';
+import connectAlarm from "../../../containers/alarm";
+
 
 const Screen = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
 }
 
-export default class Index extends Component {
+class index extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +23,7 @@ export default class Index extends Component {
   }
 
   render() {
-    const { containerStyle } = this.props;
+    const { containerStyle, display } = this.props;
     const textOpacity = this._deltaY.interpolate({
       inputRange: [Screen.height-315, Screen.height-115],
       outputRange: [0.33, 1]
@@ -36,7 +38,7 @@ export default class Index extends Component {
           styles.text,{
           opacity: textOpacity
         }])}>
-          {this.props.children}
+          {display}
       </Animated.Text>
        
         <Menu
@@ -71,6 +73,6 @@ const styles = StyleSheet.create({
   highlight: {
     color: '#FFCC4C',
   },
-
- 
 });
+
+export default connectAlarm(index);

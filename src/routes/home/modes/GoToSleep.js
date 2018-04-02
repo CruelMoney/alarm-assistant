@@ -6,7 +6,9 @@ import * as SoundService from '../../../services/SoundService';
 
 export default class Index extends Component {
   
-
+  componentDidMount(){
+    console.log("mounted")
+  }
   render() {
     const { navigate } = this.props.navigation;
 

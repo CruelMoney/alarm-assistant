@@ -11,6 +11,7 @@ const initialState = {
     calendar: true,
     transit: true,
     transportationMethod: 'car',
+    preparationTime: 60, // in minutes
     calendars: [],
     reports:[
       'calendar',

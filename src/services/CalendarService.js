@@ -1,10 +1,14 @@
 import RNCalendarEvents from 'react-native-calendar-events';
 import Permissions from 'react-native-permissions';
-import {alertForPermission} from '../utils/permissions';
+import { alertForPermission } from '../utils/permissions';
+ 
+const _granted = async () => {
+  return await Permissions.check('event');
+}
 
 const askCalendarPermission = async () => {
   return new Promise(async (resolve, reject)=>{
-    const calendarPermissionState =  await Permissions.check('event');
+    const calendarPermissionState = await _granted();
     if(calendarPermissionState !== 'authorized'){
       alertForPermission({
         title: 'Can I access your calendar?',
@@ -26,8 +30,37 @@ const askCalendarPermission = async () => {
   });
 }
 
-const getNextEvent = () => {
-  throw new Error('Not implemented');
+const _addDays = (date, days) => {
+  var result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
+const getNextEvent = async (calendarIDs = []) => {
+  return new Promise(async (resolve, reject) => {
+    const calendarPermissionState = await _granted();
+    const startDate = new Date();
+    const endDate = _addDays(startDate, 1);
+
+    if(calendarPermissionState){
+      try {
+        const events = await RNCalendarEvents.fetchAllEvents(
+          startDate, 
+          endDate, 
+          calendarIDs
+        );
+        const event = events.reduce((firstEvent, e)=>{
+          if(!firstEvent) return e;
+          return (new Date(firstEvent.startDate) < new Date(e.startDate)) ? firstEvent : e;
+        }, null)
+        resolve(event);
+      } catch (error) {
+        reject(error);
+      }
+    }else{
+      reject('Permission not granted');
+    }
+  });
 }
 
 

@@ -15,13 +15,13 @@ const calculateNextAlarmTime = ({
 }, now) => {
   // approach calculate all possible alarms and use the earliest 
   now = !!now ? now : moment();
-  const alarm = !!alarmTime ? moment(alarmTime) : false;
+  const alarm = !!alarmTime ? moment(alarmTime) : moment().add(999, 'day');
   const minimum = moment(now).add(minSleepMinutes, 'minute');
   let latest = moment(now).hour(latestWakeupH).minute(latestWakeupM);
   latest < now && latest.add(1, 'day');
 
   const firstAlarm = moment.min([alarm, minimum, latest]);
-
+  console.log(firstAlarm)
   return firstAlarm;
 }
 

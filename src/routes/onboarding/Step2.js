@@ -34,7 +34,6 @@ class Index extends Component {
   useTransit = async (val) => {
     const { changeSetting } = this.props;
     let granted = val;
-    console.log(granted)
     if(val){
       granted = await askLocationPermission();
     }

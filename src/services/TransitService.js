@@ -25,10 +25,11 @@ const askLocationPermission = async () => {
   });
 }
 
-const getTransitTime = ({from, to, method}) => {
+const getTransitTime = async ({to, method}) => {
   return 0;
 }
 
 export {
-  askLocationPermission
+  askLocationPermission,
+  getTransitTime
 }
