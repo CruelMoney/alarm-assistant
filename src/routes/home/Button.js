@@ -20,13 +20,15 @@ class Button extends Component {
     const {label, style, ...props} = this.props;
 
     return (
+     
       <TouchableOpacity
-      {...props} 
+      {...props}
       activeOpacity={0.8}
       style={StyleSheet.flatten([styles.button, style])}
       >
         <Text style={styles.text}>{label}</Text>
       </TouchableOpacity>
+      
     );
   }
 }

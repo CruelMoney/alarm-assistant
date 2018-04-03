@@ -55,7 +55,7 @@ const connectServices = (Wrapee) => {
       }
 
       // calculate alarm time
-      const decidedAlarmTime = as.calculateNextAlarmTime({
+      const {firstAlarm, mode} = as.calculateNextAlarmTime({
          alarmTime: alarmTime,
          ..._getAlarmStateSlice(this.props)
       });
@@ -63,16 +63,28 @@ const connectServices = (Wrapee) => {
       
       // save all in state
       this.setState({
-        alarmTime: decidedAlarmTime,
+        alarmTime: firstAlarm,
+        mode,
         loading: false
       });
     }
 
-    getText = (mode) => {
-      const { alarmTime, loading } = this.state;
+    getText = () => {
+      const { alarmTime, loading, mode } = this.state;
+      const { soundName } = this.props;
       if(loading || !alarmTime) return `Loading`;
-      console.log(alarmTime);
-      return `Goodnight tomorrow I will wake you up at ${alarmTime.format('HH:mm')}`
+      const sleepLength = Math.round(alarmTime.diff(moment(), 'minute')/60, 1);
+      switch (mode) {
+        case 'event':
+          return `Go to sleep now to get ${sleepLength} hours of sleep. I will wake you up at ${alarmTime.format('HH:mm')}, with ${soundName}.`
+        case 'latest':
+          return `Go to sleep now to get ${sleepLength} hours of sleep. I will wake you up at ${alarmTime.format('HH:mm')}, with ${soundName}.`
+        case 'minimum':
+          return `Go to sleep now to get a full ${sleepLength} hours of sleep. I will wake you up at ${alarmTime.format('HH:mm')}, with ${soundName}.`
+        default:
+          return `Go to sleep now to get ${sleepLength} hours of sleep. I will wake you up at ${alarmTime.format('HH:mm')}, with ${soundName}.`
+      }
+     
     }
 
     render() {

@@ -21,8 +21,14 @@ const calculateNextAlarmTime = ({
   latest < now && latest.add(1, 'day');
 
   const firstAlarm = moment.min([alarm, minimum, latest]);
-  console.log(firstAlarm)
-  return firstAlarm;
+  const mode = 
+    firstAlarm === alarm ? "event" :
+    firstAlarm === minimum ? "minimum" :
+    firstAlarm === minimum ? "latest" : 'unknown';
+  return {
+    firstAlarm,
+    mode
+  };
 }
 
 

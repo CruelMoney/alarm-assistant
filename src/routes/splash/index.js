@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {  View, Text, StatusBar, Image } from 'react-native';
-import GradientBG from '../../components/GradientBG';
+import DynamicBG from '../../components/DynamicBG';
 import logo from '../../assets/images/Logo.png';
 
 export default class Splash extends Component {
   render() {
     return (
    
-      <GradientBG>
+      <DynamicBG>
         <View>
         <Image
           source={logo}
@@ -24,7 +24,7 @@ export default class Splash extends Component {
           SUNRISE
         </Text>
         </View>
-      </GradientBG>
+      </DynamicBG>
     );
   }
 }

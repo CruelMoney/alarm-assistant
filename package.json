@@ -23,6 +23,7 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "color": "^3.0.0",
     "moment": "^2.22.0",
     "react": "16.2.0",
     "react-native": "0.52.0",

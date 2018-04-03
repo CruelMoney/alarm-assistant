@@ -4,7 +4,9 @@ import Menu from '../Menu';
 import MyButton from '../Button';
 import NavigationService from '../../../services/NavigationService';
 import connectAlarm from "../../../containers/alarm";
-
+import DynamicBG from '../../../components/DynamicBG';
+import {getTimeColor} from '../../../utils/colors';
+import Color from 'color';
 
 const Screen = {
   width: Dimensions.get('window').width,
@@ -23,15 +25,16 @@ class index extends Component {
   }
 
   render() {
-    const { containerStyle, display } = this.props;
+    const { display } = this.props;
     const textOpacity = this._deltaY.interpolate({
       inputRange: [Screen.height-315, Screen.height-115],
       outputRange: [0.33, 1]
     });
+    const color = Color(getTimeColor());
+
 
     return (
-      <View 
-        style={StyleSheet.flatten([styles.container, containerStyle])} >
+      <DynamicBG style={styles.container}>
       <Animated.Text 
       style={
         StyleSheet.flatten([
@@ -48,9 +51,9 @@ class index extends Component {
           <MyButton 
               onPress={() => NavigationService.navigate('Settings')}
               label={"SETTINGS"} 
-              style={{backgroundColor: '#8EC5F2'}} />
+              style={{backgroundColor:  color.darken(0.3).toString()}} />
         </Menu>
-      </View>
+      </DynamicBG>
     );
   }
 }

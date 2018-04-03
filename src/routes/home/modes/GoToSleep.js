@@ -3,7 +3,8 @@ import {  View, Text, StyleSheet } from 'react-native';
 import Layout from './Layout';
 import MyButton from '../Button';
 import * as SoundService from '../../../services/SoundService';
-
+import {getTimeColor} from '../../../utils/colors';
+import Color from 'color';
 export default class Index extends Component {
   
   componentDidMount(){
@@ -11,10 +12,10 @@ export default class Index extends Component {
   }
   render() {
     const { navigate } = this.props.navigation;
-
+    const color = Color(getTimeColor());
+    
     return (
       <Layout
-        containerStyle={styles.container}
         menu={
           <View style={{width:'100%'}}>
             <MyButton 
@@ -23,15 +24,14 @@ export default class Index extends Component {
                 fadetime: 600000
               })}
               label={"SLEEP"} 
-              style={{backgroundColor: '#F29160'}} />
+              style={{backgroundColor: color.darken(0.1).string()}} />
               <MyButton 
               onPress={() => navigate('Nap')}
               label={"NAP"} 
-              style={{backgroundColor: '#A782D4'}} />
+              style={{backgroundColor: color.darken(0.2).string()}} />
           </View>
         }
       >
-         Go to sleep now to get a full <Text style={styles.highlight}>7.5</Text> hours of sleep. Your first event is scheduled at <Text style={styles.highlight}>10:00</Text> tomorrow,  and I will wake you up at <Text style={styles.highlight}>8:00</Text>, with “Morning playlist”.
       </Layout>
     );
   }
@@ -39,9 +39,6 @@ export default class Index extends Component {
 
 
 const styles = StyleSheet.create({
-  container:{
-    backgroundColor: '#FF9966',
-  },
   highlight: {
     color: '#FFCC4C',
   },

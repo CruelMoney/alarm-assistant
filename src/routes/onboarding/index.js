@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image  } from 'react-native';
-import GradientBG from '../../components/GradientBG';
+import DynamicBG from '../../components/DynamicBG';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
@@ -40,7 +40,7 @@ class Index extends Component {
     const {activeStep} = this.state;
 
     return (
-      <GradientBG>
+      <DynamicBG>
           <View style={{flex: 1,justifyContent: "center", alignItems: "center", flexDirection: "row"}}>
             <Steps 
             onNavigationStateChange={(_,currentState) => {this.setState({activeStep: currentState.index+1})}}
@@ -50,7 +50,7 @@ class Index extends Component {
             />
           </View>
           <Footer activeStep={activeStep} />
-      </GradientBG>
+      </DynamicBG>
     );
   }
 }
