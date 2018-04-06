@@ -1,11 +1,12 @@
 import moment from 'moment';
 
 const dayColors = [
+  { hour: 0,  color : {r: 17 , g: 35 , b: 120}},
   { hour: 8,  color : {r: 255, g: 153, b: 102}},
   { hour: 12, color : {r: 24  , g: 231, b: 227}},
   { hour: 16, color : {r: 4  , g: 202, b: 247}},
   { hour: 21, color : {r: 213, g: 138, b: 224}},
-  { hour: 0,  color : {r: 17 , g: 35 , b: 120}},
+  { hour: 24,  color : {r: 17 , g: 35 , b: 120}},
 ];
 
 const _interpolateRGB = (c1, c2, perc) => {

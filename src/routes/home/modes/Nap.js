@@ -1,43 +1,82 @@
 import React, { Component } from 'react';
-import {  View, Text, StyleSheet } from 'react-native';
+import {  View, Text, StyleSheet, Animated } from 'react-native';
 import Layout from './Layout';
 import MyButton from '../Button';
+import * as SoundService from '../../../services/SoundService';
+import {getTimeColor} from '../../../utils/colors';
+import Color from 'color';
+import _ from 'lodash';
+import Body from '../../../components/text/Body';
 
 export default class Index extends Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      sleeping: false
+    };
+    this.animateFunc = null
+  }
+
+  toggleSleep = _.throttle(() => {
+    const {sleeping} = this.state;
+    this.animateFunc(sleeping);
+    this.setState({
+      sleeping: !sleeping
+    });
+  }, 750, { 'trailing': false })
 
   render() {
     const { navigate } = this.props.navigation;
-
+    const color = Color(getTimeColor());
+    
     return (
       <Layout
-        containerStyle={styles.container}
-        menu={
+      registerAnimate={fun => this.animateFunc = fun}
+      menu={
           <View style={{width:'100%'}}>
            <MyButton 
-             
+              onPress={this.toggleSleep}
               label={"NAP"} 
-              style={{backgroundColor: '#A782D4'}} />
+              underlayColor={color.darken(0.15).string()}
+              style={{backgroundColor: color.darken(0.1).string()}} />
             <MyButton 
              onPress={() => navigate('GoToSleep')}
               label={"SLEEP"} 
-              style={{backgroundColor: '#F29160'}} />
-              
+              underlayColor={color.darken(0.25).string()}
+              style={{backgroundColor: color.darken(0.2).string()}} />
           </View>
         }
-      >
-         Nap now to get a full <Text style={styles.highlight}>7.5</Text> hours of sleep. Your first event is scheduled at <Text style={styles.highlight}>10:00</Text> tomorrow,  and I will wake you up at <Text style={styles.highlight}>8:00</Text>, with “Morning playlist”.
-      </Layout>
+      activeText={
+        <View>
+        <Body>
+          Nap for
+        </Body> 
+          <Text 
+            style={{
+            fontSize: 46, 
+            fontFamily: "AvenirNext-Bold",
+            textAlign: 'center',
+            color: '#fff'
+            }}>
+            20
+            </Text>
+        <Body>
+          minutes
+        </Body> 
+        </View>
+      }
+      />
     );
+
   }
 }
 
 
 const styles = StyleSheet.create({
-  container:{
-    backgroundColor: '#B18AE0',
-  },
   highlight: {
-    color: '#87DCFA',
+    color: '#FFCC4C',
   },
+  text:{
+    color: 'white'
+  }
 });

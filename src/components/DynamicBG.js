@@ -1,29 +1,43 @@
 import React, { Component } from 'react';
-import {StatusBar, View, StyleSheet, Image} from 'react-native'; 
-import sky from '../assets/images/sky.png';
+import {StatusBar, View, StyleSheet, Image, Animated} from 'react-native'; 
+import daysky from '../assets/images/sky.png';
 import nightsky from '../assets/images/nightsky.png';
 import moment from 'moment';
 import {getTimeColor} from '../utils/colors';
 
 export default class GradientBG extends Component {
+
+  constructor(props) {
+    super(props);
+  
+  }
+
   render() {
-    const { style, sky } = this.props;
+    const { style, skyProgress } = this.props;
     const timeColor = getTimeColor(true);
     const now = moment();
-    const skybg = now.hour() > 20 ? nightsky : sky;
+    const skybg = (now.hour() > 18 || now.hour() < 8) ? nightsky : daysky;
+    
 
-    console.log(timeColor);
+
     return (
       <View style={StyleSheet.flatten([
         styles.container, 
         style, 
-        {
-          backgroundColor: timeColor
-        }])}>
+        { backgroundColor: timeColor }
+      ])}>
        <StatusBar
           barStyle="light-content"
         />
-          {sky ? <Image source={skybg} style={styles.sky} /> : null}
+          <Animated.Image source={skybg} 
+           style={
+            StyleSheet.flatten([
+              styles.sky,{
+              opacity: skyProgress,
+              // transform: [{translateY: animatedOffsetY}]
+            }])}
+          
+          />
           {this.props.children}
       </View>
     );

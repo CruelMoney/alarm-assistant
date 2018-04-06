@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity  } from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight  } from 'react-native';
 
 const styles = StyleSheet.create({
   button:{
@@ -21,13 +21,12 @@ class Button extends Component {
 
     return (
      
-      <TouchableOpacity
+      <TouchableHighlight
       {...props}
-      activeOpacity={0.8}
       style={StyleSheet.flatten([styles.button, style])}
       >
         <Text style={styles.text}>{label}</Text>
-      </TouchableOpacity>
+      </TouchableHighlight>
       
     );
   }

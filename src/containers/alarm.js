@@ -91,6 +91,7 @@ const connectServices = (Wrapee) => {
       return (
         <Wrapee
           {...this.props}
+          getText={this.getText}
           display={this.getText()}
         />
       );
