@@ -19,7 +19,7 @@ class Index extends Component {
         marginTop: 40,
         marginBottom: 20,
         flexDirection: "column", 
-        justifyContent: "space-between", 
+        justifyContent: "center", 
         alignItems:"center"}}>
         <View style={styles.section}>
         <H2>
@@ -30,12 +30,12 @@ class Index extends Component {
         />
         </View>
         <View style={styles.section}>
-        <H2>
-          Latest time to wake up
-        </H2>
-        <Body style={{marginBottom: 10}}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Body>
+          <H2>
+            Latest time to wake up
+          </H2>
+          <Body style={{marginBottom: 10}}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Body>
           <View style={styles.timepickers}>
             <View>
               <TimePicker 
@@ -57,13 +57,13 @@ class Index extends Component {
             </View>
           </View>
         </View>
-        <View style={styles.section}>
-        <H2>
-          Ideal sleep length
-        </H2>
-        <Body style={{marginBottom: 10,}}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Body>
+        <View style={StyleSheet.flatten([styles.section, {marginBottom:0}])}>
+          <H2>
+            Ideal sleep length
+          </H2>
+          <Body style={{marginBottom: 10,}}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Body>
           <View style={styles.timepickers}>
             <View> 
               <TimePicker 
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
   section:{
     justifyContent: "center",
     alignItems: 'center',
+    marginBottom: 50,
   },
   timepickers:{
     alignSelf: 'stretch',

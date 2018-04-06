@@ -52,9 +52,9 @@ class Index extends Component {
         margin: 30,
         marginTop: 40,
         marginBottom: 20,
-        justifyContent: "space-between", 
+        justifyContent: "center", 
         alignItems:"center"}}>
-        <View >
+        <View style={styles.section}>
           <H2 style={{color:"#fff"}}>
             Use calendar
           </H2>
@@ -66,7 +66,9 @@ class Index extends Component {
           value={useCalendar}
           onChange={this.useCalendar}/>
         </View>
-        <View style={{opacity: useCalendar ? 1 : 0.5}}>
+        <View style={StyleSheet.flatten([styles.section, {
+          opacity: (useTransit && useCalendar) ? 1 : 0.5
+          }])}>
           <H2 style={{color:"#fff"}}>
             Include transit time
           </H2>
@@ -79,7 +81,11 @@ class Index extends Component {
           value={useTransit}
           onChange={this.useTransit}/>
         </View>
-        <View style={{opacity: (useTransit && useCalendar) ? 1 : 0.5}}>
+        <View style={StyleSheet.flatten([styles.section, {
+          marginBottom:0,
+          opacity: (useTransit && useCalendar) ? 1 : 0.5
+          }])}>
+      
           <H2 style={{color:"#fff"}}>
             Transportation method
           </H2>
@@ -95,8 +101,12 @@ class Index extends Component {
   }
 }
 
-
 const styles = StyleSheet.create({
+  section:{
+    justifyContent: "center",
+    alignItems: 'center',
+    marginBottom: 30,
+  },
   timepickers:{
     flexDirection: 'row',
     justifyContent: "space-around"

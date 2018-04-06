@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableWithoutFeedback  } from 'react-native';
-
+import {getTimeColor} from '../utils/colors';
+ 
 class ToggleButton extends Component {
   state={
     toggled: false
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   buttonTextToggled: {
-    color: "#FFC371",
+    color: getTimeColor(true),
   }
 });
 

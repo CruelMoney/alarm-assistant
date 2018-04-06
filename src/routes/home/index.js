@@ -27,7 +27,7 @@ const Navigator = StackNavigator({
 export default class componentName extends Component {
   render() {
     return (
-      <View style={{flex:1, marginBottom: 98}}>
+      <View style={{flex:1}}>
       <StatusBar
           barStyle="light-content"
         />

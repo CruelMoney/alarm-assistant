@@ -93,7 +93,7 @@ class index extends Component {
         style={StyleSheet.flatten([
             {
             position: 'absolute',
-            bottom: 100,
+            bottom: 200,
             opacity: this.animationValues[2],
           }])}>
         {this.props.activeText}
@@ -116,7 +116,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 30 
+    padding: 30,
+    paddingBottom: 130,
   },
   text:{
     textAlign: "left",

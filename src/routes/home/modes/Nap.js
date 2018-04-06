@@ -22,21 +22,27 @@ class index extends Component {
     this.updateNapLength = null;
   }
 
+  componentWillReceiveProps(nextprops){
+    !!nextprops.napMoment && 
+    !this.updateNapLength && 
+    this.countDownNapLength(nextprops.napMoment);
+  }
+
+  componentWillUnmount(){
+    this.updateNapLength && clearInterval(this.updateNapLength);
+  }
+
   toggleNap = _.throttle(() => {
     const {sleeping} = this.state;
     this.animateFunc(sleeping);
     sleeping ? this.stopNap() : this.startNap();
-  }, 750, { 'trailing': false })
+  }, 1000, { 'trailing': false })
 
-  startNap = () => {
-    const { napMoment } = this.props;
-
-    this.setState({
-      sleeping: true
-    });
-
+  countDownNapLength = (endMoment) => {
     const updateFun = () => {
-      const napLength = Math.round(napMoment.diff(moment(), 'seconds')/60, 1);
+      const { napMoment } = this.props;
+      endMoment = !!napMoment ? napMoment : endMoment;
+      const napLength = Math.round(endMoment.diff(moment(), 'seconds')/60, 1);
       this.setState({
         napLength: napLength
       })
@@ -45,10 +51,15 @@ class index extends Component {
     this.updateNapLength = setInterval(updateFun, 1000);
   }
 
+  startNap = () => {
+    this.setState({
+      sleeping: true
+    });
+  }
+
   stopNap = () => {
     const { updateAlarmData } = this.props;
     updateAlarmData();
-    clearInterval(this.updateNapLength);
     this.setState({
       sleeping: false
     });

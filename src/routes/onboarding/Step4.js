@@ -42,7 +42,7 @@ class Index extends Component {
         </View>
         <View style={styles.section}>
         <H2>
-          Fade in
+          Wake up phase
         </H2>
         <Body style={{marginBottom: 10}}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

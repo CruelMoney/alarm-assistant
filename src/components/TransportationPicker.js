@@ -5,6 +5,7 @@ import walking from '../assets/images/walking.png';
 import car from '../assets/images/Car.png';
 import train from '../assets/images/Train.png';
 import bicycle from '../assets/images/Bicycle.png';
+import {getTimeColor} from '../utils/colors';
 
 const styles = {
   button:{
@@ -33,7 +34,7 @@ export default class componentName extends Component {
   render() {
     const { disabled } = this.props;
     const { activeIdx } = this.state;
-
+    const activeColor = getTimeColor(true);
     return (
       <View style={{
         flexDirection: "row",
@@ -47,7 +48,7 @@ export default class componentName extends Component {
        style={styles.button} 
        >
         <Image 
-        style={{width: 28, height:20, tintColor: activeIdx === 0 ? "#FFC371" : "#fff" }}
+        style={{width: 28, height:20, tintColor: activeIdx === 0 ? activeColor : "#fff" }}
         source={car} />
         </ ToggleButton>
         <ToggleButton 
@@ -57,7 +58,7 @@ export default class componentName extends Component {
        style={styles.button} 
        >
         <Image 
-        style={{width: 17, height:32, tintColor: activeIdx === 1 ? "#FFC371" : "#fff" }}
+        style={{width: 17, height:32, tintColor: activeIdx === 1 ? activeColor : "#fff" }}
         source={walking} />
         </ ToggleButton>
         <ToggleButton 
@@ -67,7 +68,7 @@ export default class componentName extends Component {
        style={styles.button} 
        >
         <Image 
-        style={{width: 31, height:17, tintColor: activeIdx === 2 ? "#FFC371" : "#fff" }}
+        style={{width: 31, height:17, tintColor: activeIdx === 2 ? activeColor : "#fff" }}
         source={bicycle} />
         </ ToggleButton>
         <ToggleButton 
@@ -77,7 +78,7 @@ export default class componentName extends Component {
         style={styles.button} 
        >
         <Image 
-        style={{width: 22, height:26, tintColor: activeIdx === 3 ? "#FFC371" : "#fff"}}
+        style={{width: 22, height:26, tintColor: activeIdx === 3 ? activeColor : "#fff"}}
         source={train} />
         </ ToggleButton>
       </View>

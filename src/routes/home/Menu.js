@@ -50,8 +50,8 @@ class Menu extends Component {
     const childrenCount = this.props.children.props.children.length;
     const count = 3;
     const buttonHeight = 100
-    const closedPosition = Screen.height-(buttonHeight+15);
-    const openedPosition = Screen.height-(count*buttonHeight+15);
+    const closedPosition = Screen.height-(buttonHeight+35);
+    const openedPosition = Screen.height-(count*buttonHeight+35);
     const dragEnabled = childrenCount > 1;
 
     return (

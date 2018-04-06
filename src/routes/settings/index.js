@@ -3,6 +3,7 @@ import { View, Text, FlatList, StatusBar, Image, TouchableOpacity, StyleSheet} f
 import { StackNavigator } from 'react-navigation';
 import NavigationService from '../../services/NavigationService';
 import Alarm from './routes/Alarm';
+import Napping from './routes/Napping';
 import Support from './routes/Support'
 import Transit from './routes/Transit'
 import Link from '../../components/text/Link'
@@ -76,7 +77,10 @@ class Menu extends Component {
         style={{zIndex: 1}}
         data={[
           {label: 'Alarm', route: 'Alarm'}, 
+          {label: 'Calendar', route: 'Calendar'},
           {label: 'Transit', route: 'Transit'},
+          {label: 'Sleeping', route: 'Sleeping'},
+          {label: 'Napping', route: 'Napping'},
           {label: 'Support', route: 'Support'},
           {label: 'Morning reports', route: 'Support'},
           {label: 'Speech', route: 'Support'},
@@ -113,7 +117,8 @@ const Navigator = StackNavigator({
   "Menu": { screen: Menu },
   "Alarm": { screen: Alarm },
   "Transit": {screen: Transit},
-  "Support": {screen: Support}
+  "Support": {screen: Support},
+  "Napping": {screen: Napping}
 },
 {
   initialRouteName: 'Menu',
