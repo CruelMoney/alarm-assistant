@@ -8,7 +8,7 @@ const initialState = {
     latestWeekdays: {h: 10, m: 0},
     sleepLengthWeekends: 540,
     sleepLengthWeekdays: 450,
-    napLength: 30, 
+    napLength: 0.1, 
     calendar: true,
     transit: true,
     transportationMethod: 'car',
@@ -21,7 +21,7 @@ const initialState = {
     ],
     speech: true,
     soundType: 'sound',
-    soundFile: 'birds.mp3',
+    soundFile: 'birds_chirps.mp3',
     soundName: 'Bird Chirps',
     playlistID: 0,
     fadeIn: 15, // in minutes

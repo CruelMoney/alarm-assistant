@@ -5,6 +5,17 @@ import Body from './text/Body';
 import Span from './text/Span';
 import Link from './text/Link';
 
+const soundFiles = [
+  { 
+    name:'sound 1',
+    file: '' 
+  }, 
+  { 
+    name:'Birds',
+    file: 'bird_chirps.mp3' 
+  }
+];
+
 class SoundPicker extends Component {
   state={
     selected: false,
@@ -13,13 +24,22 @@ class SoundPicker extends Component {
     visible: false,
   }
 
-  selectValue = (val) => {
-    const { onChange } = this.props;
-    const { type } = this.state;
-    !!onChange && onChange(type, val);
+  componentDidMount(){
+    const { soundType, soundFile, soundName} = this.props;
 
     this.setState({
-      selected: val
+      type: soundType,
+      selected: soundName
+    })
+  }
+
+  selectValue = (val, label) => {
+    const { onChange } = this.props;
+    const { type } = this.state;
+    !!onChange && onChange(type, val, label);
+
+    this.setState({
+      selected: label
     });
   }
 
@@ -52,12 +72,13 @@ class SoundPicker extends Component {
     });
 
     this.setState({
-      choices: [{name:'sound 1'}, {name:'sound 2'}, {name:'birds 1'}],
+      choices: soundFiles,
       loading: false
     }); 
   }
 
   render() {
+    const {textStyle} = this.props;
     const {type} = this.state;
 
     return (
@@ -66,12 +87,12 @@ class SoundPicker extends Component {
         <TouchableOpacity
         onPress={this.pickSound}
         >
-          <Link>Sound</Link>
+          <Link style={textStyle}>Sound</Link>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={this.pickPlaylist}
         >
-        <Link>Playlist</Link>
+        <Link style={textStyle}>Playlist</Link>
         </TouchableOpacity>
         </View>
         <TouchableOpacity
@@ -79,7 +100,7 @@ class SoundPicker extends Component {
             type === 'sound' ?
             this.pickSound : this.pickPlaylist}
         >
-          <Body style={{fontSize: 20, marginTop: 10}}>
+          <Body style={textStyle}>
               {this.state.selected}
           </Body>
         </TouchableOpacity>
@@ -109,7 +130,10 @@ class SoundPicker extends Component {
               : 
               <Picker
                 selectedValue={this.state.selected}
-                onValueChange={(itemValue, itemIndex) => this.selectValue(itemValue)}>
+                onValueChange={(itemValue, itemIndex) => {
+                  const value = type === 'sound' ? soundFiles[itemIndex].file : itemValue;
+                  this.selectValue(value, itemValue)}
+                }>
                 {
                   this.state.choices.map((p, idx) => {
                     return <Picker.Item 

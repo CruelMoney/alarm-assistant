@@ -9,7 +9,6 @@ const playPlaylist = ({id, fadetime}) => {
 
 const _loadSound = (file) => {
   return new Promise((resolve, reject)=>{
-    console.log("loading file")
     const sound = new Sound(file, Sound.MAIN_BUNDLE, (error) => {
       if (error) return reject(error);
       return resolve(sound);
@@ -31,9 +30,12 @@ const _fadeSound = (sound, duration, initVolume = 0) => {
   }, iTime);
 }
 
+let soundRef = null;
+
 const playSound = async ({file, fadetime, loop, initVolume}) => {
   return new Promise(async (resolve, reject)=>{
     var sound = await _loadSound(file);
+    soundRef = sound;
     loop && sound.setNumberOfLoops(-1);
     (!!initVolume || initVolume === 0) ? sound.setVolume(initVolume) : sound.setVolume(1);
     if(!!fadetime){
@@ -49,6 +51,11 @@ const playSound = async ({file, fadetime, loop, initVolume}) => {
   });
 }
 
+const stopSound = () => {
+  soundRef && soundRef.stop();
+}
+
 export {
-  playSound
+  playSound,
+  stopSound
 }

@@ -30,6 +30,7 @@
     "react-native": "0.52.0",
     "react-native-bottom-drawer": "^1.0.2",
     "react-native-calendar-events": "^1.5.0",
+    "react-native-device-brightness": "^1.2.0",
     "react-native-drawer": "^2.5.0",
     "react-native-interactable": "^0.1.10",
     "react-native-itunes": "^0.5.0",

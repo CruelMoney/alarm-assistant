@@ -4,28 +4,14 @@ import { StackNavigator } from 'react-navigation';
 import NavigationService from '../../services/NavigationService';
 import Alarm from './routes/Alarm';
 import Napping from './routes/Napping';
+import Sound from './routes/Sound';
 import Support from './routes/Support'
 import Transit from './routes/Transit'
 import Link from '../../components/text/Link'
+import ListItem from './components/ListItem';
 import arrow from '../../assets/images/arrow.png';
 
 const styles = StyleSheet.create({
-  cell:{
-    height: 100,
-    width: '100%',
-    paddingLeft: 15,
-    paddingRight: 15,
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderBottomColor: '#eee',
-    borderBottomWidth: 1,
-  },
-  cellLabel:{
-    color: '#9B9B9B',
-    textAlign: 'left'
-  },
   footerText:{
     color: '#9B9B9B',
     textAlign: 'center',
@@ -81,25 +67,19 @@ class Menu extends Component {
           {label: 'Transit', route: 'Transit'},
           {label: 'Sleeping', route: 'Sleeping'},
           {label: 'Napping', route: 'Napping'},
+          {label: 'Sound', route: 'Sound'},
           {label: 'Support', route: 'Support'},
           {label: 'Morning reports', route: 'Support'},
           {label: 'Speech', route: 'Support'},
-          {label: 'Support', route: 'Support'},
-          {label: 'Morning reports', route: 'Support'},
-          {label: 'Speech', route: 'Support'},
+       
         ]}
         keyExtractor={(item, index) => `settings-item-${index}`}
         renderItem={({item}) => 
-        <TouchableOpacity
-        onPress={()=>navigation.navigate(item.route)}
-        style={styles.cell}>
-         <Link style={styles.cellLabel}>{item.label}</Link>
-         <Image 
-         transform={[{
-          rotate: '180deg'
-         }]}
-         source={arrow} />
-        </TouchableOpacity>
+          <ListItem 
+          showArrow={true}
+          onPress={()=>navigation.navigate(item.route)}
+          label={item.label}
+          />
         }
         ListFooterComponent={
           <Link style={styles.footerText}>
@@ -118,7 +98,9 @@ const Navigator = StackNavigator({
   "Alarm": { screen: Alarm },
   "Transit": {screen: Transit},
   "Support": {screen: Support},
-  "Napping": {screen: Napping}
+  "Napping": {screen: Napping},
+  "Sound": {screen: Sound}
+  
 },
 {
   initialRouteName: 'Menu',

@@ -46,7 +46,7 @@ const getTimeColor = (asString = false) => {
       h2 = h;
     }
     return h 
-  }, dayColors[3])
+  }, dayColors[dayColors.length-1])
 
   const perc = _getTimePercentage(h1.hour, h2.hour, hour);
 

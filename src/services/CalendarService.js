@@ -41,7 +41,7 @@ const getNextEvent = async (calendarIDs = []) => {
     const calendarPermissionState = await _granted();
     const startDate = new Date();
     const endDate = _addDays(startDate, 1);
-
+     
     if(calendarPermissionState){
       try {
         const events = await RNCalendarEvents.fetchAllEvents(
@@ -50,6 +50,7 @@ const getNextEvent = async (calendarIDs = []) => {
           calendarIDs
         );
         const event = events.reduce((firstEvent, e)=>{
+          if(new Date(e.startDate) < startDate) return firstEvent;
           if(!firstEvent) return e;
           return (new Date(firstEvent.startDate) < new Date(e.startDate)) ? firstEvent : e;
         }, null)

@@ -52,13 +52,16 @@ class index extends Component {
   }
 
   startNap = () => {
+    const { startNap } = this.props;
+    startNap();
     this.setState({
       sleeping: true
     });
   }
 
   stopNap = () => {
-    const { updateAlarmData } = this.props;
+    const { updateAlarmData, stopNap } = this.props;
+    stopNap();
     updateAlarmData();
     this.setState({
       sleeping: false

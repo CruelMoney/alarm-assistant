@@ -56,6 +56,7 @@ const calculateNapTime = ({
 
 const setAlarm = (at, alarmAction) => {
   const timeout = at.diff(moment(), 'milliseconds');
+  console.log("alarm in, ", timeout);
   if(timeout < 0 ) throw Error("Can't set alarm in present");
   return setTimeout(alarmAction, timeout);
 }

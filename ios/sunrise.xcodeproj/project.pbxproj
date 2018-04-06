@@ -47,6 +47,7 @@
 		89EAFBE502514743B1EF1BAE /* AvenirNext-DemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BB1441CF19F4666922200B2 /* AvenirNext-DemiBoldItalic.ttf */; };
 		9D033BF0207104E2007AED0C /* bird_chirps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D033BC5207104E2007AED0C /* bird_chirps.mp3 */; };
 		9DC050EC206E926500E3938C /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC050EB206E926500E3938C /* EventKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		A963AE24D4C44E92B678F914 /* libRNDeviceBrightness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 692A46B6D6D54F7A99683236 /* libRNDeviceBrightness.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		BB9401C4C52544DD98D11031 /* libInteractable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9C812DFD814C2CAE85F1EC /* libInteractable.a */; };
 		C5D8FCAA62774133AB7EF78F /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18475B1AD414E8EAB56EE2B /* libReactNativePermissions.a */; };
@@ -332,6 +333,13 @@
 			remoteGlobalIDString = CC0127971E3ACC3900B23C9F;
 			remoteInfo = Interactable;
 		};
+		9D89CD0C2077CD4D00B91BAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 780581D1C0DA44F39E3212E1 /* RNDeviceBrightness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 189E4F931E73FA6B00C0D8E0;
+			remoteInfo = RNDeviceBrightness;
+		};
 		9D98BCD6206E88F000DBD178 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B8CFA6E1FF1846F2B048673B /* RNiTunes.xcodeproj */;
@@ -396,7 +404,9 @@
 		2F1E094B374E4073821DACFA /* AvenirNext-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-Regular.ttf"; path = "../src/assets/fonts/AvenirNext-Regular.ttf"; sourceTree = "<group>"; };
 		37F3F36A553948A3B0FA1A5C /* AvenirNext-DemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-DemiBold.ttf"; path = "../src/assets/fonts/AvenirNext-DemiBold.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		692A46B6D6D54F7A99683236 /* libRNDeviceBrightness.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceBrightness.a; sourceTree = "<group>"; };
 		6BB1441CF19F4666922200B2 /* AvenirNext-DemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-DemiBoldItalic.ttf"; path = "../src/assets/fonts/AvenirNext-DemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		780581D1C0DA44F39E3212E1 /* RNDeviceBrightness.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceBrightness.xcodeproj; path = "../node_modules/react-native-device-brightness/RNDeviceBrightness.xcodeproj"; sourceTree = "<group>"; };
 		783E5A75D8574B1CBA6EAFA2 /* AvenirNext-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-Italic.ttf"; path = "../src/assets/fonts/AvenirNext-Italic.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7A9C812DFD814C2CAE85F1EC /* libInteractable.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libInteractable.a; sourceTree = "<group>"; };
@@ -454,6 +464,7 @@
 				D77E8DBE0AC246F89D5B2030 /* libRNCalendarEvents.a in Frameworks */,
 				C5D8FCAA62774133AB7EF78F /* libReactNativePermissions.a in Frameworks */,
 				8470225C4703414B802A902B /* libRNSound.a in Frameworks */,
+				A963AE24D4C44E92B678F914 /* libRNDeviceBrightness.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +675,7 @@
 				E8C9FD229693482BA91EE5BB /* RNCalendarEvents.xcodeproj */,
 				FC1296916EA14462AC071D86 /* ReactNativePermissions.xcodeproj */,
 				B8DC05B8411F436CA216CF7E /* RNSound.xcodeproj */,
+				780581D1C0DA44F39E3212E1 /* RNDeviceBrightness.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -713,6 +725,7 @@
 				ECA631C116794C128D3D409A /* libRNCalendarEvents.a */,
 				E18475B1AD414E8EAB56EE2B /* libReactNativePermissions.a */,
 				B8CA13C1AC8841D6B6924B44 /* libRNSound.a */,
+				692A46B6D6D54F7A99683236 /* libRNDeviceBrightness.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -721,6 +734,14 @@
 			isa = PBXGroup;
 			children = (
 				9D4A1F58206C9A5B002E62DF /* libInteractable.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D89CD092077CD4D00B91BAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D89CD0D2077CD4D00B91BAF /* libRNDeviceBrightness.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -940,6 +961,10 @@
 				{
 					ProductGroup = 9DC050E6206E922700E3938C /* Products */;
 					ProjectRef = E8C9FD229693482BA91EE5BB /* RNCalendarEvents.xcodeproj */;
+				},
+				{
+					ProductGroup = 9D89CD092077CD4D00B91BAF /* Products */;
+					ProjectRef = 780581D1C0DA44F39E3212E1 /* RNDeviceBrightness.xcodeproj */;
 				},
 				{
 					ProductGroup = 9D98BCD3206E88F000DBD178 /* Products */;
@@ -1220,6 +1245,13 @@
 			remoteRef = 9D4A1F57206C9A5B002E62DF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		9D89CD0D2077CD4D00B91BAF /* libRNDeviceBrightness.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNDeviceBrightness.a;
+			remoteRef = 9D89CD0C2077CD4D00B91BAF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9D98BCD7206E88F000DBD178 /* libRNiTunes.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1414,12 +1446,14 @@
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
 				);
 				INFOPLIST_FILE = sunriseTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1448,12 +1482,14 @@
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
 				);
 				INFOPLIST_FILE = sunriseTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1483,6 +1519,7 @@
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
 				);
 				INFOPLIST_FILE = sunrise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1509,6 +1546,7 @@
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
 				);
 				INFOPLIST_FILE = sunrise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1541,11 +1579,13 @@
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
 				);
 				INFOPLIST_FILE = "sunrise-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1583,11 +1623,13 @@
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
 				);
 				INFOPLIST_FILE = "sunrise-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1626,6 +1668,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.sunrise-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1650,6 +1693,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

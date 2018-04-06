@@ -34,9 +34,10 @@ class Index extends Component {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Body>
         <SoundPicker
-        onChange={(type, val)=>{
+        onChange={(type, val, label)=>{
           changeSetting('soundType', type);
-          changeSetting('soundFile', val)
+          changeSetting('soundFile', val);
+          changeSetting('soundName', label)
         }}
         />
         </View>

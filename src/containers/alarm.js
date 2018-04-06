@@ -5,6 +5,8 @@ import moment from 'moment';
 import * as cs from '../services/CalendarService';
 import * as as from '../services/AlarmService';
 import * as ts from '../services/TransitService';
+import * as ss from '../services/SoundService';
+import DeviceBrightness from 'react-native-device-brightness';
 
 const _getAlarmStateSlice = (state) => {
   const weekday = moment().isoWeekday();
@@ -86,10 +88,37 @@ const connectServices = (Wrapee) => {
       await this.getAlarmData();
     }
 
-    setAlarm = () => {
-      // set alarm using service
-      // Save in redux
-    
+    dimScreen = async () => {
+      let brightness = await DeviceBrightness.getBrightnessLevel();
+      const bInt = setInterval(() => {
+        brightness = brightness - 0.01;
+        if(brightness < 0){
+          DeviceBrightness.setBrightnessLevel(0);
+          return clearInterval(bInt);
+        }else{
+          DeviceBrightness.setBrightnessLevel(brightness);
+        }
+      }, 30);
+    }
+
+    startNap = () => {
+      const { napAlarm } = this.state;
+      const { soundType, soundFile } = this.props;
+      
+      this.dimScreen();
+
+      as.setAlarm(napAlarm, ()=>{
+        console.log("sound the alarm")
+        try {
+          ss.playSound({file: soundFile, fadetime: 0, loop: true})
+        } catch (error) {
+          console.log("Error", error)
+        }
+      });
+    }
+
+    stopNap = () => {
+      ss.stopSound();
     }
 
     render() {
@@ -99,6 +128,8 @@ const connectServices = (Wrapee) => {
         <Wrapee
           {...this.props}
           {...this.state}
+          startNap={this.startNap}
+          stopNap={this.stopNap}
           updateAlarmData={this.getAlarmData}
           alarmMoment={alarmTime}
           napMoment={napAlarm}

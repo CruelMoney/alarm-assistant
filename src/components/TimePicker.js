@@ -35,7 +35,7 @@ export default class TimePicker extends Component {
     this.setState({visible: false});
   }
   render() {
-    const {duration, suffix} = this.props;
+    const {duration, suffix, textStyle} = this.props;
     const {chosenDate} = this.state;
     let hours = chosenDate.getHours();
     let minutes = chosenDate.getMinutes();
@@ -45,14 +45,19 @@ export default class TimePicker extends Component {
     minutes = String(minutes).length < 2 ? ("0"+minutes) : minutes;
 
     const delimiter = ':';
-    const timeString = `${hours}${delimiter}${minutes}`
+    const timeString = `${hours}${delimiter}${minutes}`;
+
+    
+
     return (
       <View>
          <TouchableOpacity onPress={this.showModal}>
           <View>
-            <Text style={styles.timeText} >
+            <Text style={StyleSheet.flatten([styles.timeText, textStyle])} >
               {timeString}
-              <Text style={styles.suffix}> {suffix}</Text>
+              <Text style={StyleSheet.flatten([styles.suffix, textStyle])} >
+               {" " + suffix}
+               </Text>
             </Text>
           </View>
         </TouchableOpacity>
