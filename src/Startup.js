@@ -37,7 +37,7 @@ class Startup extends Component {
 
   async componentDidMount() {     
     await Promise.all([
-      delay(0), // show splash in minimum 2000ms
+      delay(1000), // show splash in minimum 2000ms
     ])
 
     this.setState({ loaded: true });

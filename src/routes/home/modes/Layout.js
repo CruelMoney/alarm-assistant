@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  View, Text, StyleSheet, Dimensions, Animated } from 'react-native';
+import {  View, Text, StyleSheet, Dimensions, Animated, Easing } from 'react-native';
 import Menu from '../Menu';
 import MyButton from '../Button';
 import DynamicBG from '../../../components/DynamicBG';
@@ -12,15 +12,35 @@ const Screen = {
 }
 
 class index extends Component {
+  state={initialized:false}
+
   constructor(props) {
     super(props);
     this.menuDrag = new Animated.Value(Screen.height-115);
     this.animationValues = [
-      new Animated.Value(1),
+      new Animated.Value(0),
       new Animated.Value(0),
       new Animated.Value(0)
     ];
     props.registerAnimate && props.registerAnimate(this.animate);
+  }
+
+
+  componentWillReceiveProps(nextprops){
+    const {initialized} = this.state;
+    (nextprops.display !== 'Loading' && !initialized) 
+    && this.initAnimate(); 
+  }
+
+  initAnimate = () => {
+    Animated
+      .timing(this.animationValues[0], { 
+        toValue: 1, 
+        duration: 1000,
+        easing: Easing.out(Easing.quad)
+       })
+      .start();
+    this.setState({initialized: true})
   }
 
   animate = (reverse) => {
@@ -47,6 +67,7 @@ class index extends Component {
     const color = Color(getTimeColor());
 
     return (
+
       <DynamicBG 
         skyProgress={this.animationValues[1]}
         style={styles.container}

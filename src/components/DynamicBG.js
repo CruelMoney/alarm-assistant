@@ -33,8 +33,7 @@ export default class GradientBG extends Component {
            style={
             StyleSheet.flatten([
               styles.sky,{
-              opacity: skyProgress,
-              // transform: [{translateY: animatedOffsetY}]
+              opacity: skyProgress || 0,
             }])}
           
           />
