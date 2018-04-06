@@ -19,21 +19,25 @@ const _getAlarmStateSlice = (state) => {
 
 const connectServices = (Wrapee) => {
   class Wrapper extends Component {
-    state={
-      loading: true
-    }
+    state = { }
 
+    getAlarmData = async () => {
+      this.setState({
+        loading: true
+      });
 
-    async componentDidMount(){
       const {
         calendar, 
         calendars, 
         transit, 
         transportationMethod,
-        preparationTime
+        preparationTime,
+        napLength
       } = this.props;
+
       let alarmTime = false;
       let event = false;
+
       // fetch calendar if enabled
       if(calendar){
         event = await cs.getNextEvent(calendars);
@@ -59,40 +63,45 @@ const connectServices = (Wrapee) => {
          alarmTime: alarmTime,
          ..._getAlarmStateSlice(this.props)
       });
+
       // calculate nap time
-      
+      const {napAlarm, napMode, maxNap} = as.calculateNapTime({
+        alarmTime: alarmTime,
+        napLength: napLength
+     });
+
       // save all in state
       this.setState({
         alarmTime: firstAlarm,
         mode,
+        napAlarm,
+        napMode, 
+        maxNap,
+        event: event,
         loading: false
       });
     }
 
-    getText = () => {
-      const { alarmTime, loading, mode } = this.state;
-      const { soundName } = this.props;
-      if(loading || !alarmTime) return `Loading`;
-      const sleepLength = Math.round(alarmTime.diff(moment(), 'minute')/60, 1);
-      switch (mode) {
-        case 'event':
-          return `Go to sleep now to get ${sleepLength} hours of sleep. I will wake you up at ${alarmTime.format('HH:mm')}, with ${soundName}.`
-        case 'latest':
-          return `Go to sleep now to get ${sleepLength} hours of sleep. I will wake you up at ${alarmTime.format('HH:mm')}, with ${soundName}.`
-        case 'minimum':
-          return `Go to sleep now to get a full ${sleepLength} hours of sleep. I will wake you up at ${alarmTime.format('HH:mm')}, with ${soundName}.`
-        default:
-          return `Go to sleep now to get ${sleepLength} hours of sleep. I will wake you up at ${alarmTime.format('HH:mm')}, with ${soundName}.`
-      }
-     
+    async componentDidMount(){
+      await this.getAlarmData();
+    }
+
+    setAlarm = () => {
+      // set alarm using service
+      // Save in redux
+    
     }
 
     render() {
+      const { alarmTime, napAlarm } = this.state;
+
       return (
         <Wrapee
           {...this.props}
-          getText={this.getText}
-          display={this.getText()}
+          {...this.state}
+          updateAlarmData={this.getAlarmData}
+          alarmMoment={alarmTime}
+          napMoment={napAlarm}
         />
       );
     }

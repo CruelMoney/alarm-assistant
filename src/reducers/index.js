@@ -8,6 +8,7 @@ const initialState = {
     latestWeekdays: {h: 10, m: 0},
     sleepLengthWeekends: 540,
     sleepLengthWeekdays: 450,
+    napLength: 30, 
     calendar: true,
     transit: true,
     transportationMethod: 'car',

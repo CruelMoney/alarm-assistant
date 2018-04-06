@@ -7,49 +7,105 @@ import {getTimeColor} from '../../../utils/colors';
 import Color from 'color';
 import _ from 'lodash';
 import Body from '../../../components/text/Body';
+import connectAlarm from "../../../containers/alarm";
+import moment from 'moment';
+import {getNapText} from '../../../services/LanguageService';
+import NavigationService from '../../../services/NavigationService';
 
-export default class Index extends Component {
+class index extends Component {
   constructor(props) {
     super(props);
     this.state = {
       sleeping: false
     };
-    this.animateFunc = null
+    this.animateFunc = null;
+    this.updateNapLength = null;
   }
 
-  toggleSleep = _.throttle(() => {
+  toggleNap = _.throttle(() => {
     const {sleeping} = this.state;
     this.animateFunc(sleeping);
-    this.setState({
-      sleeping: !sleeping
-    });
+    sleeping ? this.stopNap() : this.startNap();
   }, 750, { 'trailing': false })
 
-  render() {
+  startNap = () => {
+    const { napMoment } = this.props;
+
+    this.setState({
+      sleeping: true
+    });
+
+    const updateFun = () => {
+      const napLength = Math.round(napMoment.diff(moment(), 'seconds')/60, 1);
+      this.setState({
+        napLength: napLength
+      })
+    }
+    updateFun();
+    this.updateNapLength = setInterval(updateFun, 1000);
+  }
+
+  stopNap = () => {
+    const { updateAlarmData } = this.props;
+    updateAlarmData();
+    clearInterval(this.updateNapLength);
+    this.setState({
+      sleeping: false
+    });
+  }
+
+  getMenu = () => {
+    const { sleeping } = this.state;
     const { navigate } = this.props.navigation;
     const color = Color(getTimeColor());
+    if(sleeping){
+      return ( 
+        <View style={{width:'100%'}}>
+          <MyButton 
+            onPress={this.toggleNap}
+            label={"CANCEL"} 
+            underlayColor={color.darken(0.15).string()}
+            style={{backgroundColor: color.darken(0.1).string()}} />
+        </View>
+      )
+    }else{
+      return(
+        <View style={{width:'100%'}}>
+          <MyButton 
+            onPress={this.toggleNap}
+            label={"NAP"} 
+            underlayColor={color.darken(0.15).string()}
+            style={{backgroundColor: color.darken(0.1).string()}} />
+          <MyButton 
+            onPress={() => navigate('GoToSleep')}
+            label={"SLEEP"} 
+            underlayColor={color.darken(0.25).string()}
+            style={{backgroundColor: color.darken(0.2).string()}} />
+          <MyButton 
+            onPress={() => NavigationService.navigate('Settings')}
+            label={"SETTINGS"} 
+            underlayColor={color.darken(0.35).string()}
+            style={{backgroundColor:  color.darken(0.3).toString()}} />
+        </View>
+        )
+    }
+
+   
+  }
+
+  render() {
+    const { napMoment } = this.props;
+    const { napLength }  = this.state;
     
     return (
       <Layout
       registerAnimate={fun => this.animateFunc = fun}
-      menu={
-          <View style={{width:'100%'}}>
-           <MyButton 
-              onPress={this.toggleSleep}
-              label={"NAP"} 
-              underlayColor={color.darken(0.15).string()}
-              style={{backgroundColor: color.darken(0.1).string()}} />
-            <MyButton 
-             onPress={() => navigate('GoToSleep')}
-              label={"SLEEP"} 
-              underlayColor={color.darken(0.25).string()}
-              style={{backgroundColor: color.darken(0.2).string()}} />
-          </View>
-        }
+      display={getNapText({...this.props})}
+      menu={this.getMenu()}
       activeText={
         <View>
         <Body>
-          Nap for
+          Nap finished in
         </Body> 
           <Text 
             style={{
@@ -58,7 +114,7 @@ export default class Index extends Component {
             textAlign: 'center',
             color: '#fff'
             }}>
-            20
+            {napLength}
             </Text>
         <Body>
           minutes
@@ -80,3 +136,5 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 });
+
+export default connectAlarm(index);

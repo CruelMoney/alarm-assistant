@@ -5,7 +5,9 @@ import Sleeping from './modes/Sleeping';
 import Nap from './modes/Nap';
 import WakeUp from './modes/WakeUp';
 import { StackNavigator } from 'react-navigation';
+import moment from 'moment';
 
+const currentHour = moment().hour();
 
 const Navigator = StackNavigator({
   "GoToSleep": { screen: GoToSleep },
@@ -14,7 +16,7 @@ const Navigator = StackNavigator({
   "WakeUp": {screen: WakeUp}
 },
 {
-  initialRouteName: 'GoToSleep',
+  initialRouteName: (currentHour > 9 && currentHour < 18) ? 'Nap' : 'GoToSleep',
   headerMode: 'none',
   navigationOptions: {
     headerVisible: false,

@@ -8,8 +8,6 @@ const Screen = {
   height: Dimensions.get('window').height
 }
 
-
-
 const styles = StyleSheet.create({
  
   panelContainer: {
@@ -30,23 +28,48 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 4,
     backgroundColor: '#ffffff80'
+  },
+  hide:{
+    opacity: 0
   }
  
 });
 
 class Menu extends Component {
+  constructor(props){
+    super(props);
+
+    !!props.registerCloseFun && props.registerCloseFun(this.close)
+  }
+
+  close = () => {
+    this.interactable.snapTo({index: 1});
+  }
+  
   render() {
+    const childrenCount = this.props.children.props.children.length;
+    const count = 3;
+    const buttonHeight = 100
+    const closedPosition = Screen.height-(buttonHeight+15);
+    const openedPosition = Screen.height-(count*buttonHeight+15);
+    const dragEnabled = childrenCount > 1;
+
     return (
       <View style={styles.panelContainer}>
       <Interactable.View
         {...this.props}
+        ref={r => this.interactable = r}
         animatedNativeDriver={true}
         verticalOnly={true}
-        snapPoints={[{y: Screen.height-315, tension: 400, damping: 0.7}, {y: Screen.height-115}]}
-        initialPosition={{y: Screen.height-115}}
-        boundaries={{top: Screen.height-315, bottom: Screen.height-115, haptics: true, bounce: 0.5}}>
+        dragEnabled={dragEnabled}
+        snapPoints={[{y: openedPosition, tension: 400, damping: 0.7}, {y: closedPosition}]}
+        initialPosition={{y: closedPosition}}
+        boundaries={{top: openedPosition, bottom: closedPosition, haptics: true, bounce: 0.5}}>
         <View style={styles.panel}>
-          <View style={styles.panelHandle} />
+          <View style={StyleSheet.flatten([
+            styles.panelHandle,
+            dragEnabled ? {} : styles.hide
+            ])} />
           {this.props.children}
          </View>
       </Interactable.View>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {  View, Text, StyleSheet, Dimensions, Animated } from 'react-native';
 import Menu from '../Menu';
 import MyButton from '../Button';
-import NavigationService from '../../../services/NavigationService';
 import DynamicBG from '../../../components/DynamicBG';
 import {getTimeColor} from '../../../utils/colors';
 import Color from 'color';
@@ -31,6 +30,7 @@ class index extends Component {
       return Animated.timing(v, { toValue: endValue, duration: 500 }) 
     });
     animations = reverse ? animations.reverse() : animations;
+    this.closeMenu();
     Animated.stagger(250, animations).start()
   }
 
@@ -79,14 +79,10 @@ class index extends Component {
       </Animated.View>
 
         <Menu
+          registerCloseFun={fun => this.closeMenu = fun}
           animatedValueY={this.menuDrag}
         >
           {this.props.menu}
-          <MyButton 
-              onPress={() => NavigationService.navigate('Settings')}
-              label={"SETTINGS"} 
-              underlayColor={color.darken(0.35).string()}
-              style={{backgroundColor:  color.darken(0.3).toString()}} />
         </Menu>
       </DynamicBG>
     );

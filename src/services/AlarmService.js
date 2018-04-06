@@ -24,10 +24,32 @@ const calculateNextAlarmTime = ({
   const mode = 
     firstAlarm === alarm ? "event" :
     firstAlarm === minimum ? "minimum" :
-    firstAlarm === minimum ? "latest" : 'unknown';
+    firstAlarm === latest ? "latest" : 'unknown';
   return {
     firstAlarm,
     mode
+  };
+}
+
+const calculateNapTime = ({
+  alarmTime, // as determined by other factors as events, can be null
+  napLength
+}, now) => {
+  // approach calculate all possible alarms and use the earliest 
+  now = !!now ? now : moment();
+  const alarm = !!alarmTime ? moment(alarmTime) : moment().add(999, 'day');
+  const minimum = moment(now).add(napLength, 'minute');
+  const maxNap = alarm;
+
+  const firstAlarm = moment.min([alarm, minimum]);
+  const mode = 
+      firstAlarm === alarm                    ? "event"             :
+    ( firstAlarm === minimum && !alarmTime )  ? "minimum-no-event"  : 
+      firstAlarm === minimum                  ? "minimum"           : 'unknown';
+  return {
+    napAlarm : firstAlarm,
+    maxNap,
+    napMode: mode
   };
 }
 
@@ -41,5 +63,6 @@ const setAlarm = (at, alarmAction) => {
 
 export {
   calculateNextAlarmTime,
+  calculateNapTime,
   setAlarm
 }

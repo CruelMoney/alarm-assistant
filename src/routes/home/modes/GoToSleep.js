@@ -8,8 +8,10 @@ import Color from 'color';
 import _ from 'lodash';
 import Body from '../../../components/text/Body';
 import connectAlarm from "../../../containers/alarm";
+import { getSleepText } from '../../../services/LanguageService';
+import NavigationService from '../../../services/NavigationService';
 
-class Index extends Component {
+class index extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,13 +29,12 @@ class Index extends Component {
   }, 750, { 'trailing': false })
 
   render() {
-    const { display } = this.props;
     const { navigate } = this.props.navigation;
     const color = Color(getTimeColor());
     
     return (
       <Layout
-      display={display}
+      display={getSleepText({...this.props})}
       registerAnimate={fun => this.animateFunc = fun}
       menu={
           <View style={{width:'100%'}}>
@@ -47,6 +48,11 @@ class Index extends Component {
               label={"NAP"} 
               underlayColor={color.darken(0.25).string()}
               style={{backgroundColor: color.darken(0.2).string()}} />
+               <MyButton 
+              onPress={() => NavigationService.navigate('Settings')}
+              label={"SETTINGS"} 
+              underlayColor={color.darken(0.35).string()}
+              style={{backgroundColor:  color.darken(0.3).toString()}} />
           </View>
         }
       activeText={
