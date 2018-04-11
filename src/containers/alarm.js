@@ -121,6 +121,26 @@ const connectServices = (Wrapee) => {
       ss.stopSound();
     }
 
+    startSleep = () => {
+      const { alarmTime } = this.state;
+      const { soundType, soundFile } = this.props;
+      
+      this.dimScreen();
+
+      as.setAlarm(alarmTime, ()=>{
+        console.log("sound the alarm")
+        try {
+          ss.playSound({file: soundFile, fadetime: 0, loop: true})
+        } catch (error) {
+          console.log("Error", error)
+        }
+      });
+    }
+
+    stopSleep = () => {
+      ss.stopSound();
+    }
+
     render() {
       const { alarmTime, napAlarm } = this.state;
 
@@ -130,6 +150,8 @@ const connectServices = (Wrapee) => {
           {...this.state}
           startNap={this.startNap}
           stopNap={this.stopNap}
+          startSleep={this.startSleep}
+          stopSleep={this.stopSleep}
           updateAlarmData={this.getAlarmData}
           alarmMoment={alarmTime}
           napMoment={napAlarm}
