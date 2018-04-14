@@ -123,14 +123,23 @@ const connectServices = (Wrapee) => {
 
     startSleep = () => {
       const { alarmTime } = this.state;
-      const { soundType, soundFile } = this.props;
+      const { soundType, soundFile, fadeIn } = this.props;
       
       this.dimScreen();
 
       as.setAlarm(alarmTime, ()=>{
         console.log("sound the alarm")
         try {
-          ss.playSound({file: soundFile, fadetime: 0, loop: true})
+          switch (soundType) {
+            case "playlist":
+              ss.playPlaylist({name: soundFile, fadetime: fadeIn});
+              break;
+            case "sound":
+              ss.playSound({file: soundFile, fadetime: fadeIn, loop: true});
+              break;
+            default:
+              break;
+          }
         } catch (error) {
           console.log("Error", error)
         }

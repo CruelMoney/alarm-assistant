@@ -33,6 +33,7 @@
     "react-native-device-brightness": "^1.2.0",
     "react-native-drawer": "^2.5.0",
     "react-native-interactable": "^0.1.10",
+    "react-native-ios-volume": "^1.0.0",
     "react-native-itunes": "^0.5.0",
     "react-native-modal": "^5.4.0",
     "react-native-modalbox": "^1.4.2",

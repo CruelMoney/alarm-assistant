@@ -13,6 +13,7 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* sunriseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* sunriseTests.m */; };
+		038FA5B242A14372A509C028 /* libRNIosVolume.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB7A3FBDBAF42698A43C4A3 /* libRNIosVolume.a */; };
 		0459F2AFC1F44417BC8702F0 /* AvenirNext-UltraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 900B22F34D1A4DB2AB162376 /* AvenirNext-UltraLightItalic.ttf */; };
 		1059DE89DF8B41FF89139123 /* AvenirNext-DemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37F3F36A553948A3B0FA1A5C /* AvenirNext-DemiBold.ttf */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -270,6 +271,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		9D06C50D2081E12000317845 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80D5285278EC42279EEB6F8E /* RNIosVolume.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNIosVolume;
+		};
 		9D4A1F44206C9A5A002E62DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -411,6 +419,7 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7A9C812DFD814C2CAE85F1EC /* libInteractable.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libInteractable.a; sourceTree = "<group>"; };
 		7BA8909628C74841A48EE5AD /* AvenirNext-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-BoldItalic.ttf"; path = "../src/assets/fonts/AvenirNext-BoldItalic.ttf"; sourceTree = "<group>"; };
+		80D5285278EC42279EEB6F8E /* RNIosVolume.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNIosVolume.xcodeproj; path = "../node_modules/react-native-ios-volume/ios/RNIosVolume.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		900B22F34D1A4DB2AB162376 /* AvenirNext-UltraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-UltraLightItalic.ttf"; path = "../src/assets/fonts/AvenirNext-UltraLightItalic.ttf"; sourceTree = "<group>"; };
 		9D033BC5207104E2007AED0C /* bird_chirps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bird_chirps.mp3; path = ../src/assets/sounds/bird_chirps.mp3; sourceTree = "<group>"; };
@@ -424,6 +433,7 @@
 		B8CFA6E1FF1846F2B048673B /* RNiTunes.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNiTunes.xcodeproj; path = "../node_modules/react-native-itunes/RNiTunes.xcodeproj"; sourceTree = "<group>"; };
 		B8DC05B8411F436CA216CF7E /* RNSound.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		B962268CA1934EA3AD23842B /* AvenirNext-UltraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-UltraLight.ttf"; path = "../src/assets/fonts/AvenirNext-UltraLight.ttf"; sourceTree = "<group>"; };
+		CCB7A3FBDBAF42698A43C4A3 /* libRNIosVolume.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNIosVolume.a; sourceTree = "<group>"; };
 		CEEE0889956D4862AE799EF0 /* AvenirNext-Heavy.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AvenirNext-Heavy.ttf"; path = "../src/assets/fonts/AvenirNext-Heavy.ttf"; sourceTree = "<group>"; };
 		E18475B1AD414E8EAB56EE2B /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
 		E8C9FD229693482BA91EE5BB /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCalendarEvents.xcodeproj; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; };
@@ -465,6 +475,7 @@
 				C5D8FCAA62774133AB7EF78F /* libReactNativePermissions.a in Frameworks */,
 				8470225C4703414B802A902B /* libRNSound.a in Frameworks */,
 				A963AE24D4C44E92B678F914 /* libRNDeviceBrightness.a in Frameworks */,
+				038FA5B242A14372A509C028 /* libRNIosVolume.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +687,7 @@
 				FC1296916EA14462AC071D86 /* ReactNativePermissions.xcodeproj */,
 				B8DC05B8411F436CA216CF7E /* RNSound.xcodeproj */,
 				780581D1C0DA44F39E3212E1 /* RNDeviceBrightness.xcodeproj */,
+				80D5285278EC42279EEB6F8E /* RNIosVolume.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -717,6 +729,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9D06C50A2081E12000317845 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D06C50E2081E12000317845 /* libRNIosVolume.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9D4A1F1E206C9A55002E62DF /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,6 +746,7 @@
 				E18475B1AD414E8EAB56EE2B /* libReactNativePermissions.a */,
 				B8CA13C1AC8841D6B6924B44 /* libRNSound.a */,
 				692A46B6D6D54F7A99683236 /* libRNDeviceBrightness.a */,
+				CCB7A3FBDBAF42698A43C4A3 /* libRNIosVolume.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -967,6 +988,10 @@
 					ProjectRef = 780581D1C0DA44F39E3212E1 /* RNDeviceBrightness.xcodeproj */;
 				},
 				{
+					ProductGroup = 9D06C50A2081E12000317845 /* Products */;
+					ProjectRef = 80D5285278EC42279EEB6F8E /* RNIosVolume.xcodeproj */;
+				},
+				{
 					ProductGroup = 9D98BCD3206E88F000DBD178 /* Products */;
 					ProjectRef = B8CFA6E1FF1846F2B048673B /* RNiTunes.xcodeproj */;
 				},
@@ -1180,6 +1205,13 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D06C50E2081E12000317845 /* libRNIosVolume.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNIosVolume.a;
+			remoteRef = 9D06C50D2081E12000317845 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		9D4A1F45206C9A5A002E62DF /* libjsinspector.a */ = {
@@ -1447,12 +1479,14 @@
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
+					"$(SRCROOT)/../node_modules/react-native-ios-volume/ios",
 				);
 				INFOPLIST_FILE = sunriseTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1483,12 +1517,14 @@
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
+					"$(SRCROOT)/../node_modules/react-native-ios-volume/ios",
 				);
 				INFOPLIST_FILE = sunriseTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1520,6 +1556,7 @@
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
+					"$(SRCROOT)/../node_modules/react-native-ios-volume/ios",
 				);
 				INFOPLIST_FILE = sunrise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1547,6 +1584,7 @@
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
+					"$(SRCROOT)/../node_modules/react-native-ios-volume/ios",
 				);
 				INFOPLIST_FILE = sunrise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1580,11 +1618,13 @@
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
+					"$(SRCROOT)/../node_modules/react-native-ios-volume/ios",
 				);
 				INFOPLIST_FILE = "sunrise-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1624,11 +1664,13 @@
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-device-brightness/RNDeviceBrightness",
+					"$(SRCROOT)/../node_modules/react-native-ios-volume/ios",
 				);
 				INFOPLIST_FILE = "sunrise-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1669,6 +1711,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.sunrise-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1693,6 +1736,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

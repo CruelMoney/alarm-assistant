@@ -91,10 +91,10 @@ class index extends Component {
     
     return (
       <Layout
-      display={getSleepText({...this.props})}
-      registerAnimate={fun => this.animateFunc = fun}
-      menu={this.getMenu()}
-      activeText={
+        display={getSleepText({...this.props})}
+        registerAnimate={fun => this.animateFunc = fun}
+        menu={this.getMenu()}
+        activeText={
         <View>
         <Body>
           Wake up at

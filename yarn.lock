@@ -1876,12 +1876,6 @@ extend@~3.0.0, extend@~3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
 
-extendable-base@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/extendable-base/-/extendable-base-0.3.1.tgz#d5e3d6571567207c12dffcefe1cf35a1d9323f80"
-  dependencies:
-    underscore ">=1.7.0"
-
 external-editor@^2.0.4:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/external-editor/-/external-editor-2.1.0.tgz#3d026a21b7f95b5726387d4200ac160d372c3b48"
@@ -3580,15 +3574,7 @@ mixin-deep@^1.2.0:
   dependencies:
     minimist "0.0.8"
 
-moment-parser@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/moment-parser/-/moment-parser-0.3.0.tgz#e2edd2b61e1fff381e6c6cf3f091e2ad09bbf723"
-  dependencies:
-    extendable-base "^0.3.1"
-    moment "^2.10.6"
-    pegjs "^0.9.0"
-
-moment@^2.10.6, moment@^2.22.0:
+moment@^2.22.0:
   version "2.22.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.0.tgz#7921ade01017dd45186e7fee5f424f0b8663a730"
 
@@ -3980,10 +3966,6 @@ pegjs@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/pegjs/-/pegjs-0.10.0.tgz#cf8bafae6eddff4b5a7efb185269eaaf4610ddbd"
 
-pegjs@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/pegjs/-/pegjs-0.9.0.tgz#f6aefa2e3ce56169208e52179dfe41f89141a369"
-
 performance-now@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
@@ -4201,6 +4183,10 @@ react-native-drawer@^2.5.0:
 react-native-interactable@^0.1.10:
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/react-native-interactable/-/react-native-interactable-0.1.10.tgz#65b9a68f6a84ba1c0e2ad5478b1f22ffb29c0526"
+
+react-native-ios-volume@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-ios-volume/-/react-native-ios-volume-1.0.0.tgz#1f224acce67adb9339d98a70f864a8330d639c57"
 
 react-native-itunes@^0.5.0:
   version "0.5.0"
@@ -5279,10 +5265,6 @@ ultron@1.0.x:
 ultron@~1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.1.1.tgz#9fe1536a10a664a65266a1e3ccf85fd36302bc9c"
-
-underscore@>=1.7.0:
-  version "1.8.3"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
 
 union-value@^1.0.0:
   version "1.0.0"

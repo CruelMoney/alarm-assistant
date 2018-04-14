@@ -1,10 +1,24 @@
 import Sound from 'react-native-sound';
+import iTunes from 'react-native-itunes';
+import RNIosVolume from 'react-native-ios-volume';
 
 Sound.setCategory('Playback');
 
-
-const playPlaylist = ({id, fadetime}) => {
-
+const playPlaylist = ({name, fadetime}) => {
+  iTunes.getPlaylists([],{name:name})
+    .then(({name, playCount, tracks})=>{
+      RNIosVolume.setVolume(0);
+      return iTunes.playTracks(tracks)
+    })
+    .then(RNIosVolume.getVolume)
+    .then(vol => {
+      _fadeSound(
+        RNIosVolume.setVolume, 
+        fadetime,
+        0
+      );
+    })
+    .catch(console.log) // TODO fallback sound
 }
 
 const _loadSound = (file) => {
@@ -16,7 +30,8 @@ const _loadSound = (file) => {
   });
 } 
 
-const _fadeSound = (sound, duration, initVolume = 0) => {
+// Duration in ms
+const _fadeSound = (setVolumeFun, duration, initVolume = 0) => {
   let vol = initVolume;
   const iTime = 500;
   const steps = duration/iTime;
@@ -26,8 +41,9 @@ const _fadeSound = (sound, duration, initVolume = 0) => {
   const interval = setInterval(()=>{
     if(vol >= 1) return clearInterval(interval);
     vol += increasePrStep;
-    sound.setVolume(vol);
+    setVolumeFun(vol);
   }, iTime);
+
 }
 
 let soundRef = null;
@@ -39,7 +55,11 @@ const playSound = async ({file, fadetime, loop, initVolume}) => {
     loop && sound.setNumberOfLoops(-1);
     (!!initVolume || initVolume === 0) ? sound.setVolume(initVolume) : sound.setVolume(1);
     if(!!fadetime){
-      _fadeSound(sound, fadetime, initVolume);
+      _fadeSound(
+        sound.setVolume, 
+        fadetime, 
+        initVolume
+      );
     }
     sound.play((succes)=>{
       if(succes){
@@ -57,5 +77,6 @@ const stopSound = () => {
 
 export {
   playSound,
+  playPlaylist,
   stopSound
 }
