@@ -31,20 +31,24 @@ const _loadSound = (file) => {
   });
 } 
 
-// Duration in ms
+// Duration in ms, ease in cubic
 const _fadeSound = (setVolumeFun, duration, initVolume = 0) => {
   let vol = initVolume;
-  const iTime = 500;
-  const steps = duration/iTime;
-  const increase = 1-initVolume
-  const increasePrStep = increase/steps;
+  let time = 0;
+  const interval = 500;
+  const curve = t => t*t*t; // cubic
+  const frac = 1/curve(duration);
 
-  const interval = setInterval(()=>{
-    if(vol >= 1) return clearInterval(interval);
-    vol += increasePrStep;
-    setVolumeFun(vol);
-  }, iTime);
-
+  const ref = setInterval(()=>{
+    time += time + interval;
+    vol = frac*curve(time);
+    if(vol >= 1){ 
+      setVolumeFun(1);
+      return clearInterval(ref);
+    }else{
+      setVolumeFun(vol);
+    }
+  }, interval);
 }
 
 let soundRef = null;

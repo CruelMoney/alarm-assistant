@@ -125,10 +125,11 @@ const connectServices = (Wrapee) => {
     startSleep = () => {
       const { alarmTime } = this.state;
       const { soundType, soundFile, fadeIn } = this.props;
-      
+      const startAlarm = alarmTime.subtract(fadeIn, 'millisecond');
+
       this.dimScreen();
 
-      as.setAlarm(alarmTime, ()=>{
+      as.setAlarm(startAlarm, ()=>{
         console.log("sound the alarm")
         try {
           switch (soundType) {
