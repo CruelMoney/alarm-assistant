@@ -5,9 +5,10 @@ import RNIosVolume from 'react-native-ios-volume';
 Sound.setCategory('Playback');
 
 const playPlaylist = ({name, fadetime}) => {
-  iTunes.getPlaylists([],{name:name})
+  RNIosVolume.setVolume(0);
+
+  iTunes.getPlaylists({query:{name:name}})
     .then(({name, playCount, tracks})=>{
-      RNIosVolume.setVolume(0);
       return iTunes.playTracks(tracks)
     })
     .then(RNIosVolume.getVolume)
@@ -15,7 +16,7 @@ const playPlaylist = ({name, fadetime}) => {
       _fadeSound(
         RNIosVolume.setVolume, 
         fadetime,
-        0
+        vol
       );
     })
     .catch(console.log) // TODO fallback sound

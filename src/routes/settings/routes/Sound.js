@@ -5,6 +5,7 @@ import H2 from '../../../components/text/H2';
 import Body from '../../../components/text/Body';
 import SoundPicker from '../../../components/SoundPicker';
 import {getTimeColor} from '../../../utils/colors';
+import TimePicker from '../../../components/TimePicker';
 
 const styles = StyleSheet.create({
   headline:{
@@ -30,11 +31,14 @@ const styles = StyleSheet.create({
 
 class Index extends Component {
   render() {
-    const {changeSetting, napLength, soundType, soundFile, soundName} = this.props;
+    const {changeSetting, napLength, soundType, soundFile, soundName, fadeIn} = this.props;
+    const minutes = Math.floor((fadeIn/100/60)%60);
+    const hours   = Math.floor(fadeIn/100/60/60);
+
     return (
       <View>
           <H2 style={styles.headline}>
-            Default nap length
+            Alarm sound
           </H2>
           <Body style={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -51,6 +55,20 @@ class Index extends Component {
                   changeSetting('soundName', label)
                 }}
                 />
+          </View>
+          <View style={styles.soundpicker}>
+          <H2 style={styles.headline}>
+            Wake up phase
+          </H2>
+          <Body style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Body>
+          <TimePicker 
+              onChange={(h,m)=>{
+                changeSetting('fadeIn', (h*60+m)*60*100)
+              }}
+              suffix={"hours"}
+              initHours={hours} initMinutes={minutes} />
           </View>
       </View>
     );

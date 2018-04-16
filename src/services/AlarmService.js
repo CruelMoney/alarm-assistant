@@ -1,5 +1,7 @@
 import moment from 'moment';
 
+let alarm = null;
+
 /**
  * @param  {} {alarmTime
  * @param  {} minSleepMinutes
@@ -53,17 +55,22 @@ const calculateNapTime = ({
   };
 }
 
+const cancelAlarm = () => {
+  clearTimeout(alarm);
+}
 
 const setAlarm = (at, alarmAction) => {
   const timeout = at.diff(moment(), 'milliseconds');
   console.log("alarm in, ", timeout);
   if(timeout < 0 ) throw Error("Can't set alarm in present");
-  return setTimeout(alarmAction, timeout);
+  alarm = setTimeout(alarmAction, timeout);
+  return alarm;
 }
 
 
 export {
   calculateNextAlarmTime,
   calculateNapTime,
-  setAlarm
+  setAlarm,
+  cancelAlarm
 }

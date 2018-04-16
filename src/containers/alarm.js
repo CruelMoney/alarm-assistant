@@ -118,6 +118,7 @@ const connectServices = (Wrapee) => {
     }
 
     stopNap = () => {
+      as.cancelAlarm();
       ss.stopSound();
     }
 

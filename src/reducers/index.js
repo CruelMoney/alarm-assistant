@@ -23,7 +23,7 @@ const initialState = {
     soundType: 'sound',
     soundFile: 'birds_chirps.mp3',
     soundName: 'Bird Chirps',
-    fadeIn: 1*60*60*100, // in ms
+    fadeIn: 0, // in ms
   },
 }
 
