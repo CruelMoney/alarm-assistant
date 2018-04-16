@@ -1,6 +1,6 @@
 dependencies: \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTTextSelection.m \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTTextSelection.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/TextInput/RCTTextSelection.m \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/TextInput/RCTTextSelection.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \

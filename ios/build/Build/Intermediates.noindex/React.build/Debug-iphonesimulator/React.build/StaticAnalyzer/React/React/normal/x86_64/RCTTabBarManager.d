@@ -23,4 +23,7 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTInvalidating.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/UIView+React.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTComponent.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTTabBar.h
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTTabBar.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Modules/RCTUIManager.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTRootView.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Modules/RCTUIManagerObserverCoordinator.h

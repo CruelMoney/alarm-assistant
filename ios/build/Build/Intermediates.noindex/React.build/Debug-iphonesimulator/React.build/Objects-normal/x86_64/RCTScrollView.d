@@ -28,5 +28,7 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTRootView.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTViewManager.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/UIView+React.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Modules/RCTUIManagerObserverCoordinator.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Modules/RCTUIManagerUtils.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/UIView+Private.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTRefreshControl.h

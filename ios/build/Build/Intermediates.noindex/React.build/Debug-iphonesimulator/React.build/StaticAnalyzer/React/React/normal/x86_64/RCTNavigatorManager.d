@@ -25,4 +25,5 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTComponent.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTNavigator.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Modules/RCTUIManager.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTRootView.h
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTRootView.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Modules/RCTUIManagerObserverCoordinator.h

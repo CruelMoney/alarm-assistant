@@ -21,6 +21,7 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTEventDispatcher.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Inspector/RCTInspectorPackagerConnection.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTModuleData.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Profiler/RCTProfile.h \

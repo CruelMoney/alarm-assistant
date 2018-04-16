@@ -25,4 +25,5 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/UIView+React.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTParserUtils.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTShadowView.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTLayout.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTRootView.h

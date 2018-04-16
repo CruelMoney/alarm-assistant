@@ -1,5 +1,5 @@
 dependencies: \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Blob/RCTBlobManager.m \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Blob/RCTBlobManager.mm \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Blob/RCTBlobManager.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
@@ -21,5 +21,7 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
-  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTWebSocketModule.h \
-  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventEmitter.h
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTNetworking.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventEmitter.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTNetworkTask.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTWebSocketModule.h

@@ -19,4 +19,5 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/DevSupport/RCTPackagerClient.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Profiler/RCTProfile.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Inspector/RCTInspectorPackagerConnection.h

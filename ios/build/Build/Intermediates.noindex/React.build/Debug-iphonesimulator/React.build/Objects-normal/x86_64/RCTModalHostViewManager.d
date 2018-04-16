@@ -29,4 +29,5 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTModalManager.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Modules/RCTEventEmitter.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTShadowView.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTLayout.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTRootView.h

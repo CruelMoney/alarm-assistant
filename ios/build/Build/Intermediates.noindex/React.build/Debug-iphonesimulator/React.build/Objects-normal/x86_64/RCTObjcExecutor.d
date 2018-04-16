@@ -396,4 +396,6 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTUtils.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Profiler/RCTProfile.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/JSBigString.h \
-  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/MessageQueueThread.h
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/MessageQueueThread.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/RAMBundleRegistry.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/JSModulesUnbundle.h

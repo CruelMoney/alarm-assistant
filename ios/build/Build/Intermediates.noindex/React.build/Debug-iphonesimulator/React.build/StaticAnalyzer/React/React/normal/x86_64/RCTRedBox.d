@@ -21,4 +21,6 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTErrorInfo.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTJSStackFrame.h
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTJSStackFrame.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Modules/RCTRedBoxExtraDataViewController.h

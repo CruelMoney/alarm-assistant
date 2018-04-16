@@ -1,7 +1,6 @@
 dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTWrapperViewController.m \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTWrapperViewController.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTViewControllerProtocol.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTEventDispatcher.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTBridge.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTBridgeDelegate.h \

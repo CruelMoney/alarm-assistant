@@ -21,6 +21,8 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/CxxBridge/RCTCxxBridgeDelegate.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/CxxModule/RCTCxxModule.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/CxxModule/RCTCxxUtils.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/JSCExecutor.h \
@@ -400,8 +402,6 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/Exception.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/../third-party/folly-2016.09.26.00/folly/portability/Windows.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/Value.h \
-  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
-  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/Unicode.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/noncopyable.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/privatedata/PrivateDataBase.h \

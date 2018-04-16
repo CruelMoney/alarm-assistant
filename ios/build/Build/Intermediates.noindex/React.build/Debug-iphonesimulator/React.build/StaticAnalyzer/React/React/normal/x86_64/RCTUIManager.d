@@ -38,6 +38,7 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTView.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTRootShadowView.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTShadowView.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTLayout.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTRootViewInternal.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/ScrollView/RCTScrollableProtocol.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTShadowView+Internal.h \

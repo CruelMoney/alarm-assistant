@@ -28,5 +28,4 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTModalHostViewController.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTTouchHandler.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Modules/RCTUIManager.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTRootView.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTTVRemoteHandler.h
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTRootView.h

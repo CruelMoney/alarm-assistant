@@ -29,5 +29,6 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTURLRequestDelegate.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Image/RCTImageShadowView.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLayout.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Image/RCTImageView.h

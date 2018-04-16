@@ -11,4 +11,5 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Modules/RCTAccessibilityManager.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTAssert.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/UIUtils/RCTUIUtils.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTUtils.h

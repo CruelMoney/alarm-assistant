@@ -1,12 +1,12 @@
 dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTFont.mm \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTAssert.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTDefines.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTFont.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTConvert.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTAnimationType.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTBorderStyle.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTDefines.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTLog.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTAssert.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Base/RCTUtils.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTPointerEvents.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \

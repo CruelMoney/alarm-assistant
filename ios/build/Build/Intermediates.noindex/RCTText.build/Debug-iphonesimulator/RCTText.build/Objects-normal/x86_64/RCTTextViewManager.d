@@ -1,6 +1,6 @@
 dependencies: \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTTextViewManager.m \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTTextViewManager.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/Text/RCTTextViewManager.m \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/Text/RCTTextViewManager.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTViewManager.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
@@ -23,15 +23,16 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
-  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFont.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/BaseText/RCTBaseTextViewManager.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAccessibilityManager.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView+Layout.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLayout.h \
   /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTConvert+Text.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTShadowTextView.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTTextView.h \
-  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTView.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTTextInput.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTBackedTextInputViewProtocol.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTFontAttributes.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTFontAttributesDelegate.h
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUIManager.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUIManagerUtils.h \
+  /Projects/Alarm\ assistant/sunrise/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUIManagerObserverCoordinator.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/Text/RCTTextShadowView.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/BaseText/RCTBaseTextShadowView.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/RCTTextAttributes.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/Text/Text/RCTTextView.h

@@ -40,4 +40,5 @@ dependencies: \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTPropsAnimatedNode.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTSpringAnimation.h \
   /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTStyleAnimatedNode.h \
-  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTTransformAnimatedNode.h
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTTransformAnimatedNode.h \
+  /Projects/Alarm\ assistant/sunrise/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTTrackingAnimatedNode.h
