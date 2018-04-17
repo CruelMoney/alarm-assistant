@@ -64,8 +64,10 @@ const getNextEvent = async (calendarIDs = []) => {
   });
 }
 
+getCalendars = RNCalendarEvents.findCalendars;
 
 export {
   askCalendarPermission,
-  getNextEvent
+  getNextEvent,
+  getCalendars
 }

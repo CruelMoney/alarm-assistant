@@ -7,6 +7,7 @@ import Napping from './routes/Napping';
 import Sound from './routes/Sound';
 import Support from './routes/Support'
 import Transit from './routes/Transit'
+import Calendar from './routes/Calendar'
 import Link from '../../components/text/Link'
 import ListItem from './components/ListItem';
 import arrow from '../../assets/images/arrow.png';
@@ -29,7 +30,7 @@ class Header extends Component {
     
     return (
       <View 
-      style={{height: 64, backgroundColor: '#F8F8F8'}}
+      style={{height: 64, backgroundColor: '#F9F9F9'}}
       >
         <TouchableOpacity 
         onPress={()=>{
@@ -55,7 +56,7 @@ class Menu extends Component {
     const {navigation} = this.props;
 
     return (
-      <View>
+      <View style={{backgroundColor: "#FFF"}}>
         <StatusBar
           barStyle="dark-content"
         />
@@ -99,8 +100,8 @@ const Navigator = StackNavigator({
   "Transit": {screen: Transit},
   "Support": {screen: Support},
   "Napping": {screen: Napping},
-  "Sound": {screen: Sound}
-  
+  "Sound": {screen: Sound},
+  "Calendar": {screen: Calendar}
 },
 {
   initialRouteName: 'Menu',

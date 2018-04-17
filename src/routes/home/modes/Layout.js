@@ -47,7 +47,7 @@ class index extends Component {
   animate = (reverse) => {
     let animations = this.animationValues.map(v => {
       const startValue = v._value
-      const endValue = 1 - startValue;
+      const endValue = Math.round((1 - startValue), 0); // round to make sure either 1 or 0 for finishing animation
       return Animated.timing(v, { toValue: endValue, duration: 500 }) 
     });
     animations = reverse ? animations.reverse() : animations;

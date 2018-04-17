@@ -36,7 +36,7 @@ class Index extends Component {
     const hours   = Math.floor(fadeIn/100/60/60);
 
     return (
-      <View>
+      <View style={{backgroundColor: "#FFF"}}>
           <H2 style={styles.headline}>
             Alarm sound
           </H2>

@@ -31,9 +31,12 @@ class ToggleButton extends Component {
   }
 
   render() {
-    const {style, active} = this.props;
+    const {style, active, inverted} = this.props;
     const {toggled} = this.state;
-
+    const color =  getTimeColor(true);
+    const bgColor = inverted ? color : "#fff";
+    const textColor = inverted ? color : "#fff";
+    const toggledTextColor = inverted ? "#fff" : color;
     return (
       <TouchableWithoutFeedback
         onPressIn={this.onPress}
@@ -41,17 +44,17 @@ class ToggleButton extends Component {
         <View style={{
           borderRadius: 50,
           borderWidth: 3,
-          borderColor: '#fff',
+          borderColor: getTimeColor(true),
           height: 50,
           width: 50,
-          backgroundColor: toggled ? "#fff" : "transparent",
+          backgroundColor: toggled ? bgColor : "transparent",
           alignItems: "center",
           justifyContent: "center",
           ...style
         }}>
           <Text style={StyleSheet.flatten([
             styles.buttonText, 
-            toggled ? styles.buttonTextToggled : null
+            {color:  toggled ? toggledTextColor : textColor}
             ]) }>
             {this.props.label}
           </Text>
@@ -67,9 +70,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: 'bold',
     fontSize: 16,
-  },
-  buttonTextToggled: {
-    color: getTimeColor(true),
   }
 });
 

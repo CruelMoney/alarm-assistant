@@ -135,14 +135,16 @@ const connectServices = (Wrapee) => {
       const { soundType, soundFile } = this.props;
       
       this.dimScreen();
-      this.setAlarm(napAlarm, soundFile, 0);
+      this.setAlarm(napAlarm, 0);
     }
 
     stopNap = () => {
       this.cancelAlarm();
     }
 
-    setAlarm = (startAlarm, soundFile, fadeIn) => {
+    setAlarm = (startAlarm, fadeIn) => {
+      const { soundType, soundFile } = this.props;
+
       KeepAwake.activate(); // keep screen awake
       as.setAlarm(startAlarm, ()=>{
         console.log("sound the alarm")
@@ -157,18 +159,25 @@ const connectServices = (Wrapee) => {
             default:
               break;
           }
+          this.setState({
+            waking: true
+          });
         } catch (error) {
           console.log("Error", error)
         }
+      });
+
+      this.setState({
+        sleeping: true
       });
     }
 
     startSleep = () => {
       const { alarmTime } = this.state;
-      const { soundType, soundFile, fadeIn } = this.props;
+      const { fadeIn } = this.props;
       const startAlarm = alarmTime.subtract(fadeIn, 'millisecond');
       this.dimScreen();
-      this.setAlarm(startAlarm, soundFile, fadeIn);
+      this.setAlarm(startAlarm, fadeIn);
     }
 
     stopSleep = () => {
@@ -178,6 +187,17 @@ const connectServices = (Wrapee) => {
     cancelAlarm = () => {
       as.cancelAlarm();
       KeepAwake.deactivate();
+      this.setState({
+        sleeping: false
+      });
+    }
+
+    wakeFromNap = () => {
+      ss.stopSound();
+      this.setState({
+        sleeping: false,
+        waking: false
+      });
     }
 
     render() {
@@ -194,6 +214,7 @@ const connectServices = (Wrapee) => {
           updateAlarmData={this.getAlarmData}
           alarmMoment={alarmTime}
           napMoment={napAlarm}
+          wakeFromNap={this.wakeFromNap}
         />
       );
     }

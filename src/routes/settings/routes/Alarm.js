@@ -4,7 +4,7 @@ import {  View, Text, } from 'react-native';
 export default class index extends Component {
   render() {
     return (
-      <View>
+      <View style={{backgroundColor: "#FFF"}}>
         <Text> Alarm </Text>
       </View>
     );

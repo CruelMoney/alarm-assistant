@@ -32,7 +32,7 @@ class Index extends Component {
   render() {
     const {changeSetting, napLength} = this.props;
     return (
-      <View>
+      <View style={{backgroundColor: "#FFF"}}>
           <H2 style={styles.headline}>
             Default nap length
           </H2>

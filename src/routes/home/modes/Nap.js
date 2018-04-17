@@ -13,43 +13,68 @@ import {getNapText} from '../../../services/LanguageService';
 import NavigationService from '../../../services/NavigationService';
 
 class index extends Component {
+  state={}
+
   constructor(props) {
     super(props);
-    this.state = {
-      sleeping: false
-    };
     this.animateFunc = null;
+    this.updateNapLength = null;
   }
 
-
   toggleNap = _.throttle(() => {
-    const {sleeping} = this.state;
+    const {sleeping} = this.props;
     this.animateFunc(sleeping);
     sleeping ? this.stopNap() : this.startNap();
   }, 1000, { 'trailing': false })
 
+  countDownNapLength = (endMoment) => {
+    const { napMoment } = this.props;
+    const updateFun = () => {
+      const napLength = Math.ceil(napMoment.diff(moment(), 'seconds'));
+      this.setState({
+        napTimeLeft: napLength
+      })
+    }
+    updateFun();
+    this.updateNapLength = setInterval(updateFun, 1000);
+  }
 
   startNap = () => {
     const { startNap } = this.props;
     startNap();
-    this.setState({
-      sleeping: true
-    });
+    this.countDownNapLength();
   }
 
   stopNap = () => {
     const { updateAlarmData, stopNap } = this.props;
+    this.updateNapLength && clearInterval(this.updateNapLength);
     stopNap();
     updateAlarmData();
-    this.setState({
-      sleeping: false
-    });
+  }
+
+  wake = () => {
+    const {wakeFromNap, updateAlarmData} = this.props;
+    this.updateNapLength && clearInterval(this.updateNapLength);
+    updateAlarmData();
+    this.animateFunc(false);
+    wakeFromNap();
   }
 
   getMenu = () => {
-    const { sleeping } = this.state;
-    const { navigate } = this.props.navigation;
+    const { navigation, waking, sleeping } = this.props; 
+    const { navigate } = navigation;
     const color = Color(getTimeColor());
+    if(!!waking){
+      return(
+        <View style={{width:'100%'}}>
+          <MyButton 
+            onPress={this.wake}
+            label={"I'M AWAKE"} 
+            underlayColor={color.darken(0.15).string()}
+            style={{backgroundColor: color.darken(0.1).string()}} />
+        </View>
+      );
+    }
     if(sleeping){
       return ( 
         <View style={{width:'100%'}}>
@@ -81,22 +106,16 @@ class index extends Component {
         </View>
         )
     }
-
-   
   }
 
-  render() {
-    const { napLength } = this.props;
-    
-    return (
-      <Layout
-      registerAnimate={fun => this.animateFunc = fun}
-      display={getNapText({...this.props})}
-      menu={this.getMenu()}
-      activeText={
-        <View>
+  getActiveText = () => {
+    const {napTimeLeft} = this.state;
+    const {waking, napLength, sleeping} = this.props;
+    if(!waking && !sleeping) return null;
+    return(
+      <View>
         <Body>
-          Nap finished in
+          {!!waking ? "Napped for" : "Nap finished in"}
         </Body> 
           <Text 
             style={{
@@ -105,13 +124,24 @@ class index extends Component {
             textAlign: 'center',
             color: '#fff'
             }}>
-            {napLength}
+            {!!waking ? napLength : napTimeLeft}
             </Text>
         <Body>
           minutes
         </Body> 
-        </View>
-      }
+      </View>
+    );
+  }
+
+  render() {
+    const { napMoment, napLength } = this.props;
+    
+    return (
+      <Layout
+      registerAnimate={fun => this.animateFunc = fun}
+      display={getNapText({...this.props})}
+      menu={this.getMenu()}
+      activeText={this.getActiveText()}
       />
     );
 

@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
 
 export default class componentName extends Component {
   render() {
-    const {onPress, label, showArrow} = this.props;
+    const {onPress, label, showArrow, children, style} = this.props;
 
     return (
       <TouchableOpacity
       onPress={onPress}
-      style={styles.cell}>
+      style={StyleSheet.flatten([styles.cell, style])}>
        <Link style={styles.cellLabel}>{label}</Link>
        {showArrow ?
         <Image 
@@ -38,6 +38,7 @@ export default class componentName extends Component {
         }]}
         source={arrow} />
         : null}
+        {children}
       </TouchableOpacity>
     );
   }

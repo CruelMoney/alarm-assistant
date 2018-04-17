@@ -23,7 +23,7 @@ export default class componentName extends Component {
   }
 
   render() {
-    const {disabled, controlled, value} = this.props;
+    const {disabled, controlled, value, inverted} = this.props;
     let {yes} = this.state;
     yes = !!controlled ? value : yes;
 
@@ -34,12 +34,14 @@ export default class componentName extends Component {
         justifyContent: "center"
       }}>
        <ToggleButton 
+        inverted={inverted}
         active={yes}
         disabled={disabled}
         onPressOverride={()=>this.onPress(true)}
         style={styles.button} 
         label={"YES"}/>
        <ToggleButton 
+       inverted={inverted}
         disabled={disabled}
         onPressOverride={()=>this.onPress(false)}
         active={typeof yes === "undefined" ? undefined : !yes}
