@@ -54,7 +54,7 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		amTXsil7hdIoDbCBssSGgvCv3lA=
+		TiQiDj57aayX7DpZpjYCNnJCabA=
 		</data>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
 		<data>
@@ -99,7 +99,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qiK10ctfW6h0I3u0evtmtr0VlVc=
+		OwKrqVXMfytP0JYg4QtcoWdhH8M=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -111,7 +111,7 @@
 		</data>
 		<key>PlugIns/sunriseTests.xctest.dSYM/Contents/Resources/DWARF/sunriseTests</key>
 		<data>
-		FjmbvHAkqnhxDm8P8+eSR+04qnc=
+		rcL7i5R3oKRRfoQYQzajjrsqivI=
 		</data>
 		<key>PlugIns/sunriseTests.xctest/Info.plist</key>
 		<data>
@@ -123,7 +123,7 @@
 		</data>
 		<key>PlugIns/sunriseTests.xctest/sunriseTests</key>
 		<data>
-		5I6ye8BUBaAtdoDVu+fF5yCECQ4=
+		KSiDrt6bCLEiCBz8jkOrcKjJTrY=
 		</data>
 		<key>bird_chirps.mp3</key>
 		<data>
@@ -268,11 +268,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			amTXsil7hdIoDbCBssSGgvCv3lA=
+			TiQiDj57aayX7DpZpjYCNnJCabA=
 			</data>
 			<key>hash2</key>
 			<data>
-			9DCWXPPEnSNLo9o0w/SPzgSo5VPe0PW/mArPox0dbR8=
+			3wfYoz+ZbxqecVHDowp6dA9kEUC0KCNHVEm/Q7F1URs=
 			</data>
 		</dict>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
@@ -391,11 +391,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FjmbvHAkqnhxDm8P8+eSR+04qnc=
+			rcL7i5R3oKRRfoQYQzajjrsqivI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Mpir7ea4Pkuy6qyANq8XuPigv1DG9TZXAs8dV6mdCrE=
+			TzpuS6PQWK3Vq02hLcD05vgKBoBGetl8tCRTCh8EVGs=
 			</data>
 		</dict>
 		<key>PlugIns/sunriseTests.xctest/Info.plist</key>
@@ -424,11 +424,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5I6ye8BUBaAtdoDVu+fF5yCECQ4=
+			KSiDrt6bCLEiCBz8jkOrcKjJTrY=
 			</data>
 			<key>hash2</key>
 			<data>
-			JD9SnYs2M2tSpLBAnUnfuKrQ6y+pxYK+NsTQN6P/1TQ=
+			s+gqJsER9wSVVoCNRWc2YvdK30ZcvNLvrfJ77mCnUcI=
 			</data>
 		</dict>
 		<key>bird_chirps.mp3</key>

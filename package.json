@@ -35,6 +35,7 @@
     "react-native-interactable": "^0.1.10",
     "react-native-ios-volume": "^1.0.0",
     "react-native-itunes": "^0.5.0",
+    "react-native-keep-awake": "^3.0.1",
     "react-native-modal": "^5.4.0",
     "react-native-modalbox": "^1.4.2",
     "react-native-permissions": "^1.1.1",

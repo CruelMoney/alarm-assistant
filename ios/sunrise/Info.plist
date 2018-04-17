@@ -26,6 +26,10 @@
 	<true/>
 	<key>NSAllowsArbitraryLoads</key>
 	<string>YES</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>

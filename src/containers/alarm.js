@@ -7,6 +7,7 @@ import * as as from '../services/AlarmService';
 import * as ts from '../services/TransitService';
 import * as ss from '../services/SoundService';
 import DeviceBrightness from 'react-native-device-brightness';
+import KeepAwake from 'react-native-keep-awake';
 
 const _getAlarmStateSlice = (state) => {
   const weekday = moment().isoWeekday();
@@ -75,6 +76,7 @@ const connectServices = (Wrapee) => {
       // save all in state
       this.setState({
         alarmTime: firstAlarm,
+        eventMoment: alarmTime,
         mode,
         napAlarm,
         napMode, 
@@ -84,8 +86,35 @@ const connectServices = (Wrapee) => {
       });
     }
 
+    updateNapdata = () => {
+      const { eventMoment } = this.state;
+      const { napLength } = this.props;
+      
+      // calculate nap time
+      const {napAlarm, napMode, maxNap} = as.calculateNapTime({
+        alarmTime: eventMoment,
+        napLength: napLength
+      });
+
+      this.setState({
+        napAlarm,
+        napMode, 
+        maxNap
+      });
+    }
+
     async componentDidMount(){
       await this.getAlarmData();
+
+      if(!this.updateNapInterval){
+        this.updateNapInterval = setInterval( _ => {
+          this.updateNapdata();
+        }, 1000);
+      }
+    }
+
+    componentWillUnmount(){
+      !!this.updateNapInterval && clearInterval(this.updateNapInterval);
     }
 
     dimScreen = async () => {
@@ -106,29 +135,15 @@ const connectServices = (Wrapee) => {
       const { soundType, soundFile } = this.props;
       
       this.dimScreen();
-
-      as.setAlarm(napAlarm, ()=>{
-        console.log("sound the alarm")
-        try {
-          ss.playSound({file: soundFile, fadetime: 0, loop: true})
-        } catch (error) {
-          console.log("Error", error)
-        }
-      });
+      this.setAlarm(napAlarm, soundFile, 0);
     }
 
     stopNap = () => {
-      as.cancelAlarm();
-      ss.stopSound();
+      this.cancelAlarm();
     }
 
-    startSleep = () => {
-      const { alarmTime } = this.state;
-      const { soundType, soundFile, fadeIn } = this.props;
-      const startAlarm = alarmTime.subtract(fadeIn, 'millisecond');
-
-      this.dimScreen();
-
+    setAlarm = (startAlarm, soundFile, fadeIn) => {
+      KeepAwake.activate(); // keep screen awake
       as.setAlarm(startAlarm, ()=>{
         console.log("sound the alarm")
         try {
@@ -148,8 +163,21 @@ const connectServices = (Wrapee) => {
       });
     }
 
+    startSleep = () => {
+      const { alarmTime } = this.state;
+      const { soundType, soundFile, fadeIn } = this.props;
+      const startAlarm = alarmTime.subtract(fadeIn, 'millisecond');
+      this.dimScreen();
+      this.setAlarm(startAlarm, soundFile, fadeIn);
+    }
+
     stopSleep = () => {
-      ss.stopSound();
+      this.cancelAlarm();
+    }
+
+    cancelAlarm = () => {
+      as.cancelAlarm();
+      KeepAwake.deactivate();
     }
 
     render() {

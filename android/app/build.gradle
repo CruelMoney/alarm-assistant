@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-keep-awake')
     compile project(':react-native-device-brightness')
     compile project(':react-native-sound')
     compile project(':react-native-calendar-events')

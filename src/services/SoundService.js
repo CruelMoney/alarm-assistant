@@ -3,20 +3,23 @@ import iTunes from 'react-native-itunes';
 import RNIosVolume from 'react-native-ios-volume';
 
 Sound.setCategory('Playback');
+let fadeRef = null;
+let soundRef = null;
 
 const playPlaylist = ({name, fadetime}) => {
   RNIosVolume.setVolume(0);
-
+  
   iTunes.getPlaylists({query:{name:name}})
-    .then(({name, playCount, tracks})=>{
+    .then((playlists)=>{
+      if (playlists.length === 0) throw Error("Playlist not found");
+      const {name, playCount, tracks} = playlists[0];
       return iTunes.playTracks(tracks)
     })
-    .then(RNIosVolume.getVolume)
-    .then(vol => {
+    .then(_ => {
       _fadeSound(
         RNIosVolume.setVolume, 
         fadetime,
-        vol
+        0
       );
     })
     .catch(console.log) // TODO fallback sound
@@ -31,27 +34,28 @@ const _loadSound = (file) => {
   });
 } 
 
-// Duration in ms, ease in cubic
+// Duration in ms, ease in linear
 const _fadeSound = (setVolumeFun, duration, initVolume = 0) => {
+  if (!!fadeRef) clearInterval(fadeRef);
   let vol = initVolume;
   let time = 0;
   const interval = 500;
-  const curve = t => t*t*t; // cubic
+  const curve = t => t; // change the easing here: fx. cubic t*t*t
   const frac = 1/curve(duration);
 
-  const ref = setInterval(()=>{
-    time += time + interval;
+  fadeRef = setInterval(()=>{
+    time += interval;
+    
     vol = frac*curve(time);
     if(vol >= 1){ 
       setVolumeFun(1);
-      return clearInterval(ref);
+      return clearInterval(fadeRef);
     }else{
       setVolumeFun(vol);
     }
   }, interval);
 }
 
-let soundRef = null;
 
 const playSound = async ({file, fadetime, loop, initVolume}) => {
   return new Promise(async (resolve, reject)=>{

@@ -5,6 +5,7 @@ import MyButton from '../Button';
 import DynamicBG from '../../../components/DynamicBG';
 import {getTimeColor} from '../../../utils/colors';
 import Color from 'color';
+import KeepAwake from 'react-native-keep-awake';
 
 const Screen = {
   width: Dimensions.get('window').width,

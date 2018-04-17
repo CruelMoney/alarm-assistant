@@ -4519,6 +4519,10 @@ react-native-itunes@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/react-native-itunes/-/react-native-itunes-0.5.0.tgz#b06d18ab17d39f7cc253cb828c6d77730d4dd42d"
 
+react-native-keep-awake@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-keep-awake/-/react-native-keep-awake-3.0.1.tgz#916652b039732a93e0b6b6077e8905fe7e74abea"
+
 react-native-modal@^5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-5.4.0.tgz#95f70b5d68e08824951cd11038b9db2d6fdb9962"

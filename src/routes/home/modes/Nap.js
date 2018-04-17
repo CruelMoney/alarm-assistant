@@ -19,18 +19,8 @@ class index extends Component {
       sleeping: false
     };
     this.animateFunc = null;
-    this.updateNapLength = null;
   }
 
-  componentWillReceiveProps(nextprops){
-    !!nextprops.napMoment && 
-    !this.updateNapLength && 
-    this.countDownNapLength(nextprops.napMoment);
-  }
-
-  componentWillUnmount(){
-    this.updateNapLength && clearInterval(this.updateNapLength);
-  }
 
   toggleNap = _.throttle(() => {
     const {sleeping} = this.state;
@@ -38,18 +28,6 @@ class index extends Component {
     sleeping ? this.stopNap() : this.startNap();
   }, 1000, { 'trailing': false })
 
-  countDownNapLength = (endMoment) => {
-    const updateFun = () => {
-      const { napMoment } = this.props;
-      endMoment = !!napMoment ? napMoment : endMoment;
-      const napLength = Math.round(endMoment.diff(moment(), 'seconds')/60, 1);
-      this.setState({
-        napLength: napLength
-      })
-    }
-    updateFun();
-    this.updateNapLength = setInterval(updateFun, 1000);
-  }
 
   startNap = () => {
     const { startNap } = this.props;
@@ -108,8 +86,7 @@ class index extends Component {
   }
 
   render() {
-    const { napMoment } = this.props;
-    const { napLength }  = this.state;
+    const { napLength } = this.props;
     
     return (
       <Layout
