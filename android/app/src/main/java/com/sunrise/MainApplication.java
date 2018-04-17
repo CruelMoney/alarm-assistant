@@ -3,6 +3,7 @@ package com.sunrise;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.beefe.picker.PickerViewPackage;
 import com.corbt.keepawake.KCKeepAwakePackage;
 import org.capslock.RNDeviceBrightness.RNDeviceBrightness;
 import com.zmxv.RNSound.RNSoundPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new PickerViewPackage(),
             new KCKeepAwakePackage(),
             new RNDeviceBrightness(),
             new RNSoundPackage(),

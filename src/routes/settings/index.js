@@ -4,6 +4,7 @@ import { StackNavigator } from 'react-navigation';
 import NavigationService from '../../services/NavigationService';
 import Alarm from './routes/Alarm';
 import Napping from './routes/Napping';
+import Sleeping from './routes/Sleeping';
 import Sound from './routes/Sound';
 import Support from './routes/Support'
 import Transit from './routes/Transit'
@@ -100,6 +101,7 @@ const Navigator = StackNavigator({
   "Transit": {screen: Transit},
   "Support": {screen: Support},
   "Napping": {screen: Napping},
+  "Sleeping": {screen: Sleeping},
   "Sound": {screen: Sound},
   "Calendar": {screen: Calendar}
 },
@@ -108,6 +110,9 @@ const Navigator = StackNavigator({
   navigationOptions: ({ navigation }) => ({
     header: props => <Header {...props}   />,
   }),
+  cardStyle:{
+    backgroundColor: "#fff"
+  }
 }); 
 
 

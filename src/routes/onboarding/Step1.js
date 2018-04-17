@@ -29,6 +29,32 @@ class Index extends Component {
           onChange={(val) => changeSetting('latest', val)}
         />
         </View>
+        <View style={StyleSheet.flatten([styles.section, {marginBottom:0}])}>
+          <H2>
+            Ideal sleep length
+          </H2>
+          <Body style={{marginBottom: 10,}}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Body>
+          <View style={styles.timepickers}>
+            <View> 
+              <TimePicker 
+              onChange={(h, m) => changeSetting('sleepLengthWeekdays', (h*60+m))}
+              initHours={7} initMinutes={30} suffix={"hours"} duration />
+              <Span>
+                Weekdays
+              </Span>
+            </View>
+            <View>
+              <TimePicker 
+              onChange={(h, m) => changeSetting('sleepLengthWeekends', (h*60+m))}
+              initHours={9} initMinutes={0}  suffix={"hours"} duration />
+              <Span>
+                Weekends
+              </Span>
+            </View>
+          </View>
+        </View>  
         <View style={styles.section}>
           <H2>
             Latest time to wake up
@@ -57,32 +83,7 @@ class Index extends Component {
             </View>
           </View>
         </View>
-        <View style={StyleSheet.flatten([styles.section, {marginBottom:0}])}>
-          <H2>
-            Ideal sleep length
-          </H2>
-          <Body style={{marginBottom: 10,}}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Body>
-          <View style={styles.timepickers}>
-            <View> 
-              <TimePicker 
-              onChange={(h, m) => changeSetting('sleepLengthWeekdays', (h*60+m))}
-              initHours={7} initMinutes={30} suffix={"hours"} duration />
-              <Span>
-                Weekdays
-              </Span>
-            </View>
-            <View>
-              <TimePicker 
-              onChange={(h, m) => changeSetting('sleepLengthWeekends', (h*60+m))}
-              initHours={9} initMinutes={0}  suffix={"hours"} duration />
-              <Span>
-                Weekends
-              </Span>
-            </View>
-          </View>
-        </View>      
+            
       </View>
     );
   }

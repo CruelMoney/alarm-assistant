@@ -39,6 +39,7 @@
     "react-native-modal": "^5.4.0",
     "react-native-modalbox": "^1.4.2",
     "react-native-permissions": "^1.1.1",
+    "react-native-picker": "^4.3.5",
     "react-native-simple-time-picker": "^0.2.0",
     "react-native-sound": "^0.10.9",
     "react-navigation": "^1.5.8",
