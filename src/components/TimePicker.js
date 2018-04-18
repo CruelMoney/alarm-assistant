@@ -11,22 +11,29 @@ import {
   TouchableOpacity } from 'react-native';
 import {getTimeColor} from '../utils/colors';
 import H2 from './text/H2';
+import _ from 'lodash';
+
+
+const screenHeight = Dimensions.get('window').height;
+const screenWidth = Dimensions.get('window').width;
+const pickerWidth = 120;
+const touchOffset = 80;
+let showingRight = true;
 
 export default class TimePicker extends Component {
 
   constructor(props){
     super(props);
-    let initDate = new Date();
-    (props.initHours === 0 || !!props.initHours) && initDate.setHours(props.initHours);
-    (props.initMinutes === 0 || !!props.initMinutes) && initDate.setMinutes(props.initMinutes);
 
     this.state = {
-      chosenDate: initDate,
-      visible: false,
+      hours: props.initHours,
+      minutes: props.initMinutes,
       showTimePicker: false
     };
 
-    this.position = new Animated.ValueXY({x: 0, y: 0});
+    this.dTouch = new Animated.ValueXY({x: 0, y: 0});
+    this.initPos = new Animated.ValueXY({x: 0, y: 0});
+    this.offsetX = new Animated.Value(touchOffset);
 
     this._panResponder = PanResponder.create({
       // Ask to be the responder:
@@ -38,19 +45,28 @@ export default class TimePicker extends Component {
       onPanResponderGrant: (evt, gestureState) => {
         // The gesture has started. Show visual feedback so the user knows
         // what is happening!
+
+
         console.log("started", gestureState)
         // gestureState.d{x,y} will be set to zero now
       },
-      onPanResponderMove: Animated.event([
-        null, {dx: this.position.x, dy: this.position.y}
-      ]),
+      onPanResponderMove: (evt, gestureState) => {
+        this.animatePickerOffset(gestureState.moveX);
+        this.setTimeFromPosition();
+
+        return Animated.event([
+          {dx: this.dTouch.x, dy: this.dTouch.y}
+        ])(gestureState);
+      },
       onPanResponderTerminationRequest: (evt, gestureState) => true,
       onPanResponderRelease: (evt, gestureState) => {
         // The user has released all touches while this view is the
         // responder. This typically means a gesture has succeeded
-        this.setState({
-          showTimePicker: false
-        })
+
+        // Reset delta
+        this.dTouch = new Animated.ValueXY({x: 0, y: 0});
+
+        this.closeModal();
       },
       onPanResponderTerminate: (evt, gestureState) => {
         // Another component has become the responder, so this gesture
@@ -75,29 +91,86 @@ export default class TimePicker extends Component {
 
   showTimpicker = (evt) => {
     Animated.event([
-      {pageX: this.position.x, pageY: this.position.y}
+      {pageX: this.initPos.x, pageY: this.initPos.y}
     ])(evt.nativeEvent);
 
+    this.initPos.x = Animated.add(this.initPos.x, new Animated.Value(-(pickerWidth/2)));
+    this.initPos.y = Animated.add(this.initPos.y, new Animated.Value(-(pickerWidth/2)));
+
+    this.animatePickerOffset(this.initPos.x.__getValue(), 0)
     this.setState({
       showTimePicker: true
-   });
+    });
   }
 
   closeModal = () => {
-   
+    this.setState({
+      showTimePicker: false
+    })
   }
 
 
+  animatePickerOffset = (xPos, duration) => {
+    const anim = (showLeft = true) => {
+      const startValue = showLeft ? touchOffset : -touchOffset;
+      const endValue = -1*startValue - (showLeft ? pickerWidth : 0);
+      return Animated.timing(this.offsetX, { toValue: endValue, duration: duration }).start();
+    }
 
-  touchToTimePosition = ({x,y}) => {
+    if(xPos > screenWidth/2){
+      if(showingRight){
+        showingRight = false;
+        anim(true);
+      }
+    }else if(!showingRight){ // touch left side
+      showingRight = true;
+      anim(false);
+    }
+  }
+
+  setTimeFromPosition = () => requestAnimationFrame(() => {
+    let minutes = this.dTouch.y.interpolate({
+      inputRange: [-screenHeight/2, screenHeight/2],
+      outputRange: [0, 24*60],
+      extrapolate: "clamp"
+    }).__getValue();
+   
+    let hours   = Math.floor(minutes/60);
+    minutes = Math.floor((minutes)%60);
     
+    this.setState({
+      hours: hours,
+      minutes: minutes
+    });
+  })
+
+
+  getPickerTransform = () => {
+    const maxMoveY = (screenHeight-pickerWidth) - this.initPos.y.__getValue();
+    const maxMoveX = (screenWidth-pickerWidth) - this.initPos.x.__getValue();
+    const minMoveY = -this.initPos.y.__getValue();
+    const minMoveX = -this.initPos.x.__getValue();
+
+    const dx = Animated.diffClamp(this.dTouch.x, minMoveX, maxMoveX);
+    const dy = Animated.diffClamp(this.dTouch.y, minMoveY, maxMoveY);
+
+    // add delta move to initial position
+    let y = Animated.add(dy, this.initPos.y);
+    let x = Animated.add(dx, this.initPos.x);
+
+    // Add offset to show beside finger
+    x = Animated.add(x, this.offsetX);
+
+    return [
+      {translateY: y},
+      {translateX: x}
+    ];
   } 
 
   render() {
     const {duration, suffix, textStyle} = this.props;
-    const {chosenDate, showTimePicker} = this.state;
-    let hours = chosenDate.getHours();
-    let minutes = chosenDate.getMinutes();
+    let {hours, minutes, showTimePicker} = this.state;
+    
     if(!duration){
       hours = String(hours).length < 2 ? ("0"+hours) :hours;
     }
@@ -138,18 +211,34 @@ export default class TimePicker extends Component {
            <Animated.View 
            style={
             {
-            height: 80,
-            width: 80,
-            backgroundColor: "#fff",
+            // height: pickerWidth,
+            // width: pickerWidth,
+            backgroundColor: "transparent",
             position: "absolute", top: 0, left: 0,
-            transform: [
-              {translateY: this.position.y},
-              {translateX: this.position.x}
-            ]
+            transform: this.getPickerTransform()
             }
           }>
           >
-          <H2 dark>Time</H2>
+          <View style={styles.pickerSection}>
+            <View style={styles.valueText}>
+              <Text style={styles.pickerText}>
+                {hours}
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.unitText}>hours</Text>
+            </View>
+          </View>
+          <View style={styles.pickerSection}>
+          <View style={styles.valueText}>
+              <Text style={styles.pickerText}>
+                {minutes}
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.unitText}>minutes</Text>
+            </View>
+          </View>
         </Animated.View>
 
         </Modal>
@@ -178,8 +267,29 @@ const styles = StyleSheet.create({
     position:"absolute",
     top: 0,
     left: 0,
-    height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width,
+    height: screenHeight,
+    width: screenWidth,
     backgroundColor: "rgba(0,0,0,0.7)"
+  },
+  pickerText: {
+    color: getTimeColor(true),
+    fontSize: 46,
+    fontFamily: 'AvenirNext-Heavy',
+    textAlign: "left"
+  },
+  unitText:{
+    color: getTimeColor(true),
+    fontSize: 28,
+    fontFamily: 'AvenirNext-Heavy',
+    textAlign: "left"
+  },
+  valueText:{
+    width: 80,
+    height: 50
+  },
+  pickerSection:{
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    
   }
 });
