@@ -10,30 +10,35 @@ import {
   Animated,
   TouchableOpacity } from 'react-native';
 import {getTimeColor} from '../utils/colors';
-import H2 from './text/H2';
-import _ from 'lodash';
+import { VibrancyView } from 'react-native-blur';
 
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
-const pickerWidth = 120;
+const pickerWidth = 200;
+const pickerHeight = 100;
 const touchOffset = 80;
-let showingRight = true;
+
 
 export default class TimePicker extends Component {
 
   constructor(props){
     super(props);
 
+    const {initHours, initMinutes} = this.props;
+
+    const hours   = Math.floor(initMinutes/60) + initHours;
+    const minutes = Math.floor(initMinutes)%60;
+
     this.state = {
-      hours: props.initHours,
-      minutes: props.initMinutes,
+      hours: hours,
+      minutes: minutes,
       showTimePicker: false
     };
 
+    this.touchRightSide = null;
     this.dTouch = new Animated.ValueXY({x: 0, y: 0});
     this.initPos = new Animated.ValueXY({x: 0, y: 0});
-    this.offsetX = new Animated.Value(touchOffset);
 
     this._panResponder = PanResponder.create({
       // Ask to be the responder:
@@ -46,13 +51,21 @@ export default class TimePicker extends Component {
         // The gesture has started. Show visual feedback so the user knows
         // what is happening!
 
+        this.animatePickerOffset({
+          touchX: evt.nativeEvent.pageX,
+          touchY: evt.nativeEvent.pageY
+        })
 
-        console.log("started", gestureState)
         // gestureState.d{x,y} will be set to zero now
       },
       onPanResponderMove: (evt, gestureState) => {
-        this.animatePickerOffset(gestureState.moveX);
         this.setTimeFromPosition();
+
+        const touchRightSide = evt.nativeEvent.pageX > screenWidth/2;
+        if (touchRightSide !== this.touchRightSide){
+          this.touchRightSide = touchRightSide ;
+          this.flip(touchRightSide, gestureState);
+        }
 
         return Animated.event([
           {dx: this.dTouch.x, dy: this.dTouch.y}
@@ -83,60 +96,63 @@ export default class TimePicker extends Component {
 
   }
 
-  setDate = (newDate)  => {
-    const { onChange } = this.props;
-    this.setState({chosenDate: newDate});
-    !!onChange && onChange(newDate.getHours(), newDate.getMinutes())
-  } 
 
   showTimpicker = (evt) => {
-    Animated.event([
-      {pageX: this.initPos.x, pageY: this.initPos.y}
-    ])(evt.nativeEvent);
+    this.animatePickerOffset({
+      touchX: evt.nativeEvent.pageX,
+      touchY: evt.nativeEvent.pageY
+    }, 0);
 
-    this.initPos.x = Animated.add(this.initPos.x, new Animated.Value(-(pickerWidth/2)));
-    this.initPos.y = Animated.add(this.initPos.y, new Animated.Value(-(pickerWidth/2)));
-
-    this.animatePickerOffset(this.initPos.x.__getValue(), 0)
     this.setState({
       showTimePicker: true
     });
   }
 
   closeModal = () => {
+    const {onChange} = this.props;
+    const {hours, minutes} = this.state;
+    
     this.setState({
       showTimePicker: false
-    })
+    });
+
+    !!onChange && onChange(hours, minutes);
   }
 
+  flip = (touchRightSide, gestureState) => {
+    const curY = this.initPos.y.__getValue();
+    const dx = gestureState.dx;
+    const x = (touchRightSide ? -50 : (screenWidth/2 + 50)) - dx;
 
-  animatePickerOffset = (xPos, duration) => {
-    const anim = (showLeft = true) => {
-      const startValue = showLeft ? touchOffset : -touchOffset;
-      const endValue = -1*startValue - (showLeft ? pickerWidth : 0);
-      return Animated.timing(this.offsetX, { toValue: endValue, duration: duration }).start();
-    }
+    return Animated.timing(this.initPos, { toValue: {x:x, y:curY}, duration: 250 }).start();
+  }
 
-    if(xPos > screenWidth/2){
-      if(showingRight){
-        showingRight = false;
-        anim(true);
-      }
-    }else if(!showingRight){ // touch left side
-      showingRight = true;
-      anim(false);
-    }
+  animatePickerOffset = ({touchX, touchY}, duration=250) => {
+    const touchRightSide = touchX > screenWidth/2;
+    this.touchRightSide = touchRightSide;
+    const offset = 50;
+
+    const y = touchY - pickerHeight/2;
+    const x = touchX + (touchRightSide ? -offset : offset) + (touchRightSide ? -pickerWidth : 0);
+    
+    return Animated.timing(this.initPos, { toValue: {x:x,y:y}, duration: duration }).start();
   }
 
   setTimeFromPosition = () => requestAnimationFrame(() => {
+    const {initHours, initMinutes} = this.props;
+
     let minutes = this.dTouch.y.interpolate({
-      inputRange: [-screenHeight/2, screenHeight/2],
-      outputRange: [0, 24*60],
-      extrapolate: "clamp"
+      inputRange: [-screenHeight, 0, screenHeight],
+      outputRange: [-12*60, 0, 12*60]
     }).__getValue();
-   
-    let hours   = Math.floor(minutes/60);
-    minutes = Math.floor((minutes)%60);
+    
+    const initialValue = initMinutes + initHours*60;
+
+    minutes = initialValue + minutes;
+    minutes = Math.min(24*60-1, minutes);
+
+    let hours   = Math.min(23, Math.max(0, Math.floor(minutes/60)));
+    minutes     = Math.min(59, Math.max(0, Math.floor(minutes)%60));
     
     this.setState({
       hours: hours,
@@ -146,20 +162,11 @@ export default class TimePicker extends Component {
 
 
   getPickerTransform = () => {
-    const maxMoveY = (screenHeight-pickerWidth) - this.initPos.y.__getValue();
-    const maxMoveX = (screenWidth-pickerWidth) - this.initPos.x.__getValue();
-    const minMoveY = -this.initPos.y.__getValue();
-    const minMoveX = -this.initPos.x.__getValue();
-
-    const dx = Animated.diffClamp(this.dTouch.x, minMoveX, maxMoveX);
-    const dy = Animated.diffClamp(this.dTouch.y, minMoveY, maxMoveY);
-
     // add delta move to initial position
-    let y = Animated.add(dy, this.initPos.y);
-    let x = Animated.add(dx, this.initPos.x);
-
-    // Add offset to show beside finger
-    x = Animated.add(x, this.offsetX);
+    let y = Animated.add(this.dTouch.y, this.initPos.y);
+    let x = Animated.add(this.dTouch.x, this.initPos.x);
+    x = Animated.diffClamp(x, 0, screenWidth-pickerWidth);
+    y = Animated.diffClamp(y, 0, screenHeight-pickerHeight);
 
     return [
       {translateY: y},
@@ -168,7 +175,7 @@ export default class TimePicker extends Component {
   } 
 
   render() {
-    const {duration, suffix, textStyle} = this.props;
+    const {duration, suffix, textStyle, initHours, initMinutes, colored} = this.props;
     let {hours, minutes, showTimePicker} = this.state;
     
     if(!duration){
@@ -178,7 +185,9 @@ export default class TimePicker extends Component {
 
     const delimiter = ':';
     const timeString = `${hours}${delimiter}${minutes}`;
+    const propsTime =  `${initHours}${delimiter}${initMinutes}`;
 
+    const styles = getStyle(colored);
 
     return (
       <View>
@@ -198,28 +207,34 @@ export default class TimePicker extends Component {
             </Text>
           </View>
         </TouchableOpacity>
+        
+        
         <Modal
         transparent={true}
         visible={showTimePicker}
+        animationType="fade"
         >
-     
-        <View
-        {...this._panResponder.panHandlers}
-        style={styles.touchface} 
-        />
-           
+
+            <VibrancyView
+            style={styles.absolute}
+            viewRef={this.state.viewRef}
+            blurType="dark"
+            blurAmount={10}
+            />
+        
            <Animated.View 
            style={
             {
-            // height: pickerWidth,
-            // width: pickerWidth,
             backgroundColor: "transparent",
             position: "absolute", top: 0, left: 0,
             transform: this.getPickerTransform()
             }
           }>
           >
-          <View style={styles.pickerSection}>
+          
+          {duration ? 
+          <View>
+            <View style={styles.pickerSection}>
             <View style={styles.valueText}>
               <Text style={styles.pickerText}>
                 {hours}
@@ -239,8 +254,20 @@ export default class TimePicker extends Component {
               <Text style={styles.unitText}>minutes</Text>
             </View>
           </View>
+          </View>
+            :
+            <Text style={styles.pickerText}>
+                {timeString}
+            </Text>
+            }
         </Animated.View>
 
+  
+        <View
+        {...this._panResponder.panHandlers}
+        style={styles.touchface} 
+        />
+        
         </Modal>
       </View>
     );
@@ -248,48 +275,54 @@ export default class TimePicker extends Component {
 }
 
 
-const styles = StyleSheet.create({
-  slideContainer:{
-    flex: 1,
-    backgroundColor: "rgba(255,255,255,0.8)"
-  },
-  timeText:{
-    color: getTimeColor(true),
-    fontSize: 26,
-    fontFamily: 'AvenirNext-Medium',
-  },
-  suffix:{
-    color: getTimeColor(true),
-    fontSize: 16,
-    fontFamily: 'AvenirNext-Medium',
-  },
-  touchface:{
-    position:"absolute",
-    top: 0,
-    left: 0,
-    height: screenHeight,
-    width: screenWidth,
-    backgroundColor: "rgba(0,0,0,0.7)"
-  },
-  pickerText: {
-    color: getTimeColor(true),
-    fontSize: 46,
-    fontFamily: 'AvenirNext-Heavy',
-    textAlign: "left"
-  },
-  unitText:{
-    color: getTimeColor(true),
-    fontSize: 28,
-    fontFamily: 'AvenirNext-Heavy',
-    textAlign: "left"
-  },
-  valueText:{
-    width: 80,
-    height: 50
-  },
-  pickerSection:{
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    
-  }
-});
+const getStyle = (colored) => {
+  const color = colored ? getTimeColor(true) : "#fff";
+  return StyleSheet.create({
+      slideContainer:{
+        flex: 1,
+        backgroundColor: "rgba(255,255,255,0.8)"
+      },
+      timeText:{
+        color: color,
+        fontSize: 26,
+        fontFamily: 'AvenirNext-Medium',
+      },
+      suffix:{
+        color: color,
+        fontSize: 16,
+        fontFamily: 'AvenirNext-Medium',
+      },
+      touchface:{
+        position:"absolute",
+        top: 0,
+        left: 0,
+        height: screenHeight,
+        width: screenWidth,
+        backgroundColor: "transparent"
+      },
+      pickerText: {
+        color: color,
+        fontSize: 46,
+        fontFamily: 'AvenirNext-Heavy',
+        textAlign: "left"
+      },
+      unitText:{
+        color: color,
+        fontSize: 28,
+        fontFamily: 'AvenirNext-Heavy',
+        textAlign: "left"
+      },
+      valueText:{
+        width: 80,
+        height: 50
+      },
+      pickerSection:{
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+      },
+      absolute: {
+        position: "absolute",
+        top: 0, left: 0, bottom: 0, right: 0,
+      },
+    });
+}

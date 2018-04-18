@@ -67,7 +67,7 @@ class Index extends Component {
           onChange={this.useCalendar}/>
         </View>
         <View style={StyleSheet.flatten([styles.section, {
-          opacity: (useTransit && useCalendar) ? 1 : 0.5
+          opacity: (useCalendar) ? 1 : 0.5
           }])}>
           <H2 style={{color:"#fff"}}>
             Include transit time

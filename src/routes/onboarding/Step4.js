@@ -16,7 +16,7 @@ class Index extends Component {
   }
 
   render() {
-    let { changeSetting, reports } = this.props;
+    let { changeSetting, reports, fadeIn } = this.props;
 
     return (
       <View style={{flex:1, 
@@ -54,8 +54,9 @@ class Index extends Component {
               onChange={(h,m)=>{
                 changeSetting('fadeIn', (h*60+m))
               }}
+              duration
               suffix={"hours"}
-              initHours={0} initMinutes={15} />
+              initHours={0} initMinutes={fadeIn} />
             </View>
           </View>
         </View>
