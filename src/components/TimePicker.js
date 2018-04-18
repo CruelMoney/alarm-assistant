@@ -15,8 +15,6 @@ import { VibrancyView } from 'react-native-blur';
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
-const pickerWidth = 200;
-const pickerHeight = 100;
 const touchOffset = 80;
 
 
@@ -25,7 +23,7 @@ export default class TimePicker extends Component {
   constructor(props){
     super(props);
 
-    const {initHours, initMinutes} = this.props;
+    const {initHours, initMinutes, duration} = this.props;
 
     const hours   = Math.floor(initMinutes/60) + initHours;
     const minutes = Math.floor(initMinutes)%60;
@@ -35,6 +33,9 @@ export default class TimePicker extends Component {
       minutes: minutes,
       showTimePicker: false
     };
+
+    this.pickerWidth = duration ? 200 : 100;
+    this.pickerHeight = duration ? 100 : 50;
 
     this.touchRightSide = null;
     this.dTouch = new Animated.ValueXY({x: 0, y: 0});
@@ -132,8 +133,8 @@ export default class TimePicker extends Component {
     this.touchRightSide = touchRightSide;
     const offset = 50;
 
-    const y = touchY - pickerHeight/2;
-    const x = touchX + (touchRightSide ? -offset : offset) + (touchRightSide ? -pickerWidth : 0);
+    const y = touchY - this.pickerHeight/2;
+    const x = touchX + (touchRightSide ? -offset : offset) + (touchRightSide ? -this.pickerWidth : 0);
     
     return Animated.timing(this.initPos, { toValue: {x:x,y:y}, duration: duration }).start();
   }
@@ -143,7 +144,7 @@ export default class TimePicker extends Component {
 
     let minutes = this.dTouch.y.interpolate({
       inputRange: [-screenHeight, 0, screenHeight],
-      outputRange: [-12*60, 0, 12*60]
+      outputRange: [12*60, 0, -12*60]
     }).__getValue();
     
     const initialValue = initMinutes + initHours*60;
@@ -165,8 +166,8 @@ export default class TimePicker extends Component {
     // add delta move to initial position
     let y = Animated.add(this.dTouch.y, this.initPos.y);
     let x = Animated.add(this.dTouch.x, this.initPos.x);
-    x = Animated.diffClamp(x, 0, screenWidth-pickerWidth);
-    y = Animated.diffClamp(y, 0, screenHeight-pickerHeight);
+    x = Animated.diffClamp(x, 0, screenWidth-this.pickerWidth);
+    y = Animated.diffClamp(y, 0, screenHeight-this.pickerHeight);
 
     return [
       {translateY: y},
@@ -218,7 +219,7 @@ export default class TimePicker extends Component {
             <VibrancyView
             style={styles.absolute}
             viewRef={this.state.viewRef}
-            blurType="dark"
+            blurType="light"
             blurAmount={10}
             />
         

@@ -64,6 +64,7 @@ class Index extends Component {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Body>
           <TimePicker 
+              colored
               onChange={(h,m)=>{
                 changeSetting('fadeIn', (h*60+m)*60*100)
               }}

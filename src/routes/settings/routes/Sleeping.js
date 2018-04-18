@@ -35,8 +35,13 @@ const styles = StyleSheet.create({
 class Index extends Component {
 
   render() {
-    const {changeSetting} = this.props;
-    const color = getTimeColor(true);
+    const { 
+      changeSetting, 
+      latestWeekends, 
+      latestWeekdays, 
+      sleepLengthWeekends, 
+      sleepLengthWeekdays 
+    } = this.props;
 
     return (
       <ScrollView style={{backgroundColor: "#FFF"}}>
@@ -50,18 +55,18 @@ class Index extends Component {
           <View style={styles.timepickers}>
             <View> 
               <TimePicker 
-              inverted
+              colored
               onChange={(h, m) => changeSetting('sleepLengthWeekdays', (h*60+m))}
-              initHours={7} initMinutes={30} suffix={"hours"} duration />
+              initHours={0} initMinutes={sleepLengthWeekdays} suffix={"hours"} duration />
               <Span dark>
                 Weekdays
               </Span>
             </View>
             <View>
               <TimePicker 
-              inverted
+              colored
               onChange={(h, m) => changeSetting('sleepLengthWeekends', (h*60+m))}
-              initHours={9} initMinutes={0}  suffix={"hours"} duration />
+              initHours={0} initMinutes={sleepLengthWeekends}  suffix={"hours"} duration />
               <Span dark>
                 Weekends
               </Span>
@@ -78,10 +83,10 @@ class Index extends Component {
           <View style={styles.timepickers}>
             <View>
               <TimePicker 
-              inverted
+              colored
               onChange={(h, m) => changeSetting('latestWeekdays', {h: h, m: m})}
-              initHours={10} 
-              initMinutes={0} 
+              initHours={latestWeekdays.h} 
+              initMinutes={latestWeekdays.m} 
               />
               <Span dark>
                 Weekdays
@@ -89,9 +94,9 @@ class Index extends Component {
             </View>
             <View>
               <TimePicker 
-              inverted
-               onChange={(h, m) => changeSetting('latestWeekends', {h: h, m: m})}
-              initHours={12} initMinutes={0} />
+              colored
+              onChange={(h, m) => changeSetting('latestWeekends', {h: h, m: m})}
+              initHours={latestWeekends.h} initMinutes={latestWeekends.m} />
               <Span dark>
                 Weekends
               </Span>

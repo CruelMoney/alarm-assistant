@@ -41,6 +41,7 @@ class Index extends Component {
           </Body>
           <View style={styles.timepicker}>
               <TimePicker 
+              colored
               textStyle={styles.timepickerText}
               onChange={(h, m) => changeSetting('napLength', (h*60+m))}
               initHours={0} initMinutes={napLength} suffix={"hours"} duration />
