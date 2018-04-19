@@ -3,8 +3,12 @@ import { View, Text, StyleSheet, TouchableWithoutFeedback  } from 'react-native'
 import {getTimeColor} from '../utils/colors';
  
 class ToggleButton extends Component {
-  state={
-    toggled: false
+  
+  constructor(props){
+    super(props);
+    this.state={
+      toggled: props.active
+    }
   }
 
   onPress = () => {
@@ -37,6 +41,8 @@ class ToggleButton extends Component {
     const bgColor = inverted ? color : "#fff";
     const textColor = inverted ? color : "#fff";
     const toggledTextColor = inverted ? "#fff" : color;
+    const borderColor = inverted ? color : "#fff";
+
     return (
       <TouchableWithoutFeedback
         onPressIn={this.onPress}
@@ -44,7 +50,7 @@ class ToggleButton extends Component {
         <View style={{
           borderRadius: 50,
           borderWidth: 3,
-          borderColor: getTimeColor(true),
+          borderColor: borderColor,
           height: 50,
           width: 50,
           backgroundColor: toggled ? bgColor : "transparent",

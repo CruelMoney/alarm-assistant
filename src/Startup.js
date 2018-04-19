@@ -31,6 +31,12 @@ const persistor = persistStore(store)
 let delay = (time) => new Promise(resolve => setTimeout(() => resolve(), time));
 
 class Startup extends Component {
+
+  constructor() {
+    super();
+    Text.defaultProps.allowFontScaling = false; // Disallow dynamic type on iOS
+  }
+
   state = {
     loaded: false,
   };

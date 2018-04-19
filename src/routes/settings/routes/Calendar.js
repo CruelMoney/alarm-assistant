@@ -8,7 +8,7 @@ import {getTimeColor} from '../../../utils/colors';
 import YesNo from '../../../components/YesNo';
 import ListItem from '../components/ListItem';
 import CheckBox from '../../../components/CheckBox';
-
+import TimePicker from '../../../components/TimePicker';
 
 const styles = StyleSheet.create({
   headline:{
@@ -96,6 +96,7 @@ class Index extends Component {
   } 
 
   render() {
+    const {changeSetting, preparationTime} = this.props;
     const {useCalendar, calendars} = this.state;
     const color = getTimeColor(true);
 
@@ -113,6 +114,22 @@ class Index extends Component {
           controlled={true}
           value={useCalendar}
           onChange={this.useCalendar}/>
+        </View>
+        <View style={styles.section}>
+             <H2 dark style={styles.headline}>
+             Preparation time
+          </H2>
+          <Body dark style={{marginBottom: 10}}>
+          How much time do you need to get ready before leaving for an event.
+          </Body>
+          <TimePicker 
+            colored
+            duration
+            onChange={(h, m) => changeSetting('preparationTime', h*60+m)}
+            initHours={0} 
+            suffix={"hours"}
+            initMinutes={preparationTime} 
+            />
         </View>
         <View style={StyleSheet.flatten([styles.section, {opacity: useCalendar ? 1 : 0.5}])}>
           <H2 style={styles.headline}>

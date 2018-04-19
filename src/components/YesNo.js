@@ -9,6 +9,7 @@ const styles = {
 };
 
 export default class componentName extends Component {
+  
   state={
     yes: undefined
   }
@@ -26,7 +27,7 @@ export default class componentName extends Component {
     const {disabled, controlled, value, inverted} = this.props;
     let {yes} = this.state;
     yes = !!controlled ? value : yes;
-
+ 
     return (
       <View style={{
         flexDirection: "row",

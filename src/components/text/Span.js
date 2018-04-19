@@ -6,7 +6,8 @@ class Span extends Component {
     const {dark} = this.props;
 
     return (
-        <Text style={{
+        <Text 
+        style={{
           fontSize: 12,
           textAlign: "center",
           fontFamily: 'AvenirNext-Medium',

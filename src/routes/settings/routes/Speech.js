@@ -30,14 +30,14 @@ const styles = StyleSheet.create({
 
 class Index extends Component {
   render() {
-    const {changeSetting, onboarded} = this.props;
+    const {changeSetting, speech} = this.props;
     const color = getTimeColor(true);
 
     return (
       <ScrollView style={{backgroundColor: "#FFF"}}>
         <View style={styles.section}>
           <H2 style={styles.headline}>
-            Onboarded
+            Use speech
           </H2>
           <Body style={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -45,8 +45,8 @@ class Index extends Component {
           <YesNo
           inverted
           controlled={true}
-          value={onboarded}
-          onChange={val => changeSetting('onboarded', val)}/>
+          value={speech}
+          onChange={val => changeSetting('speech', val)}/>
         </View>
       </ScrollView>
     );

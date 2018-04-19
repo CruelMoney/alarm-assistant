@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { View, Text, FlatList, StatusBar, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import NavigationService from '../../services/NavigationService';
-import Alarm from './routes/Alarm';
 import Napping from './routes/Napping';
 import Sleeping from './routes/Sleeping';
 import Sound from './routes/Sound';
 import Support from './routes/Support'
+import Speech from './routes/Speech'
+import Reports from './routes/Reports'
 import Transit from './routes/Transit'
 import Calendar from './routes/Calendar'
 import Link from '../../components/text/Link'
@@ -64,15 +65,15 @@ class Menu extends Component {
       <FlatList
         style={{zIndex: 1}}
         data={[
-          {label: 'Alarm', route: 'Alarm'}, 
-          {label: 'Calendar', route: 'Calendar'},
-          {label: 'Transit', route: 'Transit'},
           {label: 'Sleeping', route: 'Sleeping'},
           {label: 'Napping', route: 'Napping'},
+          {label: 'Calendar', route: 'Calendar'},
+          {label: 'Transit', route: 'Transit'},
           {label: 'Sound', route: 'Sound'},
+          {label: 'Reports', route: 'Reports'},
+          {label: 'Speech', route: 'Speech'},
           {label: 'Support', route: 'Support'},
-          {label: 'Morning reports', route: 'Support'},
-          {label: 'Speech', route: 'Support'},
+
        
         ]}
         keyExtractor={(item, index) => `settings-item-${index}`}
@@ -97,13 +98,14 @@ class Menu extends Component {
 
 const Navigator = StackNavigator({
   "Menu": { screen: Menu },
-  "Alarm": { screen: Alarm },
   "Transit": {screen: Transit},
-  "Support": {screen: Support},
   "Napping": {screen: Napping},
   "Sleeping": {screen: Sleeping},
   "Sound": {screen: Sound},
-  "Calendar": {screen: Calendar}
+  "Calendar": {screen: Calendar},
+  "Support": {screen: Support},
+  "Reports": {screen: Reports},
+  "Speech" : {screen: Speech},
 },
 {
   initialRouteName: 'Menu',

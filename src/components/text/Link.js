@@ -6,7 +6,8 @@ class Link extends Component {
     const {dark} = this.props;
 
     return (
-        <Text style={StyleSheet.flatten([{
+        <Text 
+        style={StyleSheet.flatten([{
           fontSize: 16,
           textAlign: "center",
           fontFamily: 'AvenirNext-DemiBold',
