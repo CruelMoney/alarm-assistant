@@ -106,6 +106,8 @@ class index extends Component {
         >
           {this.props.menu}
         </Menu>
+        {this.props.children}
+
       </DynamicBG>
     );
   }

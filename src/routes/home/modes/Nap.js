@@ -11,6 +11,7 @@ import connectAlarm from "../../../containers/alarm";
 import moment from 'moment';
 import {getNapText} from '../../../services/LanguageService';
 import NavigationService from '../../../services/NavigationService';
+import TimePicker from '../../../components/TimePicker';
 
 class index extends Component {
   state={}
@@ -134,7 +135,7 @@ class index extends Component {
   }
 
   render() {
-    const { napMoment, napLength } = this.props;
+    const { napMoment, napLength, changeSetting } = this.props;
     
     return (
       <Layout
@@ -142,7 +143,19 @@ class index extends Component {
       display={getNapText({...this.props})}
       menu={this.getMenu()}
       activeText={this.getActiveText()}
-      />
+      >
+
+      <TimePicker
+      onChange={(h, m) => changeSetting('napLength', (h*60+m))}
+      initHours={0} 
+      initMinutes={napLength} 
+      duration
+      >
+      <View style={styles.absolute} />
+      </TimePicker>
+
+
+      </Layout>
     );
 
   }
@@ -155,6 +168,14 @@ const styles = StyleSheet.create({
   },
   text:{
     color: 'white'
+  },
+  absolute:{
+    position:'absolute',
+    top: 0,
+    left: 0,
+    width: 100,
+    height: 300,
+    backgroundColor: "#fff"
   }
 });
 

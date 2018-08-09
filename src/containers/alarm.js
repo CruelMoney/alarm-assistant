@@ -8,6 +8,7 @@ import * as ts from '../services/TransitService';
 import * as ss from '../services/SoundService';
 import DeviceBrightness from 'react-native-device-brightness';
 import KeepAwake from 'react-native-keep-awake';
+import { changeSetting } from '../actions';
 
 const _getAlarmStateSlice = (state) => {
   const weekday = moment().isoWeekday();
@@ -223,7 +224,7 @@ const connectServices = (Wrapee) => {
   const stateToProps = (state) => { return {...state.settings} }
   const dispatchToProps = (dispatch) => { 
     return {
-
+      changeSetting: (key, value) => dispatch(changeSetting(key, value))
     } 
   }
 

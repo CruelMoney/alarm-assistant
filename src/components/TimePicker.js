@@ -191,22 +191,28 @@ export default class TimePicker extends Component {
     const styles = getStyle(colored);
 
     return (
-      <View>
+      <View >
        
-         <TouchableOpacity 
+        <TouchableOpacity 
          onPressIn={this.showTimpicker}
          >
-          <View>
-            <Text style={StyleSheet.flatten([styles.timeText, textStyle])} >
+
+            {
+              this.props.children 
+              ? 
+              this.props.children 
+              : 
+              <Text style={StyleSheet.flatten([styles.timeText, textStyle])} >
               {timeString}
               {!!suffix ? 
                 <Text style={StyleSheet.flatten([styles.suffix, textStyle])} >
                 {" " + suffix}
                 </Text>
               : null}
-              
-            </Text>
-          </View>
+              </Text>
+            }
+
+            
         </TouchableOpacity>
         
         
